@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="loginPageAnc" prefHeight="659.0" prefWidth="933.0" style="-fx-background-color: linear-gradient(to bottom, #3498db, #2980b9);" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.service.Controller.loginPageControoler">
+
+    <!-- Title Label -->
+    <Label layoutX="392.0" layoutY="29.0" text="Login" textFill="white">
+        <font>
+            <Font name="System Bold" size="28.0" />
+        </font>
+        <effect>
+            <DropShadow color="rgba(0, 0, 0, 0.3)" radius="5.0" />
+        </effect>
+    </Label>
+
+    <!-- Username Label and TextField -->
+    <Label fx:id="userNameLbl" layoutX="279.0" layoutY="211.0" text="Username:" textFill="white">
+      <font>
+         <Font name="System Bold" size="13.0" />
+      </font></Label>
+    <TextField fx:id="usernameTxt" layoutX="359.0" layoutY="207.0" prefWidth="220.0" style="-fx-background-color: #ecf0f1; -fx-text-fill: #2c3e50; -fx-background-radius: 5;" />
+
+    <!-- Password Label and PasswordField -->
+    <Label fx:id="passwordLbl" layoutX="281.0" layoutY="264.0" text="Password:" textFill="white">
+      <font>
+         <Font name="System Bold" size="13.0" />
+      </font></Label>
+    <PasswordField fx:id="passwordTxt" layoutX="359.0" layoutY="260.0" prefWidth="220.0" style="-fx-background-color: #ecf0f1; -fx-text-fill: #2c3e50; -fx-background-radius: 5;" />
+
+    <!-- Login and Cancel Buttons -->
+    <Button fx:id="loginButton" layoutX="451.0" layoutY="383.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-background-radius: 5;" text="Login" />
+   <Label fx:id="PoliceIdLbl" layoutX="280.0" layoutY="317.0" text="Police ID" textFill="white">
+      <font>
+         <Font name="System Bold" size="13.0" />
+      </font>
+   </Label>
+   <PasswordField fx:id="policeIdTxt" layoutX="358.0" layoutY="313.0" prefWidth="220.0" style="-fx-background-color: #ecf0f1; -fx-text-fill: #2c3e50; -fx-background-radius: 5;" />
+
+</AnchorPane>

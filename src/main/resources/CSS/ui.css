@@ -1,0 +1,47 @@
+/* Background color for the main AnchorPane */
+#loginPageAnc {
+    -fx-background-color: linear-gradient(to bottom right, #3498db, #2980b9);
+}
+
+/* Header and Label Text Color */
+.label {
+    -fx-text-fill: black;
+}
+
+/* Header Label (loginLbl) */
+#loginLbl {
+    -fx-font-size: 34px;
+    -fx-font-family: "System Bold";
+    -fx-effect: dropshadow( gaussian , rgba(0, 0, 0, 0.3), 5, 0, 0, 1 );
+}
+
+/* Text Fields */
+.text-field, .password-field {
+    -fx-background-color: #dfe6e9;
+    -fx-background-radius: 8;
+    -fx-border-color: transparent;
+    -fx-border-radius: 8;
+    -fx-padding: 8px;
+    -fx-font-size: 14px;
+    -fx-text-fill: #2d3436;
+    -fx-prompt-text-fill: #636e72;
+}
+
+/* Login Button */
+#loginButton {
+    -fx-background-color: #27ae60; /* Green color */
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow( gaussian , rgba(0, 0, 0, 0.2), 3, 0, 0, 1 );
+    -fx-cursor: hand;
+}
+
+#loginButton:hover {
+    -fx-background-color: #2ecc71;
+}
+
+#loginButton:pressed {
+    -fx-background-color: #1e8449;
+}

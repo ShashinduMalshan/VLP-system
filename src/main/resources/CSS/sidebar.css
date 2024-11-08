@@ -1,0 +1,45 @@
+/* sidebarStyle.css */
+
+/* Sidebar container style with 3D effect */
+#sideBarAnc {
+    -fx-background-color: #E6FAF2; /* Light mint green background */
+    -fx-pref-width: 232px;
+    -fx-border-color: #B2DFDB; /* Light border color */
+    -fx-border-width: 1px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 3, 3); /* Shadow for 3D effect */
+}
+
+/* Sidebar label styles */
+#sideBarAnc Label {
+    -fx-font-size: 18px;
+    -fx-text-fill: #666666; /* Default dark gray text */
+    -fx-padding: 10px 20px;
+}
+
+/* Active (selected) label style */
+#sideBarAnc Label#dashboardLabel {
+    -fx-text-fill: #FF5A5F; /* Red color for active item */
+    -fx-font-weight: bold;
+}
+
+/* Inactive labels */
+#sideBarAnc Label#recruitmentLabel,
+#sideBarAnc Label#scheduleLabel,
+#sideBarAnc Label#employeeLabel,
+#sideBarAnc Label#departmentLabel {
+    -fx-text-fill: #333; /* Darker gray for inactive items */
+}
+
+/* Hover effect for labels */
+#sideBarAnc Label:hover {
+    -fx-background-color: #D3F0E4; /* Light hover background */
+    -fx-background-radius: 5px;
+    -fx-text-fill: #0288D1; /* Light blue on hover */
+}
+
+/* Sidebar label spacing */
+#sideBarAnc .Label {
+    -fx-padding: 15px 0px; /* Vertical padding between items */
+}

@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="View.TrafficViolationLaw"
-            prefHeight="400.0" prefWidth="600.0" >
-
+<AnchorPane prefHeight="659.0" prefWidth="933.0" stylesheets="@../CSS/table.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.service.Controller.TrafficViolationLawController">
+   <children>
+      <Pane prefHeight="85.0" prefWidth="1033.0">
+         <children>
+            <Label fx:id="lawAnc" layoutX="343.0" layoutY="19.0" text="Traffic  Violation Law" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="33.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <TableView fx:id="lawTable" layoutX="93.0" layoutY="264.0" prefHeight="243.0" prefWidth="847.0" stylesheets="@../CSS/table.css">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="672.0" text="C2" />
+            <TableColumn prefWidth="99.0" text="C2" />
+        </columns>
+      </TableView>
+   </children>
 </AnchorPane>

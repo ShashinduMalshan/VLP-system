@@ -10,15 +10,16 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class loginPageControoler {
+public class loginPageController {
     public AnchorPane loginPageAnc;
     public Label userNameLbl;
     public Label passwordLbl;
     public Button loginButton;
     public Label PoliceIdLbl;
-    public PasswordField policeIdTxt;
     public PasswordField passwordTxt;
     public TextField usernameTxt;
+    public TextField policeIdTxt;
+    public Label loginLbl;
 
     public void handleLogin(ActionEvent actionEvent) throws IOException, SQLException, ClassNotFoundException {
 
@@ -30,6 +31,14 @@ public class loginPageControoler {
             loginPageAnc.getChildren().clear();
             AnchorPane load = FXMLLoader.load(getClass().getResource("/View/ViolationPoint.fxml"));
             loginPageAnc.getChildren().add(load);
+
+            load.prefWidthProperty().bind(loginPageAnc.widthProperty());
+            load.prefHeightProperty().bind(loginPageAnc.heightProperty());
+
+            AnchorPane.setTopAnchor(load, 0.0);
+            AnchorPane.setRightAnchor(load, 0.0);
+            AnchorPane.setBottomAnchor(load, 0.0);
+            AnchorPane.setLeftAnchor(load, 0.0);
         }
         else{
             System.out.println("Login Failed");
@@ -44,7 +53,9 @@ public class loginPageControoler {
 
 
             if (result.next()) {
-                return true;  // Authentication successful
+                return true;
+
+
             }
             else {
                 new Alert(Alert.AlertType.ERROR, "Login Failed").show();

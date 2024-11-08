@@ -3,10 +3,7 @@ package com.assignment.service.Controller;
 import com.assignment.service.util.CrudUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -31,7 +28,7 @@ public class loginPageControoler {
 
         if (authenticate(username,password)){
             loginPageAnc.getChildren().clear();
-            AnchorPane load = FXMLLoader.load(getClass().getResource("/View/HomePage.fxml"));
+            AnchorPane load = FXMLLoader.load(getClass().getResource("/View/ViolationPoint.fxml"));
             loginPageAnc.getChildren().add(load);
         }
         else{
@@ -49,12 +46,17 @@ public class loginPageControoler {
             if (result.next()) {
                 return true;  // Authentication successful
             }
+            else {
+                new Alert(Alert.AlertType.ERROR, "Login Failed").show();
+
+            }
         }
         catch (Exception e) {
             e.printStackTrace();
         }
 
-        return false; // Authentication failed
+        return false;
+
     }
 
 

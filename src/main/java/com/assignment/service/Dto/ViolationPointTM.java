@@ -8,6 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+
 public class ViolationPointTM {
 
     private String point_id;

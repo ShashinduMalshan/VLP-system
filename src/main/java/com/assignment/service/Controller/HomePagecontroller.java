@@ -2,6 +2,7 @@ package com.assignment.service.Controller;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
@@ -13,6 +14,7 @@ public class HomePagecontroller {
 
     public AnchorPane sideBarAnc;
     public AnchorPane loadAnc;
+    public Label violationLawBtn;
 
     public void navigateTo(String fxmlPath) {
         try {
@@ -43,4 +45,8 @@ public class HomePagecontroller {
     }
 
 
+    public void violationLawAction(MouseEvent mouseEvent) {
+        System.out.println("violationLawAction");
+        navigateTo("/View/TrafficViolationLaw.fxml");
+    }
 }

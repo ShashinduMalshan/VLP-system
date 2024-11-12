@@ -33,9 +33,8 @@ public class ViolationPointModel     {
 
             violationPointDTOS.add(violationPointDTO);
 
-        }
+         }
         return violationPointDTOS;
-
     }
     DriverModel driverModel = new DriverModel();
     public boolean saveViolationPoints(ViolationPointDto violationPointDto) throws SQLException {

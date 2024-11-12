@@ -38,6 +38,11 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
+                        <Label fx:id="SuspendLicBtn" layoutX="25.0" layoutY="400.0" onMouseClicked="#SuspendLicBtnAction" text="Driver Suspensions">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
                      </children>
                      <VBox.margin>
                         <Insets bottom="4.0" left="2.0" top="1.0" />

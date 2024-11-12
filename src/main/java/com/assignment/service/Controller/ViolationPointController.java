@@ -2,6 +2,8 @@ package com.assignment.service.Controller;
 
 import com.assignment.service.Dto.ViolationPointDto;
 import com.assignment.service.Dto.ViolationPointTM;
+import com.assignment.service.Model.DriverModel;
+import com.assignment.service.Model.SuspendLicModel;
 import com.assignment.service.Model.ViolationPointModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -40,7 +42,6 @@ public class ViolationPointController implements Initializable {
     public TextField txtDrivingLicenseId;
     public TextField txtOfficerID;
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
             colPoint_id.setCellValueFactory(new PropertyValueFactory<>("point_id"));
@@ -63,6 +64,7 @@ public class ViolationPointController implements Initializable {
 
     private void refreshPage() throws SQLException {
         loadTableData();
+        checkIsSuspend();//llllllllll
 
          txtPointId.setText("");
          txtDescription.setText("");
@@ -102,7 +104,7 @@ public class ViolationPointController implements Initializable {
     }
 
 
-    public void ConfirmBtnOnAnction(ActionEvent actionEvent) throws SQLException {
+    public void conformBtnOnAction(ActionEvent actionEvent) throws SQLException {
 
 
          String point_id=txtPointId.getText();
@@ -128,8 +130,9 @@ public class ViolationPointController implements Initializable {
                 lawId
         );
 
-    boolean isSaved= violationPointModel.saveViolationPoints(violationPointDto);
+    boolean isSaved = violationPointModel.saveViolationPoints(violationPointDto);
         if (isSaved) {
+            checkIsSuspend();// id eka suspend ekakda balanawa
             refreshPage();
             new Alert(Alert.AlertType.INFORMATION, "violation Point saved...!").show();
         } else {
@@ -139,4 +142,14 @@ public class ViolationPointController implements Initializable {
 
 
     }
+    SuspendLicModel suspendLicModel = new SuspendLicModel();
+    DriverModel driverModel = new DriverModel();
+
+    public void checkIsSuspend() throws SQLException {
+
+        ArrayList<String> limitPassedIDs = driverModel.checkSuspendId();
+        System.out.println("limitPassedIDs "+limitPassedIDs);
+        suspendLicModel.checkAllSuspendedIds(limitPassedIDs);
+    }
+
 }

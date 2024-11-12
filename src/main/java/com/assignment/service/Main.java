@@ -16,7 +16,7 @@ public class Main extends Application {
 
 
 
-        stage.setTitle("gg");
+        stage.setTitle("Vehicle Point Management System");
 
 
         stage.show();

@@ -15,6 +15,7 @@ public class HomePagecontroller {
     public AnchorPane sideBarAnc;
     public AnchorPane loadAnc;
     public Label violationLawBtn;
+    public Label SuspendLicBtn;
 
     public void navigateTo(String fxmlPath) {
         try {
@@ -48,5 +49,9 @@ public class HomePagecontroller {
     public void violationLawAction(MouseEvent mouseEvent) {
         System.out.println("violationLawAction");
         navigateTo("/View/TrafficViolationLaw.fxml");
+    }
+
+    public void SuspendLicBtnAction(MouseEvent mouseEvent) {
+        navigateTo("/View/SuspendLicence.fxml");
     }
 }

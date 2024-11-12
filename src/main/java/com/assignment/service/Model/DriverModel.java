@@ -1,10 +1,12 @@
 package com.assignment.service.Model;
 
+import com.assignment.service.Dto.DriverDto;
 import com.assignment.service.Dto.ViolationPointDto;
 import com.assignment.service.util.CrudUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class DriverModel {
 
@@ -22,5 +24,46 @@ public class DriverModel {
                 violationPointDto.getDriverLicenseNumber()
 
                 );
+
+
+
+
+//
+    }
+
+
+
+    public ArrayList<DriverDto> getAllDriver() throws SQLException {
+
+        ResultSet rst = CrudUtil.execute("select * from Driver");
+        ArrayList<DriverDto> driverDtos = new ArrayList<>();
+
+        while (rst.next()) {
+            DriverDto driverDto = new DriverDto(
+                    rst.getString(1),
+                    rst.getString(2),
+                    rst.getString(3),
+                    rst.getInt(4)
+            );
+            driverDtos.add(driverDto);
+
+        }
+        System.out.println(driverDtos);
+        return driverDtos;
+    }
+
+    public ArrayList<String> checkSuspendId() throws SQLException {
+        int maxPoint = 150;
+        ResultSet resultSet = CrudUtil.execute("select * from Driver");
+        ArrayList<String> limitPassedIDs =new ArrayList<>();
+
+        while (resultSet.next()) {
+
+            if (resultSet.getInt(4) >= maxPoint) {
+                limitPassedIDs.add(resultSet.getString(1));
+            }
+        }
+
+        return limitPassedIDs;
     }
 }

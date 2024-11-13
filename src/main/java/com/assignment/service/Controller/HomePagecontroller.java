@@ -18,6 +18,7 @@ public class HomePagecontroller {
     public Label SuspendLicBtn;
 
     public void navigateTo(String fxmlPath) {
+        
         try {
             loadAnc.getChildren().clear();
             AnchorPane load = FXMLLoader.load(getClass().getResource(fxmlPath));
@@ -40,14 +41,10 @@ public class HomePagecontroller {
 
 
     public void vehiclePointAction(MouseEvent mouseEvent) throws IOException {
-
         navigateTo("/View/ViolationPoint.fxml");
-
     }
 
-
     public void violationLawAction(MouseEvent mouseEvent) {
-        System.out.println("violationLawAction");
         navigateTo("/View/TrafficViolationLaw.fxml");
     }
 

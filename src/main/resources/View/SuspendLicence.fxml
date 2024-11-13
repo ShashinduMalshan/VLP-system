@@ -34,16 +34,16 @@
                     <children>
                         <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="902.0">
                             <children>
-                        <Button fx:id="setBtn" onAction="#setBtnOnAction" prefHeight="40.0" prefWidth="128.0" style="-fx-background-color: #4a90e2;                                            -fx-text-fill: white;                                            -fx-font-size: 14px;                                            -fx-font-weight: bold;                                            -fx-padding: 10 20;                                            -fx-background-radius: 8;                                            -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 2);" text="Set">
+                        <Button fx:id="setBtn" onAction="#setBtnOnAction" prefHeight="40.0" prefWidth="128.0" style="-fx-background-color: #4a90e2;                                            -fx-text-fill: white;                                            -fx-font-size: 14px;                                            -fx-font-weight: bold;                                            -fx-padding: 10 20;                                            -fx-background-radius: 8;                                            -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 2);" text="search">
                            <HBox.margin>
                               <Insets left="427.0" right="-531.0" />
                            </HBox.margin>
                         </Button>
-                                <Text style="-fx-font-size: 15px; -fx-text-fill: #6c757d; -fx-font-weight: bold;" text="Change Time Duration">
+                                <Text style="-fx-font-size: 15px; -fx-text-fill: #6c757d; -fx-font-weight: bold;" text="Drivers Suspended Time">
                            <HBox.margin>
                               <Insets left="545.0" />
                            </HBox.margin></Text>
-                                <TextField fx:id="txtTimeDuration" promptText="Enter Time Duration" style="-fx-background-color: #f8f9fa; -fx-background-radius: 8; -fx-border-color: #e9ecef; -fx-border-radius: 8; -fx-padding: 10; -fx-font-size: 14px;" HBox.hgrow="ALWAYS">
+                                <TextField fx:id="txtTimeDuration" promptText="Enter Name" style="-fx-background-color: #f8f9fa; -fx-background-radius: 8; -fx-border-color: #e9ecef; -fx-border-radius: 8; -fx-padding: 10; -fx-font-size: 14px;" HBox.hgrow="ALWAYS">
                                     <HBox.margin>
                                         <Insets left="14.0" right="19.0" />
                                     </HBox.margin>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="dashboardAnc" prefHeight="944.0" prefWidth="902.0" styleClass="main-container" stylesheets="@../CSS/dash.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.service.Controller.DashboardController">
+
+    <HBox spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+        <!-- Main Content Section -->
+        <VBox spacing="20.0" styleClass="dashboard-container" HBox.hgrow="ALWAYS">
+
+            <!-- Top Section with Stats and Line Chart -->
+            <HBox spacing="20.0" VBox.vgrow="NEVER">
+                <!-- First Stats Card -->
+                <VBox prefWidth="200.0" styleClass="stats-card">
+                    <padding><Insets bottom="15.0" left="15.0" right="15.0" top="15.0" /></padding>
+                    <Label styleClass="stats-label" text="Total Drivers" />
+                    <Label fx:id="DriverCountlbl" styleClass="stats-value" text="346" />
+                </VBox>
+
+                <!-- Line Chart -->
+                <LineChart fx:id="lineChart" prefHeight="150.0" styleClass="top-line-chart" HBox.hgrow="ALWAYS">
+                    <xAxis><CategoryAxis side="BOTTOM" /></xAxis>
+                    <yAxis><NumberAxis side="LEFT" /></yAxis>
+                </LineChart>
+
+                <!-- Second Stats Card -->
+                <VBox prefWidth="200.0" styleClass="stats-card">
+                    <padding><Insets bottom="15.0" left="15.0" right="15.0" top="15.0" /></padding>
+                    <Label styleClass="stats-label" text="Active Drivers" />
+                    <Label fx:id="ActiveDriverCountlbl" styleClass="stats-value" text="298" />
+                </VBox>
+            </HBox>
+
+            <!-- Middle Section - Area Chart -->
+            <VBox styleClass="area-chart-card" VBox.vgrow="ALWAYS">
+                <Label styleClass="area-chart-title" text="Monthly License Suspensions" />
+                <AreaChart fx:id="AreaChart" prefHeight="250.0">
+                    <xAxis><CategoryAxis side="BOTTOM" /></xAxis>
+                    <yAxis><NumberAxis side="LEFT" /></yAxis>
+                </AreaChart>
+            </VBox>
+
+            <!-- New Donut Charts Section -->
+            <HBox spacing="20.0" styleClass="donut-charts-container">
+                <!-- Traffic: New vs Returning -->
+                <VBox styleClass="donut-chart-card" HBox.hgrow="ALWAYS">
+                    <Label styleClass="donut-chart-title" text="Traffic" />
+                    <Label styleClass="donut-chart-subtitle" text="New vs Returning" />
+                    <PieChart fx:id="trafficDonutChart" legendVisible="false" prefHeight="200.0" styleClass="donut-chart" stylesheets="@../CSS/dash.css" />
+                </VBox>
+
+                <!-- Revenue: New vs Recurring -->
+                <VBox styleClass="donut-chart-card" HBox.hgrow="ALWAYS">
+                    <Label styleClass="donut-chart-title" text="Revenue" />
+                    <Label styleClass="donut-chart-subtitle" text="New vs Recurring" />
+                    <PieChart fx:id="revenueDonutChart" legendVisible="false" prefHeight="200.0" styleClass="donut-chart" />
+                </VBox>
+
+                <!-- Traffic: Direct vs Referrals -->
+                <VBox styleClass="donut-chart-card" HBox.hgrow="ALWAYS">
+                    <Label styleClass="donut-chart-title" text="Traffic" />
+                    <Label styleClass="donut-chart-subtitle" text="Direct vs Referrals" />
+                    <PieChart fx:id="trafficSourceDonutChart" legendVisible="false" prefHeight="200.0" styleClass="donut-chart" />
+                </VBox>
+            </HBox>
+
+            <!-- Bottom Section - Bar Chart -->
+            <VBox styleClass="bar-chart-card" VBox.vgrow="ALWAYS">
+                <Label styleClass="bar-chart-title" text="Most Frequent Violation Law And Highest Point Laws" />
+                <BarChart fx:id="barchart" prefHeight="200.0">
+                    <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis side="LEFT" />
+                    </yAxis>
+                </BarChart>
+            </VBox>
+        </VBox>
+
+        <!-- Right Progress Bar Section -->
+        <VBox prefWidth="250.0" spacing="15.0" styleClass="progress-bar-container">
+            <!-- Progress bars content remains the same -->
+            <padding><Insets bottom="15.0" left="15.0" right="15.0" top="15.0" /></padding>
+
+            <!-- Progress Bar Items -->
+            <VBox spacing="5.0" styleClass="progress-item">
+                <Label styleClass="progress-label" text="License Renewals" />
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <ProgressBar progress="0.75" styleClass="custom-progress-bar" />
+                    <Label styleClass="progress-value" text="75%" />
+                </HBox>
+            </VBox>
+            <!-- Other progress bars remain the same -->
+        </VBox>
+    </HBox>
+</AnchorPane>

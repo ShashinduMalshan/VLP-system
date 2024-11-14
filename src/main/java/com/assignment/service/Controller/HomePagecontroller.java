@@ -1,24 +1,28 @@
 package com.assignment.service.Controller;
 
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
-public class HomePagecontroller {
+public class HomePagecontroller implements Initializable {
 
 
     public AnchorPane sideBarAnc;
     public AnchorPane loadAnc;
     public Label violationLawBtn;
     public Label SuspendLicBtn;
+    public Label Dashboard;
 
     public void navigateTo(String fxmlPath) {
-        
+
         try {
             loadAnc.getChildren().clear();
             AnchorPane load = FXMLLoader.load(getClass().getResource(fxmlPath));
@@ -50,5 +54,14 @@ public class HomePagecontroller {
 
     public void SuspendLicBtnAction(MouseEvent mouseEvent) {
         navigateTo("/View/SuspendLicence.fxml");
+    }
+
+    public void dashboardOnAction(MouseEvent mouseEvent) {
+        navigateTo("/View/Dashboard.fxml");
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        navigateTo("/View/Dashboard.fxml");
     }
 }

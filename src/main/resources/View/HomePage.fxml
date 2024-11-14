@@ -12,9 +12,6 @@
       <!-- Main Vertical Layout -->
       <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 
-         <!-- Header -->
-         <HBox prefHeight="66.0" style="-fx-background-color: #0099ff;" />
-
          <!-- Main Content Area -->
          <HBox VBox.vgrow="ALWAYS">
 
@@ -23,7 +20,7 @@
                <children>
                   <AnchorPane fx:id="sideBarAnc" prefHeight="442.0" prefWidth="232.0" stylesheets="@../CSS/sidebar.css" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label layoutX="49.0" layoutY="172.0" text="Dashboard">
+                        <Label fx:id="Dashboard" layoutX="49.0" layoutY="172.0" onMouseClicked="#dashboardOnAction" text="Dashboard">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -53,12 +50,12 @@
 
             <!-- Red Main Content Area -->
             <VBox HBox.hgrow="ALWAYS">
-               <children>
-                  <AnchorPane fx:id="loadAnc" prefHeight="844.0" prefWidth="902.0" />
-               </children>
                <HBox.margin>
                   <Insets bottom="7.0" left="9.0" right="4.0" top="4.0" />
-               </HBox.margin></VBox>
+               </HBox.margin>
+               <children>
+                  <AnchorPane fx:id="loadAnc" prefHeight="844.0" prefWidth="902.0" styleClass="main-container" stylesheets="@../CSS/dash.css" />
+               </children></VBox>
 
          </HBox>
       </VBox>

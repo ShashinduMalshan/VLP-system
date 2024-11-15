@@ -7,6 +7,7 @@ import com.assignment.service.Model.DashboardModel;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.LineChart;
+import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
@@ -22,6 +23,10 @@ public class DashboardController implements Initializable {
     public Label DriverCountlbl;
     public javafx.scene.chart.AreaChart AreaChart;
     public BarChart <String,Integer>barchart;
+    public Label ActiveDriverCountLbl;
+    public PieChart trafficDonutChart;
+    public PieChart revenueDonutChart;
+    public PieChart trafficSourceDonutChart;
 
     DashboardModel dashboardModel = new DashboardModel();
 
@@ -32,6 +37,7 @@ public class DashboardController implements Initializable {
             addDataToLineChart();
             setDriverCountLbl();
             addDataAreaChart();
+            pieChart();//temp  ..................................
             addTopViolatedLawAndTopLawPoint();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -117,15 +123,35 @@ public class DashboardController implements Initializable {
         barchart.getData().add(series);
         System.out.println("Series data: " + series.getData());
 
-
-
+    }
+    
+    private void setDriverCountLbl() throws SQLException {
+       DriverCountlbl.setText(dashboardModel.driverCount());
 
     }
 
 
+    private void pieChart() throws SQLException {
+        trafficDonutChart.getData().add(new PieChart.Data("Category A", 30));
+        trafficDonutChart.getData().add(new PieChart.Data("Category B", 20));
 
-    private void setDriverCountLbl() throws SQLException {
-       DriverCountlbl.setText(dashboardModel.driverCount());
+
+
+        revenueDonutChart.getData().add(new PieChart.Data("Category A", 25));
+        revenueDonutChart.getData().add(new PieChart.Data("Category B", 20));
+        revenueDonutChart.getData().add(new PieChart.Data("Category C", 30));
+        revenueDonutChart.getData().add(new PieChart.Data("Category D", 15));
+        revenueDonutChart.getData().add(new PieChart.Data("Category E", 10));
+
+
+        trafficSourceDonutChart.getData().add(new PieChart.Data("Category A", 25));
+        trafficSourceDonutChart.getData().add(new PieChart.Data("Category B", 15));
+        trafficSourceDonutChart.getData().add(new PieChart.Data("Category C", 25));
+        trafficSourceDonutChart.getData().add(new PieChart.Data("Category D", 10));
+        trafficSourceDonutChart.getData().add(new PieChart.Data("Category E", 30));
+
+
+
 
     }
 

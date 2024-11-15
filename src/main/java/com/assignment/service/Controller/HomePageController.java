@@ -12,7 +12,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class HomePagecontroller implements Initializable {
+public class HomePageController implements Initializable {
 
 
     public AnchorPane sideBarAnc;

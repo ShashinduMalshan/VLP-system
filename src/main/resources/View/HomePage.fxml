@@ -7,20 +7,20 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="909.0" prefWidth="1183.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.service.Controller.HomePagecontroller">
+<AnchorPane prefHeight="909.0" prefWidth="1183.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.service.Controller.HomePageController">
    <children>
       <!-- Main Vertical Layout -->
       <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 
          <!-- Main Content Area -->
-         <HBox VBox.vgrow="ALWAYS">
+         <HBox prefHeight="884.0" prefWidth="1183.0" VBox.vgrow="ALWAYS">
 
             <!-- Green Sidebar -->
             <VBox prefHeight="503.0" prefWidth="232.0">
                <children>
                   <AnchorPane fx:id="sideBarAnc" prefHeight="442.0" prefWidth="232.0" stylesheets="@../CSS/sidebar.css" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label fx:id="Dashboard" layoutX="49.0" layoutY="172.0" onMouseClicked="#dashboardOnAction" text="Dashboard">
+                        <Label fx:id="Dashboard" layoutX="42.0" layoutY="173.0" onMouseClicked="#dashboardOnAction" text="Dashboard">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -30,12 +30,12 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="violationLawBtn" layoutX="11.0" layoutY="319.0" onMouseClicked="#violationLawAction" text="Traffic Violation Law">
+                        <Label fx:id="violationLawBtn" layoutX="41.0" layoutY="317.0" onMouseClicked="#violationLawAction" text="Traffic Violation Law">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="SuspendLicBtn" layoutX="14.0" layoutY="400.0" onMouseClicked="#SuspendLicBtnAction" text="Driver Suspensions">
+                        <Label fx:id="SuspendLicBtn" layoutX="42.0" layoutY="392.0" onMouseClicked="#SuspendLicBtnAction" text="Driver Suspensions">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -54,7 +54,7 @@
                   <Insets bottom="7.0" left="9.0" right="4.0" top="4.0" />
                </HBox.margin>
                <children>
-                  <AnchorPane fx:id="loadAnc" prefHeight="844.0" prefWidth="902.0" styleClass="main-container" stylesheets="@../CSS/dash.css" />
+                  <AnchorPane fx:id="loadAnc" prefHeight="844.0" prefWidth="902.0" styleClass="main-container" stylesheets="@../CSS/dash.css" VBox.vgrow="ALWAYS" />
                </children></VBox>
 
          </HBox>

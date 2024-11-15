@@ -79,6 +79,8 @@
     -fx-opacity: 0.15;
 }
 
+
+
 .area-chart .chart-series-area-line {
     -fx-stroke-width: 2px;
 }
@@ -160,8 +162,9 @@
 .default-color1.chart-series-line { -fx-stroke: #2ecc71; }
 .default-color2.chart-series-line { -fx-stroke: #e74c3c; }
 
-.default-color0.chart-series-area-fill { -fx-fill: #4f83f1; }
-.default-color1.chart-series-area-fill { -fx-fill: #2ecc71; }
+.default-color0.chart-series-area-fill {
+    -fx-fill: rgba(79, 131, 241, 0.3); /* 0.3 for 30% opacity */
+}
 .default-color2.chart-series-area-fill { -fx-fill: #e74c3c; }
 
 .default-color0.chart-bar { -fx-background-color: #4f83f1; }
@@ -173,13 +176,6 @@
     -fx-padding: 20px 0;
 }
 
-.donut-chart-card {
-    -fx-background-color: white;
-    -fx-padding: 15px;
-    -fx-background-radius: 10px;
-    -fx-alignment: center;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);
-}
 
 .donut-chart-title {
     -fx-font-size: 16px;
@@ -208,4 +204,17 @@
 
 .donut-chart .default-color1 {
     -fx-pie-color: #3b82f6;  /* Blue for "Returning/Recurring/Direct" */
+}
+.donut-chart {
+    -fx-pie-inner-circle: transparent;
+    -fx-pie-inner-radius: 30%; /* Adjust this for the size of the hole */
+}
+
+
+.donut-chart-card {
+    -fx-background-color: white;
+    -fx-padding: 15px;
+    -fx-background-radius: 10px;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);
 }

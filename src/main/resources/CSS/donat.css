@@ -1,0 +1,48 @@
+/* Main container styles */
+.donut-chart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+/* Title styles */
+.donut-chart-title {
+    color: white;
+    margin-bottom: 0.25rem;
+}
+
+/* Subtitle styles */
+.donut-chart-subtitle {
+    color: #9ca3af; /* gray-400 in Tailwind */
+    font-size: 0.875rem; /* text-sm */
+    margin-bottom: 1rem;
+}
+
+/* Chart wrapper */
+.donut-chart-wrapper {
+    position: relative;
+}
+
+/* Absolute center container for text */
+.donut-chart-center {
+    position: absolute;
+    inset: 0; /* shorthand for top, right, bottom, left: 0 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Text colors for percentages */
+.donut-chart-percentage-new {
+    color: #4ade80; /* emerald-400 */
+font-size: 0.875rem; /* text-sm */
+}
+
+.donut-chart-percentage-returning {
+    color: #3b82f6; /* blue-400 */
+    font-size: 0.875rem; /* text-sm */
+}

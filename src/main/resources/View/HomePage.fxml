@@ -2,6 +2,8 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -9,36 +11,71 @@
 
 <AnchorPane prefHeight="909.0" prefWidth="1183.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.service.Controller.HomePageController">
    <children>
-      <!-- Main Vertical Layout -->
       <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-
-         <!-- Main Content Area -->
          <HBox prefHeight="884.0" prefWidth="1183.0" VBox.vgrow="ALWAYS">
-
-            <!-- Green Sidebar -->
             <VBox prefHeight="503.0" prefWidth="232.0">
                <children>
                   <AnchorPane fx:id="sideBarAnc" prefHeight="442.0" prefWidth="232.0" stylesheets="@../CSS/sidebar.css" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label fx:id="Dashboard" layoutX="42.0" layoutY="173.0" onMouseClicked="#dashboardOnAction" text="Dashboard">
+                        <Label fx:id="Dashboard" layoutX="28.0" layoutY="176.0" onMouseClicked="#dashboardOnAction" text="Dashboard">
                            <font>
                               <Font size="20.0" />
                            </font>
+                           <graphic>
+                              <ImageView fitHeight="27.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/dashboard.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                         </Label>
-                        <Label layoutX="42.0" layoutY="243.0" onMouseClicked="#vehiclePointAction" text="Vehicle Point">
+                        <Label layoutX="28.0" layoutY="246.0" onMouseClicked="#vehiclePointAction" prefWidth="184.0" text="  Vehicle Point" textAlignment="CENTER">
                            <font>
                               <Font size="20.0" />
                            </font>
+                           <graphic>
+                              <ImageView fitHeight="27.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/icons8-mark-60.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                         </Label>
-                        <Label fx:id="violationLawBtn" layoutX="41.0" layoutY="317.0" onMouseClicked="#violationLawAction" text="Traffic Violation Law">
+                        <Label fx:id="violationLawBtn" layoutX="27.0" layoutY="320.0" onMouseClicked="#violationLawAction" text="Traffic Violation Law">
                            <font>
                               <Font size="20.0" />
                            </font>
+                           <graphic>
+                              <ImageView fitHeight="27.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/icons8-law-48.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                         </Label>
-                        <Label fx:id="SuspendLicBtn" layoutX="42.0" layoutY="392.0" onMouseClicked="#SuspendLicBtnAction" text="Driver Suspensions">
+                        <Label fx:id="SuspendLicBtn" layoutX="28.0" layoutY="395.0" onMouseClicked="#SuspendLicBtnAction" text="Driver Suspensions">
                            <font>
                               <Font size="20.0" />
                            </font>
+                           <graphic>
+                              <ImageView fitHeight="27.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/icons8-vehicle-insurance-48.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                        <Label fx:id="DriversBtn" layoutX="32.0" layoutY="468.0" onMouseClicked="#DriversBtnAction" text="  Drivers">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="27.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/icons8-driver-48.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                         </Label>
                      </children>
                      <VBox.margin>
@@ -47,16 +84,14 @@
                   </AnchorPane>
                </children>
             </VBox>
-
-            <!-- Red Main Content Area -->
             <VBox HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets bottom="7.0" left="9.0" right="4.0" top="4.0" />
                </HBox.margin>
                <children>
                   <AnchorPane fx:id="loadAnc" prefHeight="844.0" prefWidth="902.0" styleClass="main-container" stylesheets="@../CSS/dash.css" VBox.vgrow="ALWAYS" />
-               </children></VBox>
-
+               </children>
+            </VBox>
          </HBox>
       </VBox>
    </children>

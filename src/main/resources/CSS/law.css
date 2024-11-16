@@ -1,0 +1,118 @@
+/* Table Styles */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #F5F5F5;
+    -fx-padding: 5 0 5 0;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: transparent;
+    -fx-size: 45px;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #E0E0E0;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #424242;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent;
+    -fx-table-cell-border-color: transparent;
+    -fx-padding: 5 0 5 0;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #FAFAFA;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #E3F2FD;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #BBDEFB;
+}
+
+/* Card Styles */
+.stat-card {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-padding: 20;
+    -fx-spacing: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);
+    -fx-cursor: hand;
+    -fx-transition: all 0.3s;
+}
+
+.stat-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 15, 0, 0, 7);
+    -fx-translate-y: -2;
+}
+
+/* Button Styles */
+.button {
+    -fx-cursor: hand;
+    -fx-transition: all 0.2s;
+}
+
+.button:hover {
+    -fx-opacity: 0.9;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);
+}
+
+/* Search Field Styles */
+.text-field {
+    -fx-background-color: #F5F5F5;
+    -fx-padding: 8;
+    -fx-font-size: 14px;
+}
+
+.text-field:focused {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #1E88E5;
+    -fx-border-width: 1;
+}
+
+/* Scroll Bar Styling */
+.scroll-bar:horizontal,
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #BDBDBD;
+    -fx-background-radius: 5em;
+}
+
+/* Custom Styles for High Point Values */
+.high-points {
+    -fx-text-fill: #F44336;
+    -fx-font-weight: bold;
+}
+
+/* Custom Styles for Medium Point Values */
+.medium-points {
+    -fx-text-fill: #FB8C00;
+    -fx-font-weight: bold;
+}
+
+/* Custom Styles for Low Point Values */
+.low-points {
+    -fx-text-fill: #4CAF50;
+    -fx-font-weight: bold;
+}

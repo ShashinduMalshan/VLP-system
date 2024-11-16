@@ -93,7 +93,7 @@
                     <children>
                         <Label style="-fx-font-size: 20px; -fx-font-weight: bold;                                                              -fx-text-fill: #4a90e2;" text="Violation Records" />
 
-                        <TableView fx:id="tblViolationPoint" style="-fx-background-radius: 8;                                         -fx-border-radius: 8;                                         -fx-border-color: #e9ecef;" VBox.vgrow="ALWAYS">
+                        <TableView fx:id="tblViolationPoint" style="-fx-background-radius: 8;                                         -fx-border-radius: 8;                                         -fx-border-color: #e9ecef;" stylesheets="@../CSS/table.css" VBox.vgrow="ALWAYS">
                             <columns>
                                 <TableColumn fx:id="colPoint_id" text="Point ID" />
                                 <TableColumn fx:id="colDescription" text="Description" />

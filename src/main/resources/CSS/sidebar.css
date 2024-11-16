@@ -67,6 +67,8 @@ VBox {
 
 /* Sidebar Labels */
 #sideBarAnc Label {
+
+    -fx-font-weight: bold;
     -fx-text-fill: #FFFFFF;
     -fx-font-family: "Segoe UI", sans-serif;
     -fx-font-size: 16px;
@@ -111,19 +113,19 @@ HBox {
 
 /* Specific label styling */
 #Dashboard {
-    -fx-graphic: url('image/dashboard.png');  /* Add your icon */
+    -fx-graphic: url('image/dashboard (1).png');  /* Add your icon */
     -fx-content-display: left;
     -fx-graphic-text-gap: 15;
 }
 
 #violationLawBtn {
-    -fx-graphic: url('law-icon.png');  /* Add your icon */
+    -fx-graphic: url('image/dashboard (1).png');  /* Add your icon */
     -fx-content-display: left;
     -fx-graphic-text-gap: 15;
 }
 
 #SuspendLicBtn {
-    -fx-graphic: url('suspend-icon.png');  /* Add your icon */
+    -fx-graphic: url('image/dashboard (1).png');  /* Add your icon */
     -fx-content-display: left;
     -fx-graphic-text-gap: 15;
 }

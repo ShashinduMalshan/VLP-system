@@ -1,13 +1,8 @@
 /* Main container styles */
+
 .main-container {
     -fx-background-color: #f5f6fa;
     -fx-padding: 20px;
-}
-
-.dashboard-container {
-    -fx-padding: 20px;
-    -fx-spacing: 20px;
-    -fx-background-color: transparent;
 }
 
 /* Top section styles */

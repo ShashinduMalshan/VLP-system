@@ -53,6 +53,7 @@ public class DriverModel {
     }
 
     public ArrayList<String> checkSuspendId() throws SQLException {
+
         int maxPoint = 150;
         ResultSet resultSet = CrudUtil.execute("select * from Driver");
         ArrayList<String> limitPassedIDs =new ArrayList<>();
@@ -64,6 +65,23 @@ public class DriverModel {
             }
         }
 
+
+
         return limitPassedIDs;
     }
+
+    public String driverCount() throws SQLException {
+        ResultSet resultSet = CrudUtil.execute("SELECT COUNT(*) AS count FROM Driver");
+        resultSet.next();
+
+        return String.valueOf(resultSet.getInt(1));
+    }
+
+    public String suspendCount() throws SQLException {
+        ResultSet resultSet = CrudUtil.execute("SELECT COUNT(*) AS count FROM SuspendLic");
+        resultSet.next();
+
+        return String.valueOf(resultSet.getInt(1));
+    }
+
 }

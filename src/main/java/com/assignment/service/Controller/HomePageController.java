@@ -20,6 +20,7 @@ public class HomePageController implements Initializable {
     public Label violationLawBtn;
     public Label SuspendLicBtn;
     public Label Dashboard;
+    public Label DriversBtn;
 
     public void navigateTo(String fxmlPath) {
 
@@ -60,8 +61,11 @@ public class HomePageController implements Initializable {
         navigateTo("/View/Dashboard.fxml");
     }
 
+    public void DriversBtnAction(MouseEvent mouseEvent) {navigateTo("/View/DriverPage.fxml");}
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         navigateTo("/View/Dashboard.fxml");
     }
+
 }

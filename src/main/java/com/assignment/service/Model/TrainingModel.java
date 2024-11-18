@@ -87,6 +87,7 @@ public class TrainingModel {
         return trainingDtos;
     }
 
+    SuspendLicModel suspendLicModel = new SuspendLicModel();
     public boolean deleteTraining(TrainingDto trainingDto) throws SQLException {
 
         Connection connection = DBConnection.getInstance().getConnection();
@@ -97,7 +98,7 @@ public class TrainingModel {
                     trainingDto.getDriverId());
 
             if (isDelete) {
-                boolean isSuspendLicDelete= CrudUtil.execute("delete from SuspendLic where driver_id = ?", trainingDto.getDriverId());
+                boolean isSuspendLicDelete= suspendLicModel.deleteSuspendLic(trainingDto);
                 if (isSuspendLicDelete) {
                     restDrivePoint(trainingDto.getDriverId());
                     connection.commit();

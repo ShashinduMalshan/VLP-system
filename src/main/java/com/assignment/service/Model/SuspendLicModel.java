@@ -3,6 +3,7 @@ package com.assignment.service.Model;
 import com.assignment.service.Controller.SuspendedLicController;
 import com.assignment.service.Dto.SuspendDriversDetailsDto;
 import com.assignment.service.Dto.SuspendLicDto;
+import com.assignment.service.Dto.TrainingDto;
 import com.assignment.service.util.CrudUtil;
 
 import java.sql.ResultSet;
@@ -124,4 +125,10 @@ public class SuspendLicModel {
             }
         return suspendLicDtos;
     }
-}
+
+    public boolean deleteSuspendLic(TrainingDto trainingDto) throws SQLException {
+
+        return CrudUtil.execute("delete from SuspendLic where driver_id = ?", trainingDto.getDriverId());
+    }
+
+    }

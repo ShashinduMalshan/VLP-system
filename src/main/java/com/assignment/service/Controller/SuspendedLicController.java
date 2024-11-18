@@ -32,8 +32,11 @@ public class SuspendedLicController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        configureTable();
+    }
 
 
+    private void configureTable() {
 
         colSuspendID.setCellValueFactory(new PropertyValueFactory<>("suspendId"));
         colDriverName.setCellValueFactory(new PropertyValueFactory<>("driverName"));
@@ -116,7 +119,7 @@ public class SuspendedLicController implements Initializable {
                     driverName = null;
                     totalPoint = 0;
                     new Alert(Alert.AlertType.INFORMATION, "Training Data saved...!").show();
-                    loadTable();
+                    configureTable();
                 } else {
                     new Alert(Alert.AlertType.ERROR, "Fail to save data...!").show();
                 }
@@ -132,7 +135,6 @@ public class SuspendedLicController implements Initializable {
             drivingLicNum = suspendLicTM.getDriverId();
             driverName = suspendLicTM.getDriverName();
             totalPoint = suspendLicTM.getPoints();
-
         }
     }
 

@@ -17,12 +17,12 @@
                <children>
                   <AnchorPane fx:id="sideBarAnc" prefHeight="442.0" prefWidth="232.0" stylesheets="@../CSS/sidebar.css" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label fx:id="Dashboard" layoutX="28.0" layoutY="176.0" onMouseClicked="#dashboardOnAction" text="Dashboard">
+                        <Label fx:id="Dashboard" layoutX="32.0" layoutY="176.0" onMouseClicked="#dashboardOnAction" text="Dashboard">
                            <font>
                               <Font size="20.0" />
                            </font>
                            <graphic>
-                              <ImageView fitHeight="27.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="21.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../image/dashboard.png" />
                                  </image>
@@ -41,7 +41,7 @@
                               </ImageView>
                            </graphic>
                         </Label>
-                        <Label fx:id="violationLawBtn" layoutX="27.0" layoutY="320.0" onMouseClicked="#violationLawAction" text="Traffic Violation Law">
+                        <Label fx:id="violationLawBtn" layoutX="28.0" layoutY="316.0" onMouseClicked="#violationLawAction" text="Traffic Violation Law">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -53,7 +53,7 @@
                               </ImageView>
                            </graphic>
                         </Label>
-                        <Label fx:id="SuspendLicBtn" layoutX="28.0" layoutY="395.0" onMouseClicked="#SuspendLicBtnAction" text="Driver Suspensions">
+                        <Label fx:id="SuspendLicBtn" layoutX="28.0" layoutY="386.0" onMouseClicked="#SuspendLicBtnAction" text="Driver Suspensions">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -65,14 +65,26 @@
                               </ImageView>
                            </graphic>
                         </Label>
-                        <Label fx:id="DriversBtn" layoutX="32.0" layoutY="468.0" onMouseClicked="#DriversBtnAction" text="  Drivers">
+                        <Label fx:id="DriversBtn" layoutX="28.0" layoutY="456.0" onMouseClicked="#DriversBtnAction" text="  Drivers">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="27.0" fitWidth="30.0" layoutX="7.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/icons8-driver-48.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                        <Label fx:id="TrainingDriversBtn" layoutX="28.0" layoutY="526.0" onMouseClicked="#TrainingDriversBtnAction" text="  Traininig Drivers">
                            <font>
                               <Font size="20.0" />
                            </font>
                            <graphic>
                               <ImageView fitHeight="27.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../image/icons8-driver-48.png" />
+                                    <Image url="@../image/icons8-training-40.png" />
                                  </image>
                               </ImageView>
                            </graphic>

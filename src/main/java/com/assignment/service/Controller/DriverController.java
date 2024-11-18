@@ -3,15 +3,19 @@ package com.assignment.service.Controller;
 import com.assignment.service.Dto.DriverDto;
 import com.assignment.service.Dto.DriverTM;
 import com.assignment.service.Model.DriverModel;
+import com.assignment.service.Model.TrainingModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class DriverController implements Initializable {
@@ -27,16 +31,20 @@ public class DriverController implements Initializable {
     public TableColumn colActions;
     public Label totalFormonth;
     public Label suspendPrecent;
+    public Button addTrainingBtn;
+
+    public DriverController() throws SQLException {
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-            colLicNum.setCellValueFactory(new PropertyValueFactory<>("drivingLicNum"));
-            colName.setCellValueFactory(new PropertyValueFactory<>("name"));
-            colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-            colTPoint.setCellValueFactory(new PropertyValueFactory<>("totalPoint"));
+        colLicNum.setCellValueFactory(new PropertyValueFactory<>("drivingLicNum"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        colTPoint.setCellValueFactory(new PropertyValueFactory<>("totalPoint"));
 
 
-        tblDriver.setRowFactory(tv -> new TableRow<DriverTM>() {
+        tblDriver.setRowFactory(tv -> new TableRow<>() {
             protected void updateItem(DriverTM item, boolean empty) {
                 super.updateItem(item, empty);
                 if (item == null || empty) {
@@ -66,6 +74,7 @@ public class DriverController implements Initializable {
 
 
     DriverModel driverModel = new DriverModel();
+
     public void loadTableData() throws SQLException {
 
         ArrayList<DriverDto> driverDtos = driverModel.getAllDriver();
@@ -84,8 +93,9 @@ public class DriverController implements Initializable {
     }
 
     public void statusLabel() throws SQLException {
-       lblTotalDrivers.setText(driverModel.driverCount());
-       lblSuspendedLicenses.setText(driverModel.suspendCount());
+
+        lblTotalDrivers.setText(driverModel.driverCount());
+        lblSuspendedLicenses.setText(driverModel.suspendCount());
 
         int DriverCount= Integer.parseInt(driverModel.driverCount());
         int SuspendCount= Integer.parseInt(driverModel.suspendCount());
@@ -97,5 +107,6 @@ public class DriverController implements Initializable {
     }
 
 
-
+    public void onClickTable(MouseEvent mouseEvent) {
     }
+}

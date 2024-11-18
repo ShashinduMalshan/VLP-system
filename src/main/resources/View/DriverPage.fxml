@@ -45,11 +45,11 @@
                                 <Font size="12.0" />
                             </font>
                         </Label>
-                  <Label style="-fx-text-fill: #4CAF50;" text="this month">
-                     <font>
-                        <Font size="12.0" />
-                     </font>
-                  </Label>
+                        <Label style="-fx-text-fill: #4CAF50;" text="this month">
+                            <font>
+                                <Font size="12.0" />
+                            </font>
+                        </Label>
                     </HBox>
                 </VBox>
 
@@ -92,11 +92,11 @@
                                 <Font size="12.0" />
                             </font>
                         </Label>
-                  <Label style="-fx-text-fill: #F44336;" text="suspension rate">
-                     <font>
-                        <Font size="12.0" />
-                     </font>
-                  </Label>
+                        <Label style="-fx-text-fill: #F44336;" text="suspension rate">
+                            <font>
+                                <Font size="12.0" />
+                            </font>
+                        </Label>
                     </HBox>
                 </VBox>
             </HBox>
@@ -136,7 +136,7 @@
                             <Insets bottom="10.0" top="10.0" />
                         </VBox.margin>
                     </Separator>
-                    <TableView fx:id="tblDriver" accessibleRole="IMAGE_VIEW" styleClass="table-view" VBox.vgrow="ALWAYS">
+                    <TableView fx:id="tblDriver" accessibleRole="IMAGE_VIEW" onMouseClicked="#onClickTable" styleClass="table-view" VBox.vgrow="ALWAYS">
                         <columns>
                             <TableColumn fx:id="colLicNum" prefWidth="150.0" text="License Number" />
                             <TableColumn fx:id="colName" prefWidth="250.0" text="Driver Name" />
@@ -144,9 +144,9 @@
                             <TableColumn fx:id="colTPoint" prefWidth="120.0" text="Total Points" />
                             <TableColumn fx:id="colActions" prefWidth="143.0" text="Actions" />
                         </columns>
-                  <columnResizePolicy>
-                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                  </columnResizePolicy>
+                        <columnResizePolicy>
+                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                        </columnResizePolicy>
                     </TableView>
                 </VBox>
             </VBox>

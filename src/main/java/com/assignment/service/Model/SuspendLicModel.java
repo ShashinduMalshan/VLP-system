@@ -109,6 +109,7 @@ public class SuspendLicModel {
     public ArrayList<SuspendLicDto> getAllSuspendedLic() throws SQLException {
 
         ResultSet resultSet = CrudUtil.execute("select * from SuspendLic");
+
         ArrayList<SuspendLicDto> suspendLicDtos = new ArrayList<>();
 
         while (resultSet.next()) {

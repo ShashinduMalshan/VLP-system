@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="966.0" prefWidth="1013.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.service.Controller.VehicleOwnerController">
+   <children>
+      <VBox spacing="20" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER" style="-fx-background-color: #1E88E5; -fx-padding: 20;">
+               <children>
+                  <Label fx:id="lawAnc" text="Owner Profile" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="32.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <VBox maxWidth="Infinity" prefHeight="0.0" prefWidth="982.0" spacing="10" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="15">
+                     <children>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <TextField fx:id="searchField" prefHeight="40" prefWidth="300" promptText="Search by Law ID or description" style="-fx-background-radius: 20; -fx-padding: 10;">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                        <Button fx:id="search" mnemonicParsing="false" onAction="#searchOnAction" prefHeight="40" prefWidth="100" style="-fx-background-color: #1E88E5; -fx-text-fill: white; -fx-background-radius: 20;" text="Search">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets left="15.0" right="15.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox prefHeight="770.0" prefWidth="977.0" style="-fx-padding: 0 20 20 20;" VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox prefHeight="678.0" prefWidth="972.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);" VBox.vgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                           <children>
+                              <Label style="-fx-text-fill: #424242;" text="Vehicle Owner Information">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Region HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+                        <Separator>
+                           <VBox.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Separator>
+                        <HBox alignment="CENTER" prefHeight="15.0" prefWidth="933.0" spacing="20" style="-fx-padding: 0 20;">
+                           <children>
+                              <VBox prefWidth="300" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);" styleClass="stat-card">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="Revenue Licence">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblRevenueLicence" style="-fx-text-fill: #1E88E5;" text="156">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefWidth="300.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);" styleClass="stat-card">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="Issue Date">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblIssueDate" style="-fx-text-fill: #4CAF50;" text="3.5">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefWidth="300" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);" styleClass="stat-card">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="Expiration Date">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblExpirationDate" style="-fx-text-fill: #F44336;" text="45">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="-7.0" top="-1.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="26.0" prefWidth="932.0" />
+                        <VBox prefHeight="100.0" prefWidth="932.0">
+                           <children>
+                              <VBox prefHeight="64.0" prefWidth="933.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);" styleClass="stat-card">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="Owner Name">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblOwnerName" style="-fx-text-fill: #4CAF50;" text="3.5">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="-7.0" top="-5.0" />
+                                 </VBox.margin>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="100.0" prefWidth="932.0">
+                           <children>
+                              <VBox prefHeight="0.0" prefWidth="933.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);" styleClass="stat-card">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="Email">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblEmail" style="-fx-text-fill: #4CAF50;" text="3.5">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="-18.0" top="11.0" />
+                                 </VBox.margin>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="100.0" prefWidth="932.0">
+                           <children>
+                              <VBox prefWidth="300" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);" styleClass="stat-card">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="Address">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblAddress" style="-fx-text-fill: #4CAF50;" text="3.5">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="18.0" />
+                                 </VBox.margin>
+                              </VBox>
+                              <VBox prefWidth="300" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);" styleClass="stat-card">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="Mobile No">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblMobileNo" style="-fx-text-fill: #4CAF50;" text="3.5">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="-8.0" top="6.0" />
+                                 </VBox.margin>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="100.0" prefWidth="932.0">
+                           <children>
+                              <VBox prefWidth="300" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);" styleClass="stat-card">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="Model">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblModel" style="-fx-text-fill: #4CAF50;" text="3.5">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="-18.0" />
+                                 </VBox.margin>
+                              </VBox>
+                              <VBox prefWidth="300" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);" styleClass="stat-card">
+                                 <children>
+                                    <Label style="-fx-text-fill: #757575;" text="Brand Name">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblBrandName" style="-fx-text-fill: #4CAF50;" text="3.5">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="-18.0" top="6.0" />
+                                 </VBox.margin>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="9.0" />
+                           </VBox.margin>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

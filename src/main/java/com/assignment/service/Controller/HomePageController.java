@@ -22,6 +22,8 @@ public class HomePageController implements Initializable {
     public Label Dashboard;
     public Label DriversBtn;
     public Label TrainingDriversBtn;
+    public Label VehicleOwnersBtn;
+    public Label policeOfficersBtn;
 
     public void navigateTo(String fxmlPath) {
 
@@ -66,9 +68,15 @@ public class HomePageController implements Initializable {
 
     public void TrainingDriversBtnAction(MouseEvent mouseEvent) { navigateTo("/View/Training.fxml");}
 
+    public void policeOfficersBtnAction(MouseEvent mouseEvent) {navigateTo("/View/PoliceOfficers.fxml");}
+
+    public void VehicleOwnersBtnAction(MouseEvent mouseEvent) {navigateTo("/View/VehicleOwner.fxml");}
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         navigateTo("/View/Dashboard.fxml");
     }
+
+
 
 }

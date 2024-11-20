@@ -13,11 +13,7 @@ public class Main extends Application {
 
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/HomePage.fxml"))));
 
-
-
-
         stage.setTitle("Vehicle Point Management System");
-
 
         stage.show();
     }

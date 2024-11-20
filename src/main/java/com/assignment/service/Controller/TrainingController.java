@@ -1,6 +1,7 @@
 package com.assignment.service.Controller;
 
 import com.assignment.service.Dto.*;
+import com.assignment.service.Model.ReLicenceCompleteModel;
 import com.assignment.service.Model.TrainingModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -46,6 +47,7 @@ public class TrainingController implements Initializable {
 
 
     TrainingModel trainingModel = new TrainingModel();
+    ReLicenceCompleteModel reLicenceCompleteModel = new ReLicenceCompleteModel();
     public void loadTable() throws SQLException {
 
         ArrayList<TrainingDto> trainingDtos = trainingModel.getAllTraining();
@@ -89,6 +91,12 @@ public class TrainingController implements Initializable {
                 drivingLicNum
         );
 
+        ReLicenceCompleteDto reLicenceCompleteDto = new ReLicenceCompleteDto(
+                totalPoint,
+                drivingLicNum
+        );
+
+            reLicenceCompleteModel.saveReLicenceComplete(reLicenceCompleteDto);
             boolean isDeleteTraining = trainingModel.deleteTraining(trainingDto);
 
             if (isDeleteTraining) {
@@ -99,9 +107,8 @@ public class TrainingController implements Initializable {
                 new Alert(Alert.AlertType.ERROR, "Fail to complete Training...!").show();
             }
         }
-
-
     }
+
 
     public void onClickTable(MouseEvent mouseEvent) {
         TrainingTM trainingTM = tblTraining.getSelectionModel().getSelectedItem();

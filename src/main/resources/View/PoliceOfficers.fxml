@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="844.0" prefWidth="902.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.service.Controller.PoliceOfficersController">
+   <children>
+      <VBox prefHeight="844.0" prefWidth="902.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox prefHeight="80.0" style="-fx-background-color: linear-gradient(to right, #4a90e2, #357abd);-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 4);" styleClass="header" VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="80.0" prefWidth="781.0" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets bottom="7.0" />
+                     </HBox.margin>
+                     <children>
+                        <Text fill="white" fontSmoothingType="LCD" style="-fx-font-family: 'Segoe UI'; -fx-font-weight: bold; -fx-font-size: 32px;                                          -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 3, 0, 0, 2);" text="Officer Details" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <VBox spacing="20" style="-fx-background-color: white; -fx-background-radius: 15;                                         -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);" VBox.vgrow="ALWAYS">
+               <padding>
+                  <Insets bottom="20" left="30" right="30" top="20" />
+               </padding>
+               <children>
+                  <Label style="-fx-font-size: 20px; -fx-font-weight: bold;                                                                -fx-text-fill: #4a90e2;" text="Officer Information" />
+                  <HBox spacing="40">
+                     <children>
+                        <VBox spacing="15" HBox.hgrow="ALWAYS">
+                           <children>
+                              <VBox spacing="5">
+                                 <children>
+                                    <Label style="-fx-font-size: 13px; -fx-text-fill: #6c757d;" text="Officer ID" />
+                                    <TextField fx:id="txtOfficerId" promptText="Enter Officer ID" style="-fx-background-color: #f8f9fa;                                                         -fx-background-radius: 8;                                                         -fx-border-color: #e9ecef;                                                         -fx-border-radius: 8;                                                         -fx-padding: 10;                                                         -fx-font-size: 14px;" styleClass="custom-text-field" />
+                                 </children>
+                              </VBox>
+                              <VBox spacing="5">
+                                 <children>
+                                    <Label style="-fx-font-size: 13px; -fx-text-fill: #6c757d;" text="Duty Location" />
+                                    <TextField fx:id="txtLocation" promptText="Enter Location" style="-fx-background-color: #f8f9fa;                                                         -fx-background-radius: 8;                                                         -fx-border-color: #e9ecef;                                                         -fx-border-radius: 8;                                                         -fx-padding: 10;                                                         -fx-font-size: 14px;" styleClass="custom-text-field" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox spacing="15" HBox.hgrow="ALWAYS">
+                           <children>
+                              <VBox spacing="5">
+                                 <children>
+                                    <Label style="-fx-font-size: 13px; -fx-text-fill: #6c757d;" text="Officer Name" />
+                                    <TextField fx:id="txtOfficerName" promptText="Enter Officer Name" style="-fx-background-color: #f8f9fa;                                                         -fx-background-radius: 8;                                                         -fx-border-color: #e9ecef;                                                         -fx-border-radius: 8;                                                         -fx-padding: 10;                                                         -fx-font-size: 14px;" styleClass="custom-text-field" />
+                                 </children>
+                              </VBox>
+                              <VBox spacing="5" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox maxWidth="Infinity" spacing="10" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);" VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="15">
+                     <children>
+                        <TextField fx:id="searchField" prefHeight="40" prefWidth="300" promptText="Search by license number, name, or email" style="-fx-background-radius: 20; -fx-padding: 10;">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                        <Button mnemonicParsing="false" prefHeight="40" prefWidth="100" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 20;" text="Search">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="updateBtn" mnemonicParsing="false" onAction="#updateBtnOnAction" prefHeight="40" prefWidth="89.0" style="-fx-background-color: #009688; -fx-text-fill: white; -fx-background-radius: 20;" text="Update">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="deleteBtn" mnemonicParsing="false" onAction="#deleteBtnOnAction" prefHeight="40" prefWidth="89.0" style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-background-radius: 20;" text="Delete">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#saveBtnOnAction" prefHeight="40" prefWidth="89.0" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 20;" text="Save">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="15.0" left="20.0" right="20.0" top="11.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox prefHeight="381.0" prefWidth="862.0" spacing="15" style="-fx-background-color: white;                                                              -fx-background-radius: 15;                                                              -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);" VBox.vgrow="ALWAYS">
+               <padding>
+                  <Insets bottom="10.0" left="30.0" right="30.0" top="20.0" />
+               </padding>
+               <children>
+                  <HBox alignment="CENTER" spacing="10" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label alignment="TOP_LEFT" prefHeight="29.0" prefWidth="186.0" style="-fx-font-size: 20px; -fx-font-weight: bold;                                                              -fx-text-fill: #4a90e2;" text="Violation Records" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets top="9.0" />
+                           </HBox.margin></Label>
+                        <Region prefHeight="30.0" prefWidth="511.0" HBox.hgrow="ALWAYS" />
+                        <Button fx:id="resetBtn" alignment="CENTER" mnemonicParsing="false" onAction="#resetBtnOnAction" prefHeight="28.0" prefWidth="83.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 20;" text="Reset" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="-1.0" top="-17.0" />
+                     </VBox.margin></HBox>
+                  <TableView fx:id="tblOfficerDetails" onMouseClicked="#onCliked" style="-fx-background-radius: 8;                                         -fx-border-radius: 8;                                         -fx-border-color: #e9ecef;" stylesheets="@../CSS/table.css" VBox.vgrow="ALWAYS">
+                     <columns>
+                        <TableColumn fx:id="colOfficerId" text="Officer ID" />
+                        <TableColumn fx:id="colOfficerName" text="Officer Name" />
+                        <TableColumn fx:id="colDutyLocation" text="Duty Location" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="7.0" />
+               </VBox.margin>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

@@ -89,6 +89,29 @@
                               </ImageView>
                            </graphic>
                         </Label>
+                        <Label fx:id="policeOfficersBtn" layoutX="28.0" layoutY="596.0" onMouseClicked="#policeOfficersBtnAction" text="  police Officers">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="29.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/icons8-police-48.png" />
+                                 </image></ImageView>
+                           </graphic>
+                        </Label>
+                        <Label fx:id="VehicleOwnersBtn" layoutX="30.0" layoutY="666.0" onMouseClicked="#VehicleOwnersBtnAction" text="  Vehicle Owners">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="28.0" fitWidth="301.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/icons8-landlord-48.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
                      </children>
                      <VBox.margin>
                         <Insets bottom="4.0" left="2.0" top="1.0" />

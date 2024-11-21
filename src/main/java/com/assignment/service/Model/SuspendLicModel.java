@@ -12,11 +12,12 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 
-public class SuspendLicModel {
+public class SuspendLicModel extends Thread {
 
     public String timeDuration = LocalDate.now().plusYears(1).toString();// mekata mokak hari karanna one;
 
 
+    NotificationModel notificationModel = new NotificationModel();
     public void checkAllSuspendedIds(ArrayList<String> limitPassedIDs) throws SQLException {
 
 
@@ -33,6 +34,14 @@ public class SuspendLicModel {
             if (!SuspendLicence.contains(limitPassedID)) {
                 allSuspendedIDS.add(limitPassedID);
                 System.out.println("match Ids"+limitPassedID);
+
+                new Thread(() -> {
+                    try {
+                        notificationModel.findEmail(limitPassedID);
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                }).start();
             }
         }
         findSuspendIDS(allSuspendedIDS);
@@ -77,18 +86,18 @@ public class SuspendLicModel {
     }
 
 
-   public void saveSuspendLicTBL(ArrayList<SuspendDriversDetailsDto> tblSuspendId) throws SQLException {
-            for (SuspendDriversDetailsDto suspendDriversDetailsDto : tblSuspendId) {
-               boolean isSave= CrudUtil.execute("insert into SuspendLic values (?,?,?,?,?)",
-                        getNextSuspendId(),
-                        suspendDriversDetailsDto.getName(),
-                        suspendDriversDetailsDto.getTimeDuration(),
-                        suspendDriversDetailsDto.getTotalPoint(),
-                        suspendDriversDetailsDto.getDrivingLicNum());
-                System.out.println("SuspendLic values saved "+isSave);
-            }
+    public void saveSuspendLicTBL(ArrayList<SuspendDriversDetailsDto> tblSuspendId) throws SQLException {
+        for (SuspendDriversDetailsDto suspendDriversDetailsDto : tblSuspendId) {
+            boolean isSave= CrudUtil.execute("insert into SuspendLic values (?,?,?,?,?)",
+                    getNextSuspendId(),
+                    suspendDriversDetailsDto.getName(),
+                    suspendDriversDetailsDto.getTimeDuration(),
+                    suspendDriversDetailsDto.getTotalPoint(),
+                    suspendDriversDetailsDto.getDrivingLicNum());
+            System.out.println("SuspendLic values saved "+isSave);
+        }
 
-   }
+    }
 
 
 
@@ -114,15 +123,15 @@ public class SuspendLicModel {
         ArrayList<SuspendLicDto> suspendLicDtos = new ArrayList<>();
 
         while (resultSet.next()) {
-                SuspendLicDto suspendLicDto = new SuspendLicDto(
-                        resultSet.getString(1),
-                        resultSet.getString(2),
-                        resultSet.getString(3),
-                        resultSet.getInt(4),
-                        resultSet.getString(5)
-                );
-                suspendLicDtos.add(suspendLicDto);
-            }
+            SuspendLicDto suspendLicDto = new SuspendLicDto(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getInt(4),
+                    resultSet.getString(5)
+            );
+            suspendLicDtos.add(suspendLicDto);
+        }
         return suspendLicDtos;
     }
 
@@ -131,4 +140,4 @@ public class SuspendLicModel {
         return CrudUtil.execute("delete from SuspendLic where driver_id = ?", trainingDto.getDriverId());
     }
 
-    }
+}

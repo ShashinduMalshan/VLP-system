@@ -147,9 +147,12 @@ public class ViolationPointController implements Initializable {
 
     public void checkIsSuspend() throws SQLException {
 
+
         ArrayList<String> limitPassedIDs = driverModel.checkSuspendId();
-        System.out.println("limitPassedIDs "+limitPassedIDs);
-        suspendLicModel.checkAllSuspendedIds(limitPassedIDs);
+
+            System.out.println("limitPassedIDs " + limitPassedIDs);
+            suspendLicModel.checkAllSuspendedIds(limitPassedIDs);
+
     }
 
 }

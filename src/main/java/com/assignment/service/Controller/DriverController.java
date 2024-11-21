@@ -49,7 +49,7 @@ public class DriverController implements Initializable {
                 super.updateItem(item, empty);
                 if (item == null || empty) {
                     setStyle("");
-                } else if (item.getTotalPoint() > 150) {
+                } else if (item.getTotalPoint() > 149) {
                     setStyle("-fx-background-color: #FFBABA;");
                 } else {
                     setStyle("");
@@ -63,6 +63,7 @@ public class DriverController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        NotificationController notificationController = new NotificationController();
 
     }
 

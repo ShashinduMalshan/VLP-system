@@ -37,7 +37,7 @@ public class SuspendLicModel extends Thread {
 
                 new Thread(() -> {
                     try {
-                        notificationModel.findEmail(limitPassedID);
+                        notificationModel.findEmail(limitPassedID,timeDuration);
                     } catch (SQLException e) {
                         throw new RuntimeException(e);
                     }

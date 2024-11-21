@@ -19,19 +19,18 @@ public class NotificationController {
     public String customerEmail = "shasidumalshan9579@gmail.com";
 
     // Sends email with the given subject and body to the provided email
-    public void findEmail(String email) {
+    public void findEmail(String email, String timeDuration, String id, int totalPoint, String name) {
         if (email == null) {
             return;
         }
 
-        String subject = "Reminder: License Suspension Due to Violation Points";
-        String body = "Dear [Driver's Name],\n\n"
+        String subject = "License Suspension Due to Violation Points";
+        String body = "Dear "+name+",\n\n"
                 + "We are writing to inform you that your driving license has been suspended due to exceeding the maximum allowable violation points.\n\n"
                 + "Details of the suspension:\n"
-                + "License Number: [Driver's License Number]\n"
-                + "Total Violation Points: [Total Points]\n"
-                + "Suspension Start Date: [Suspension Start Date]\n"
-                + "Suspension End Date: [Suspension End Date (if applicable)]\n\n"
+                + "License Number: "+id+"\n"
+                + "Total Violation Points: "+totalPoint+"\n"
+                + "Suspension Time  Duration: "+timeDuration+"\n\n"
                 + "Please ensure that you comply with all traffic laws moving forward to avoid further violations. If you have any questions or would like to appeal the suspension, please contact us at [Contact Information].\n\n"
                 + "Thank you for your attention to this matter.\n\n"
                 + "Best regards,\n"

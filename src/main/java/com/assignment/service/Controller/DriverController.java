@@ -1,5 +1,6 @@
 package com.assignment.service.Controller;
 
+import com.assignment.service.DBConnection.DBConnection;
 import com.assignment.service.Dto.DriverDto;
 import com.assignment.service.Dto.DriverTM;
 import com.assignment.service.Model.DriverModel;
@@ -11,12 +12,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.net.URL;
+import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class DriverController implements Initializable {
     public TableColumn <DriverTM, String> colLicNum;
@@ -32,9 +34,11 @@ public class DriverController implements Initializable {
     public Label totalFormonth;
     public Label suspendPrecent;
     public Button addTrainingBtn;
+    public Button ExportBtn;
+    public Button searchFieldBtn;
+    public Label lblPercentageTraining;
+    public Label lblTrainingLicenses;
 
-    public DriverController() throws SQLException {
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -51,6 +55,8 @@ public class DriverController implements Initializable {
                     setStyle("");
                 } else if (item.getTotalPoint() > 149) {
                     setStyle("-fx-background-color: #FFBABA;");
+                } else if (tblDriver.getSelectionModel().isSelected(getIndex())) {
+                    setStyle("-fx-background-color: lightblue;");
                 } else {
                     setStyle("");
                 }
@@ -70,6 +76,8 @@ public class DriverController implements Initializable {
     public void refresh() throws SQLException {
         statusLabel();
         loadTableData();
+        getAllTrainingCount();
+        getPercentageTraining();
 
     }
 
@@ -108,6 +116,89 @@ public class DriverController implements Initializable {
     }
 
 
+
+    TrainingModel trainingModel = new TrainingModel();
+    public void getAllTrainingCount() throws SQLException {
+
+        lblTrainingLicenses.setText(String.valueOf(trainingModel.getAllTrainingCount()));
+    }
+
+    public void getPercentageTraining() throws SQLException {
+
+
+        int allTrainingCount = trainingModel.getAllTrainingCount();
+        int driverCount = Integer.parseInt(driverModel.driverCount());
+
+        double percentage = ((double) allTrainingCount / driverCount) * 100;
+        percentage = Math.round(percentage * 100.0) / 100.0;
+        System.out.println(percentage);
+
+        lblPercentageTraining.setText(String.valueOf(percentage)+"%");
+    }
+
+
+
+
+
     public void onClickTable(MouseEvent mouseEvent) {
+
+        DriverTM driverTM = tblDriver.getSelectionModel().getSelectedItem();
+        if (driverTM != null) {
+            searchField.setText( driverTM.getDrivingLicNum());
+            System.out.println( driverTM.getDrivingLicNum());
+        }
+    }
+
+    public void ExportBtnOnAction(ActionEvent actionEvent) {
+
+        System.out.println("ll");
+        DriverTM driverTM = tblDriver.getSelectionModel().getSelectedItem();
+
+        if (driverTM == null) {
+            return;
+        }
+
+        try {
+            JasperReport jasperReport = JasperCompileManager.compileReport(
+                    getClass()
+                            .getResourceAsStream("/Report/DriverViolationSummaryReport.jrxml"
+                            ));
+
+            Connection connection = DBConnection.getInstance().getConnection();
+
+            Map<String, Object> parameters = new HashMap<>();
+
+            parameters.put("p_driverID", driverTM.getDrivingLicNum());
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(
+                    jasperReport,
+                    parameters,
+                    connection
+            );
+            System.out.println(jasperPrint);
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (Exception e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Fail to generate report...!").show();
+//           e.printStackTrace();
+        }
+    }
+
+
+    public void searchFieldBtnOnAction(ActionEvent actionEvent) {
+
+        String DriverID = searchField.getText().trim();
+        System.out.println(DriverID);
+
+
+        for (DriverTM driverTM : tblDriver.getItems()) {
+            if (driverTM.getDrivingLicNum().equals(DriverID)) {
+                tblDriver.getSelectionModel().select(driverTM);
+                tblDriver.scrollTo(driverTM);
+                return;
+
+            }
+
+        }
     }
 }

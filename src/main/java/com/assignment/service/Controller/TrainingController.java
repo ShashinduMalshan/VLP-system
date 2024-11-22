@@ -27,6 +27,7 @@ public class TrainingController implements Initializable {
     public TableColumn <TrainingTM,String> colDrivingLicNum;
     public TextField searchField;
     public Button CompleteTrainingBtn;
+    public Button searchFieldBtn;
 
 
     @Override
@@ -36,6 +37,21 @@ public class TrainingController implements Initializable {
         colTimeDuration.setCellValueFactory(new PropertyValueFactory<>("duration"));
         colPoints.setCellValueFactory(new PropertyValueFactory<>("totalPoint"));
         colDrivingLicNum.setCellValueFactory(new PropertyValueFactory<>("driverId"));
+
+        tblTraining.setRowFactory(tv -> new TableRow<TrainingTM>() {
+            @Override
+            protected void updateItem(TrainingTM item, boolean empty) {
+                super.updateItem(item, empty);
+
+                // Clear any previous styles
+                setStyle("");
+
+                if (item != null && tblTraining.getSelectionModel().isSelected(getIndex())) {
+                    // Apply a background color for the selected row
+                    setStyle("-fx-background-color: lightblue;");
+                }
+            }
+        });
 
         try {
             loadTable();
@@ -119,8 +135,26 @@ public class TrainingController implements Initializable {
             totalPoint = trainingTM.getTotalPoint();
             drivingLicNum = trainingTM.getDriverId();
 
+            searchField.setText(drivingLicNum);
+
         }
     }
 
 
+    public void searchFieldBtnOnAction(ActionEvent actionEvent) {
+
+        String DriverID = searchField.getText().trim();
+        System.out.println(DriverID);
+
+
+        for (TrainingTM trainingTM : tblTraining.getItems()) {
+            if (trainingTM.getDriverId().equals(DriverID)) {
+                tblTraining.getSelectionModel().select(trainingTM);
+                tblTraining.scrollTo(trainingTM);
+                return;
+
+            }
+
+        }
+    }
 }

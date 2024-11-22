@@ -1,9 +1,6 @@
 package com.assignment.service.Controller;
 
-import com.assignment.service.Dto.PoliceOfficerDto;
-import com.assignment.service.Dto.PoliceOfficerTM;
-import com.assignment.service.Dto.SuspendLicDto;
-import com.assignment.service.Dto.SuspendLicTM;
+import com.assignment.service.Dto.*;
 import com.assignment.service.Model.PoliceOfficerModel;
 import com.assignment.service.Model.SuspendLicModel;
 import javafx.collections.FXCollections;
@@ -34,6 +31,7 @@ public class PoliceOfficersController implements Initializable {
     public TableColumn <PoliceOfficerTM,String> colDutyLocation;
     public Button resetBtn;
     public Button deleteBtn;
+    public Button searchFieldBtn;
 
 
     @Override
@@ -52,6 +50,21 @@ public class PoliceOfficersController implements Initializable {
         colOfficerId.setCellValueFactory(new PropertyValueFactory<>("OfficerId"));
         colOfficerName.setCellValueFactory(new PropertyValueFactory<>("Name"));
         colDutyLocation.setCellValueFactory(new PropertyValueFactory<>("location"));
+
+        tblOfficerDetails.setRowFactory(tv -> new TableRow<PoliceOfficerTM>() {
+            @Override
+            protected void updateItem(PoliceOfficerTM item, boolean empty) {
+                super.updateItem(item, empty);
+
+                // Clear any previous styles
+                setStyle("");
+
+                if (item != null && tblOfficerDetails.getSelectionModel().isSelected(getIndex())) {
+                    // Apply a background color for the selected row
+                    setStyle("-fx-background-color: lightblue;");
+                }
+            }
+        });
 
         try {
             loadTable();
@@ -153,6 +166,7 @@ public class PoliceOfficersController implements Initializable {
                 txtOfficerName.setText(policeOfficerTM.getName());
                 txtLocation.setText(policeOfficerTM.getLocation());
 
+                searchField.setText(policeOfficerTM.getOfficerId());
             }
         }
 
@@ -165,5 +179,23 @@ public class PoliceOfficersController implements Initializable {
 
     public void resetBtnOnAction(ActionEvent actionEvent) throws SQLException {
         reset();
+    }
+
+
+    public void searchFieldBtnAction(ActionEvent actionEvent) {
+
+        String OfficerID = searchField.getText().trim();
+        System.out.println(OfficerID);
+
+
+        for (PoliceOfficerTM policeOfficerTM : tblOfficerDetails.getItems()) {
+            if (policeOfficerTM.getOfficerId().equals(OfficerID)) {
+                tblOfficerDetails.getSelectionModel().select(policeOfficerTM);
+                tblOfficerDetails.scrollTo(policeOfficerTM);
+                return;
+
+            }
+
+        }
     }
 }

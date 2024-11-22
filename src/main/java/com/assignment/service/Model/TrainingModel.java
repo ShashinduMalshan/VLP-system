@@ -123,6 +123,16 @@ public class TrainingModel {
                 "update Driver set total_point = 0 where driving_lic_num = ?", driverId);
     }
 
+    public int getAllTrainingCount() throws SQLException {
+
+        ResultSet resultSet = CrudUtil.execute("SELECT count(*) FROM Training");
+        while (resultSet.next()) {
+           return resultSet.getInt(1);
+        }
+        return 0;
+    }
+
+
 
     }
 

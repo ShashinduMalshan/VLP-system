@@ -27,6 +27,26 @@ public class TrafficViolationLawModel {
         return trafficViolationLawDtos;
     }
 
+    public String getAllLawCount() throws SQLException {
+
+        String count ="";
+        ResultSet resultSet = CrudUtil.execute("select count(*)from TrafficViolationLaw");
+
+        while (resultSet.next()) {
+            count = String.valueOf(resultSet.getInt(1));
+        }
+    return count;
+    }
+
+    public int HighViolationLaw() throws SQLException {
+            ResultSet resultSet = CrudUtil.execute("SELECT count(*) FROM TrafficViolationLaw WHERE law_point >= 80");
+
+            while (resultSet.next()) {
+               return resultSet.getInt(1);
+            }
+        return 0;
+    }
+
 
 
 }

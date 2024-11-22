@@ -35,12 +35,12 @@
                      <children>
                         <HBox alignment="CENTER_LEFT" spacing="15">
                            <children>
-                              <TextField fx:id="searchField" prefHeight="40" prefWidth="300" promptText="Search by license number, name, or email" style="-fx-background-radius: 20; -fx-padding: 10;">
+                              <TextField fx:id="searchField" prefHeight="40" prefWidth="300" promptText="Search by license number" style="-fx-background-radius: 20; -fx-padding: 10;">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <Button mnemonicParsing="false" prefHeight="40" prefWidth="100" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 20;" text="Search">
+                              <Button fx:id="searchFieldBtn" mnemonicParsing="false" onAction="#searchFieldOnAction" prefHeight="40" prefWidth="100" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 20;" text="Search">
                                  <font>
                                     <Font size="14.0" />
                                  </font>

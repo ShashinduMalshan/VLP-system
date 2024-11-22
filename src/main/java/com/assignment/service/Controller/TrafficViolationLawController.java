@@ -2,14 +2,15 @@ package com.assignment.service.Controller;
 
 import com.assignment.service.Dto.TrafficViolationLawDto;
 import com.assignment.service.Dto.TrafficViolationLawTM;
+import com.assignment.service.Dto.TrainingTM;
 import com.assignment.service.Model.TrafficViolationLawModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -18,12 +19,16 @@ import java.util.ResourceBundle;
 
 public class TrafficViolationLawController implements Initializable {
     public Label lawAnc;
-    public TableView lawTable;
-
-
+    public TableView <TrafficViolationLawTM>lawTable;
     public TableColumn <TrafficViolationLawTM ,String> colLawId;
     public TableColumn <TrafficViolationLawTM ,String>  colDescription;
     public TableColumn <TrafficViolationLawTM , Integer>  colLawPoint;
+    public TextField searchField;
+    public Button searchFieldBtn;
+    public String lawId;
+    public Label lblTotalLaws;
+    public Label lblHighPoint;
+    public Label lblAvgPoints;
 
 
     @Override
@@ -32,9 +37,26 @@ public class TrafficViolationLawController implements Initializable {
         colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
         colLawPoint.setCellValueFactory(new PropertyValueFactory<>("lawPoints"));
 
+        lawTable.setRowFactory(tv -> new TableRow<TrafficViolationLawTM>() {
+            @Override
+            protected void updateItem(TrafficViolationLawTM item, boolean empty) {
+                super.updateItem(item, empty);
+
+                // Clear any previous styles
+                setStyle("");
+
+                if (item != null && lawTable.getSelectionModel().isSelected(getIndex())) {
+                    // Apply a background color for the selected row
+                    setStyle("-fx-background-color: lightblue;");
+                }
+            }
+        });
+
+
         try {
-            System.out.println("initialize");
             loadLawTableData();
+            getAllLawCount();
+            HighViolationLaw();
         }
         catch (SQLException e) {
             e.printStackTrace();
@@ -62,5 +84,49 @@ public class TrafficViolationLawController implements Initializable {
     }
 
 
+    public void searchFieldBtnOnAction(ActionEvent actionEvent) throws SQLException {
+            String lawId = searchField.getText().trim();
+            System.out.println(lawId);
 
+
+            for (TrafficViolationLawTM trafficViolationLawTM : lawTable.getItems()) {
+                if (trafficViolationLawTM.getLawId().equals(lawId)) {
+                    lawTable.getSelectionModel().select(trafficViolationLawTM);
+                    lawTable.scrollTo(trafficViolationLawTM);
+                    return;
+
+                }
+
+        }
+
+    }
+    String allLawCount;
+    public void getAllLawCount () throws SQLException {
+         allLawCount = trafficViolationLawModel.getAllLawCount();
+         lblTotalLaws.setText(allLawCount);
+    }
+
+    public void HighViolationLaw() throws SQLException {
+        lblHighPoint.setText(String.valueOf(trafficViolationLawModel.HighViolationLaw()));
+    }
+
+
+
+    public void OnClicked(MouseEvent mouseEvent) {
+
+        TrafficViolationLawTM trafficViolationLawTM = (TrafficViolationLawTM) lawTable.getSelectionModel().getSelectedItem();
+        if (trafficViolationLawTM != null) {
+            lawId = trafficViolationLawTM.getLawId();
+            searchField.setText(lawId);
+            System.out.println(lawId);
+        }
+
+        int selectedPoint = lawTable.getSelectionModel().getSelectedItem().getLawPoints();
+        System.out.println(selectedPoint);
+        double average = (double) 150 /selectedPoint;
+        String formattedAverage = String.format("%.2f", average); // Formats to 2 decimal places
+        System.out.println(average);
+
+        lblAvgPoints.setText(String.valueOf(formattedAverage));
+    }
 }

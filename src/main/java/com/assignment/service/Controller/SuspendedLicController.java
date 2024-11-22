@@ -28,6 +28,7 @@ public class SuspendedLicController implements Initializable {
     public TableView <SuspendLicTM>tblSuspendedLic;
     public Button addTrainingBtn;
     public TextField searchField;
+    public Button searchFieldBtn;
     TrainingModel trainingModel = new TrainingModel();
 
     @Override
@@ -54,6 +55,8 @@ public class SuspendedLicController implements Initializable {
                         setStyle("");
                     } else if (allTrainingDID.contains(item.getDriverId())) {
                         setStyle("-fx-background-color: #A9DFBF;");
+                    } else if (tblSuspendedLic.getSelectionModel().isSelected(getIndex())) {
+                        setStyle("-fx-background-color: lightblue;");
                     } else {
                         setStyle("");
                     }
@@ -136,7 +139,24 @@ public class SuspendedLicController implements Initializable {
             driverName = suspendLicTM.getDriverName();
             totalPoint = suspendLicTM.getPoints();
         }
+        searchField.setText(drivingLicNum);
     }
 
 
+    public void searchFieldOnAction(ActionEvent actionEvent) {
+
+        String DriverId = searchField.getText().trim();
+        System.out.println(DriverId);
+
+
+        for (SuspendLicTM suspendLicTM : tblSuspendedLic.getItems()) {
+            if (suspendLicTM.getDriverId().equals(DriverId)) {
+                tblSuspendedLic.getSelectionModel().select(suspendLicTM);
+                tblSuspendedLic.scrollTo(suspendLicTM);
+                return;
+
+            }
+
+        }
+    }
 }

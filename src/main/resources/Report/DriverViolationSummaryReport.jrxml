@@ -1,0 +1,127 @@
+<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0-b478feaa9aab4375eba71de77b4ca138ad2f62aa  -->
+<jasperReport name="DriverViolationSummaryReport" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d09b3600-cf1d-43e3-b8a2-a48e60a27ffc">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="VPSDBConnection"/>
+	<parameter name="p_driverID" class="java.lang.String"/>
+	<query language="SQL"><![CDATA[    select driving_lic_num,revenue_license_number,name,email,location,VP.violation_date,VP.violation_time,VP.law_id,TVL.description from Driver join  ViolationPoint VP on Driver.driving_lic_num = VP.driver_license_number join TrafficViolationLaw TVL on TVL.law_id = VP.law_id where driving_lic_num =$P{p_driverID}]]></query>
+	<field name="driving_lic_num" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="driving_lic_num"/>
+		<property name="com.jaspersoft.studio.field.label" value="driving_lic_num"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Driver"/>
+	</field>
+	<field name="revenue_license_number" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="revenue_license_number"/>
+		<property name="com.jaspersoft.studio.field.label" value="revenue_license_number"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ViolationPoint"/>
+	</field>
+	<field name="name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Driver"/>
+	</field>
+	<field name="email" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="email"/>
+		<property name="com.jaspersoft.studio.field.label" value="email"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Driver"/>
+	</field>
+	<field name="location" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="location"/>
+		<property name="com.jaspersoft.studio.field.label" value="location"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ViolationPoint"/>
+	</field>
+	<field name="violation_date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="violation_date"/>
+		<property name="com.jaspersoft.studio.field.label" value="violation_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ViolationPoint"/>
+	</field>
+	<field name="violation_time" class="java.sql.Time">
+		<property name="com.jaspersoft.studio.field.name" value="violation_time"/>
+		<property name="com.jaspersoft.studio.field.label" value="violation_time"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ViolationPoint"/>
+	</field>
+	<field name="law_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="law_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="law_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ViolationPoint"/>
+	</field>
+	<field name="description" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="description"/>
+		<property name="com.jaspersoft.studio.field.label" value="description"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="TrafficViolationLaw"/>
+	</field>
+	<background splitType="Stretch"/>
+	<title height="40" splitType="Stretch">
+		<element kind="staticText" uuid="1096b9fd-da04-4153-ae53-da62c0f692fa" x="-11" y="0" width="581" height="40" rotation="None" fontName="SansSerif" fontSize="15.0" bold="true" hTextAlign="Center" vTextAlign="Top">
+			<text><![CDATA[Driver Violation Summary Report]]></text>
+		</element>
+	</title>
+	<pageHeader height="103" splitType="Stretch">
+		<element kind="staticText" uuid="01b8f4b3-a5c3-4693-bd52-ca1930388c73" x="0" y="30" width="80" height="19">
+			<text><![CDATA[Driver ID        :]]></text>
+		</element>
+		<element kind="staticText" uuid="6ed195bf-4475-4e7c-b984-036914b03ff3" x="0" y="50" width="80" height="19">
+			<text><![CDATA[Driver Name : ]]></text>
+		</element>
+		<element kind="staticText" uuid="19a4e699-2ac2-473b-b3fc-cc3039eccd96" x="0" y="69" width="80" height="19">
+			<text><![CDATA[Driver Email  :]]></text>
+		</element>
+		<element kind="textField" uuid="c6626ded-c57a-4ff6-a097-5ed8fd987513" x="80" y="30" width="100" height="20">
+			<expression><![CDATA[$F{driving_lic_num}]]></expression>
+		</element>
+		<element kind="textField" uuid="47fcf393-f52d-443a-bc7e-87c0201912df" x="80" y="50" width="100" height="18">
+			<expression><![CDATA[$F{name}]]></expression>
+		</element>
+		<element kind="textField" uuid="336522a8-6402-4c66-bda9-40b821e5ea1f" x="80" y="69" width="290" height="18">
+			<expression><![CDATA[$F{email}]]></expression>
+		</element>
+	</pageHeader>
+	<columnHeader height="30" splitType="Stretch">
+		<element kind="staticText" uuid="930bac58-c0bb-4745-af2b-a16fbec9b443" x="0" y="0" width="90" height="30" hTextAlign="Center" vTextAlign="Top">
+			<text><![CDATA[Revenue license]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="858d47e6-e14f-4a12-a222-f7fbf4cfa699"/>
+		</element>
+		<element kind="staticText" uuid="4da42e28-ac38-465f-90cd-cb89347f3b7a" x="90" y="0" width="112" height="30" hTextAlign="Center" vTextAlign="Top">
+			<text><![CDATA[location]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5f42b9d9-caa8-4b8e-846f-fcbc6496d72c"/>
+		</element>
+		<element kind="staticText" uuid="39f6ed28-2791-4e9b-820d-0daa4dc6bccc" x="202" y="0" width="88" height="30" hTextAlign="Center" vTextAlign="Top">
+			<text><![CDATA[violation_date]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f46b1de3-cc1a-401f-8d0f-c02c20397bd0"/>
+		</element>
+		<element kind="staticText" uuid="454106e4-e74e-4bde-bb77-06091d85df3c" x="290" y="0" width="90" height="30" hTextAlign="Center" vTextAlign="Top">
+			<text><![CDATA[violation_time]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="27b76d5e-a214-4e03-a9aa-376fd53bfc6d"/>
+		</element>
+		<element kind="staticText" uuid="0b8871e7-caa5-41cd-9a1f-5f40113f6c05" x="380" y="0" width="175" height="30" hTextAlign="Center" vTextAlign="Top">
+			<text><![CDATA[description]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9cf55115-eb66-4ac3-aa5b-f4210a2dd4b8"/>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="19" splitType="Stretch">
+			<element kind="textField" uuid="3d183ebf-61d6-41c1-b917-16709cd7d1be" x="0" y="0" width="90" height="19" hTextAlign="Center">
+				<expression><![CDATA[$F{revenue_license_number}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="858d47e6-e14f-4a12-a222-f7fbf4cfa699"/>
+			</element>
+			<element kind="textField" uuid="2ec3a539-efd1-42a9-8fae-aa7b7d86699b" x="90" y="0" width="112" height="19" hTextAlign="Center">
+				<expression><![CDATA[$F{location}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5f42b9d9-caa8-4b8e-846f-fcbc6496d72c"/>
+			</element>
+			<element kind="textField" uuid="93adaf60-9de6-4556-9d87-0112ea6454d7" x="202" y="0" width="88" height="19" hTextAlign="Center">
+				<expression><![CDATA[$F{violation_date}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f46b1de3-cc1a-401f-8d0f-c02c20397bd0"/>
+			</element>
+			<element kind="textField" uuid="b762f04b-8c03-48db-b111-e9abcb5cb9c4" x="290" y="0" width="90" height="19" hTextAlign="Center">
+				<expression><![CDATA[$F{violation_time}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="27b76d5e-a214-4e03-a9aa-376fd53bfc6d"/>
+			</element>
+			<element kind="textField" uuid="03768eca-e411-460c-89f4-754684ac80ee" x="393" y="0" width="160" height="19" hTextAlign="Left">
+				<expression><![CDATA[$F{description}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9cf55115-eb66-4ac3-aa5b-f4210a2dd4b8"/>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>

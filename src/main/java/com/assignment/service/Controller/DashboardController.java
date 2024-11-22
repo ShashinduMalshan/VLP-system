@@ -4,6 +4,7 @@ import com.assignment.service.Dto.DateDto;
 import com.assignment.service.Dto.TopViolatedLawDto;
 import com.assignment.service.Dto.TopViolatedPointDto;
 import com.assignment.service.Model.DashboardModel;
+import com.assignment.service.Model.TrainingModel;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.LineChart;
@@ -27,6 +28,7 @@ public class DashboardController implements Initializable {
     public PieChart trafficDonutChart;
     public PieChart revenueDonutChart;
     public PieChart trafficSourceDonutChart;
+    public Label lblAllTrainingDrivers;
 
     DashboardModel dashboardModel = new DashboardModel();
 
@@ -39,6 +41,7 @@ public class DashboardController implements Initializable {
             addDataAreaChart();
             pieChart();//temp  ..................................
             addTopViolatedLawAndTopLawPoint();
+            setTrainingDriversCountLbl();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -127,6 +130,12 @@ public class DashboardController implements Initializable {
     
     private void setDriverCountLbl() throws SQLException {
        DriverCountlbl.setText(dashboardModel.driverCount());
+
+    }
+
+    TrainingModel trainingModel = new TrainingModel();
+    private void setTrainingDriversCountLbl() throws SQLException {
+       lblAllTrainingDrivers.setText(String.valueOf(trainingModel.getAllTrainingCount()));
 
     }
 

@@ -6,6 +6,7 @@ module com.assignment.vehiclelicensepointsys.service.vehiclelicensepointsystem {
     requires com.google.protobuf;
     requires mysql.connector.j;
     requires java.mail;
+    requires net.sf.jasperreports.core;
 
     opens com.assignment.service.Controller to javafx.fxml;
     opens com.assignment.service.Dto to javafx.base;

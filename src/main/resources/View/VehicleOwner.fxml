@@ -43,11 +43,12 @@
                         <HBox alignment="CENTER_LEFT" spacing="10" styleClass="section-header">
                            <Label text="Vehicle Owner Information" />
                            <Region HBox.hgrow="ALWAYS" />
+                           <Button fx:id="ExportBtn" alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#ExportBtnOnAction" styleClass="export-button" stylesheets="@../CSS/ExportBtn.css" text="Export" />
                         </HBox>
                         <HBox prefHeight="34.0" prefWidth="1080.0">
                            <children>
-      
-                              <Separator prefHeight="0.0" prefWidth="1139.0" styleClass="custom-separator" />
+
+                              <Separator prefHeight="0.0" prefWidth="1139.0" styleClass="custom-separator" HBox.hgrow="ALWAYS" />
                            </children>
                         </HBox>
 

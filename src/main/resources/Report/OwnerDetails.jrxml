@@ -1,0 +1,148 @@
+<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0-b478feaa9aab4375eba71de77b4ca138ad2f62aa  -->
+<jasperReport name="OwnerDetails" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d76e951e-80af-47a2-a477-bad5b29eeabc">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ownerDetails"/>
+	<parameter name="P_Lic" class="java.lang.String"/>
+	<query language="SQL"><![CDATA[    SELECT RL.lic_num,RL.date_of_issue,RL.expires_date,name,email,address,mobile_no,V.model,V.brand_name FROM VehicleOwner
+                      JOIN Revenue_Lic RL ON VehicleOwner.owner_id = RL.owner_id
+                      JOIN Vehicle V ON V.vehicle_id = VehicleOwner.vehicle_id
+    WHERE V.vehicle_id = $P{P_Lic};
+
+    ]]></query>
+	<field name="lic_num" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="lic_num"/>
+		<property name="com.jaspersoft.studio.field.label" value="lic_num"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Revenue_Lic"/>
+	</field>
+	<field name="date_of_issue" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="date_of_issue"/>
+		<property name="com.jaspersoft.studio.field.label" value="date_of_issue"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Revenue_Lic"/>
+	</field>
+	<field name="expires_date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="expires_date"/>
+		<property name="com.jaspersoft.studio.field.label" value="expires_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Revenue_Lic"/>
+	</field>
+	<field name="name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="VehicleOwner"/>
+	</field>
+	<field name="email" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="email"/>
+		<property name="com.jaspersoft.studio.field.label" value="email"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="VehicleOwner"/>
+	</field>
+	<field name="address" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="address"/>
+		<property name="com.jaspersoft.studio.field.label" value="address"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="VehicleOwner"/>
+	</field>
+	<field name="mobile_no" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="mobile_no"/>
+		<property name="com.jaspersoft.studio.field.label" value="mobile_no"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="VehicleOwner"/>
+	</field>
+	<field name="model" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="model"/>
+		<property name="com.jaspersoft.studio.field.label" value="model"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Vehicle"/>
+	</field>
+	<field name="brand_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="brand_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="brand_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Vehicle"/>
+	</field>
+	<background splitType="Stretch"/>
+	<title height="79" splitType="Stretch">
+		<element kind="staticText" uuid="fbbb2483-7a65-47b4-9d0a-7efcaff199f1" x="155" y="0" width="245" height="30" fontSize="17.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[ Owner Profile Summary]]></text>
+		</element>
+	</title>
+	<pageHeader height="91" splitType="Stretch">
+		<element kind="staticText" uuid="17db4d52-d792-494e-9bef-0a74dfe1207f" x="-10" y="10" width="50" height="20">
+			<text><![CDATA[Name     :  ]]></text>
+		</element>
+		<element kind="staticText" uuid="0d72be8f-2d9a-4cda-97d5-b06af1defb39" x="203" y="10" width="50" height="20">
+			<text><![CDATA[Lic Num : ]]></text>
+		</element>
+		<element kind="staticText" uuid="d9e6c993-97e4-4a8e-90be-ccbdd4fa51d9" x="-10" y="40" width="50" height="20">
+			<text><![CDATA[Email      : ]]></text>
+		</element>
+		<element kind="staticText" uuid="9c2007d2-2056-4e5a-b186-086f8a2dc285" x="203" y="40" width="50" height="20">
+			<text><![CDATA[Address : ]]></text>
+		</element>
+		<element kind="staticText" uuid="cb69432a-6434-4747-a191-f455938b371c" x="400" y="10" width="70" height="20">
+			<text><![CDATA[Mobile Num : ]]></text>
+		</element>
+		<element kind="textField" uuid="fc80eb0d-2669-4082-a6f0-924778d57079" x="40" y="10" width="100" height="20">
+			<expression><![CDATA[$F{name}]]></expression>
+		</element>
+		<element kind="textField" uuid="797053df-9141-48aa-8baf-99122bcba264" x="40" y="40" width="140" height="20">
+			<expression><![CDATA[$F{email}]]></expression>
+		</element>
+		<element kind="textField" uuid="2e36086f-05a9-48be-8fbe-b1c1b9f72bc4" x="253" y="40" width="140" height="20">
+			<expression><![CDATA[$F{address}]]></expression>
+		</element>
+		<element kind="textField" uuid="1b16c8c5-b1fa-47a8-875b-04f3d051b9e6" x="470" y="10" width="100" height="20">
+			<expression><![CDATA[$F{mobile_no}]]></expression>
+		</element>
+		<element kind="textField" uuid="d48bff54-7b1a-4ddb-a400-1cf6db7b1ac9" x="253" y="10" width="100" height="20">
+			<expression><![CDATA[$F{lic_num}]]></expression>
+		</element>
+	</pageHeader>
+	<columnHeader height="5" splitType="Stretch">
+		<element kind="staticText" uuid="0addf5d5-0a12-4c6c-8c90-ddf231ae8bec" x="0" y="0" width="185" height="5">
+			<text><![CDATA[date_of_issue]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="73dd6083-fc70-4e3b-abe6-909aa02c2d08"/>
+		</element>
+		<element kind="staticText" uuid="46e693da-a5af-46c2-bd7c-b2f8189fea98" x="185" y="0" width="185" height="5">
+			<text><![CDATA[expires_date]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e13bb571-c7a4-4423-89fe-adc9bde793fd"/>
+		</element>
+		<element kind="staticText" uuid="bfb911f7-e1c4-4d5e-9905-485957df3a43" x="253" y="0" width="100" height="5">
+			<text><![CDATA[model]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1e1b6465-eae0-4d5f-aacd-7417835b9cd7"/>
+		</element>
+		<element kind="staticText" uuid="e54504a6-43f8-4f42-a0cd-c0cc7859f51f" x="277" y="0" width="100" height="5">
+			<text><![CDATA[brand_name]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="eef11261-c5f9-48b5-8202-21efe23d7673"/>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<element kind="staticText" uuid="ccce67c4-3df1-4a68-ba27-e9fbab95fce5" x="-10" y="30" width="80" height="20">
+				<text><![CDATA[Date Of Issue   :  ]]></text>
+			</element>
+			<element kind="staticText" uuid="44256c2e-3faa-4040-a6bb-cdb768afcd84" x="200" y="30" width="90" height="20">
+				<text><![CDATA[Expires Date    : ]]></text>
+			</element>
+			<element kind="staticText" uuid="7225a813-ad49-442c-bc84-35ebb13041ce" x="-10" y="60" width="86" height="20">
+				<text><![CDATA[Model             :  ]]></text>
+			</element>
+			<element kind="staticText" uuid="130525f3-cdde-423b-a667-089f406bfc9f" x="200" y="60" width="70" height="20">
+				<text><![CDATA[Brand Name : ]]></text>
+			</element>
+			<element kind="textField" uuid="a6044f27-13c9-4f12-b099-1eb7c268bddd" x="70" y="30" width="100" height="20">
+				<expression><![CDATA[$F{date_of_issue}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="73dd6083-fc70-4e3b-abe6-909aa02c2d08"/>
+			</element>
+			<element kind="textField" uuid="cd86a471-9cb1-4c93-9b46-3663cf37dad0" x="280" y="30" width="110" height="20">
+				<expression><![CDATA[$F{expires_date}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e13bb571-c7a4-4423-89fe-adc9bde793fd"/>
+			</element>
+			<element kind="textField" uuid="3d07fd99-2481-471a-9d65-8ae08db7429f" x="60" y="60" width="109" height="20">
+				<expression><![CDATA[$F{model}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1e1b6465-eae0-4d5f-aacd-7417835b9cd7"/>
+			</element>
+			<element kind="textField" uuid="d20eca16-0f71-4734-8666-b99a78677ed0" x="270" y="60" width="120" height="20">
+				<expression><![CDATA[$F{brand_name}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="eef11261-c5f9-48b5-8202-21efe23d7673"/>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>

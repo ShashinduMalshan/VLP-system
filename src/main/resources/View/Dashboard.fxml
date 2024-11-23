@@ -30,7 +30,7 @@
                     <Label fx:id="DriverCountlbl" alignment="CENTER" contentDisplay="CENTER" styleClass="stats-value" text="346" />
                 </VBox>
 
-                <!-- Line Chart -->
+                      <!-- Line Chart -->
                 <LineChart fx:id="lineChart" animated="true" createSymbols="false" prefHeight="150.0" prefWidth="500.0" styleClass="top-line-chart" HBox.hgrow="ALWAYS">
                     <xAxis>
                         <CategoryAxis side="BOTTOM" tickLabelFill="#2C3E50" />
@@ -108,16 +108,19 @@
 
             <!-- Progress Bar Items (repeated 11 times) -->
             <VBox alignment="CENTER" spacing="5.0" styleClass="progress-item">
-                <Label prefHeight="64.0" prefWidth="144.0" styleClass="progress-label" text="Target Completion " wrapText="true" />
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="64.0" prefWidth="224.0" text="Target Completion " wrapText="true">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
             </VBox>
 
             <!-- Repeat this VBox 10 more times with the same structure -->
             <!-- For brevity, I'll show one more as example -->
             <VBox spacing="5.0" styleClass="progress-item">
-                <Label styleClass="progress-label" text="Officer Id" wrapText="true" />
+                <Label fx:id="lblOfficer1" styleClass="progress-label" text="Officer Id" wrapText="true" />
                 <HBox alignment="CENTER_LEFT" spacing="10.0">
-                    <ProgressBar prefWidth="150.0" progress="0.75" styleClass="custom-progress-bar" />
-                    <Label minWidth="40.0" styleClass="progress-value" text="75%" />
+                    <ProgressBar fx:id="officer1" prefWidth="150.0" progress="0.75" styleClass="custom-progress-bar" />
+                    <Label fx:id="percentage1" minWidth="40.0" styleClass="progress-value" text="75%" />
                 </HBox>
             <VBox.margin>
                <Insets top="10.0" />
@@ -125,99 +128,99 @@
             </VBox>
          <VBox spacing="5.0" styleClass="progress-item">
             <children>
-               <Label styleClass="progress-label" text="Officer Id" wrapText="true" />
+               <Label fx:id="lblOfficer2" styleClass="progress-label" text="Officer Id" wrapText="true" />
                <HBox alignment="CENTER_LEFT" spacing="10.0">
                   <children>
-                     <ProgressBar prefWidth="150.0" progress="0.75" styleClass="custom-progress-bar" />
-                     <Label minWidth="40.0" styleClass="progress-value" text="75%" />
+                     <ProgressBar fx:id="officer2" prefWidth="150.0" progress="0.75" styleClass="custom-progress-bar" />
+                     <Label fx:id="Percentage2" minWidth="40.0" styleClass="progress-value" text="75%" />
                   </children>
                </HBox>
             </children>
          </VBox>
          <VBox spacing="5.0" styleClass="progress-item">
             <children>
-               <Label styleClass="progress-label" text="Officer Id" wrapText="true" />
+               <Label fx:id="lblOfficer3" styleClass="progress-label" text="Officer Id" wrapText="true" />
                <HBox alignment="CENTER_LEFT" spacing="10.0">
                   <children>
-                     <ProgressBar prefWidth="150.0" progress="0.75" styleClass="custom-progress-bar" />
-                     <Label minWidth="40.0" styleClass="progress-value" text="75%" />
+                     <ProgressBar fx:id="officer3" prefWidth="150.0" progress="0.75" styleClass="custom-progress-bar" />
+                     <Label fx:id="Percentage3" minWidth="40.0" styleClass="progress-value" text="75%" />
                   </children>
                </HBox>
             </children>
          </VBox>
          <VBox spacing="5.0" styleClass="progress-item">
             <children>
-               <Label styleClass="progress-label" text="Officer Id" wrapText="true" />
+               <Label fx:id="lblOfficer4" styleClass="progress-label" text="Officer Id" wrapText="true" />
                <HBox alignment="CENTER_LEFT" spacing="10.0">
                   <children>
-                     <ProgressBar prefWidth="150.0" progress="0.75" styleClass="custom-progress-bar" />
-                     <Label minWidth="40.0" styleClass="progress-value" text="75%" />
+                     <ProgressBar fx:id="officer4" prefWidth="150.0" progress="0.75" styleClass="custom-progress-bar" />
+                     <Label fx:id="Percentage4" minWidth="40.0" styleClass="progress-value" text="75%" />
                   </children>
                </HBox>
             </children>
          </VBox>
          <VBox spacing="5.0" styleClass="progress-item">
             <children>
-               <Label styleClass="progress-label" text="Officer Id" wrapText="true" />
+               <Label fx:id="lblOfficer5" styleClass="progress-label" text="Officer Id" wrapText="true" />
                <HBox alignment="CENTER_LEFT" spacing="10.0">
                   <children>
-                     <ProgressBar prefWidth="150.0" progress="0.75" styleClass="custom-progress-bar" />
-                     <Label minWidth="40.0" styleClass="progress-value" text="75%" />
+                     <ProgressBar fx:id="officer5" prefWidth="150.0" progress="0.75" styleClass="custom-progress-bar" />
+                     <Label fx:id="Percentage5" minWidth="40.0" styleClass="progress-value" text="75%" />
                   </children>
                </HBox>
             </children>
          </VBox>
          <VBox spacing="5.0" styleClass="progress-item">
             <children>
-               <Label styleClass="progress-label" text="Officer Id" wrapText="true" />
+               <Label fx:id="lblOfficer6" styleClass="progress-label" text="Officer Id" wrapText="true" />
                <HBox alignment="CENTER_LEFT" spacing="10.0">
                   <children>
-                     <ProgressBar prefWidth="150.0" progress="0.75" styleClass="custom-progress-bar" />
-                     <Label minWidth="40.0" styleClass="progress-value" text="75%" />
+                     <ProgressBar fx:id="officer6" prefWidth="150.0" progress="0.75" styleClass="custom-progress-bar" />
+                     <Label fx:id="Percentage6" minWidth="40.0" styleClass="progress-value" text="75%" />
                   </children>
                </HBox>
             </children>
          </VBox>
          <VBox spacing="5.0" styleClass="progress-item">
             <children>
-               <Label styleClass="progress-label" text="Officer Id" wrapText="true" />
+               <Label fx:id="lblOfficer7" styleClass="progress-label" text="Officer Id" wrapText="true" />
                <HBox alignment="CENTER_LEFT" spacing="10.0">
                   <children>
-                     <ProgressBar prefWidth="150.0" progress="0.75" styleClass="custom-progress-bar" />
-                     <Label minWidth="40.0" styleClass="progress-value" text="75%" />
+                     <ProgressBar fx:id="officer7" prefWidth="150.0" progress="0.75" styleClass="custom-progress-bar" />
+                     <Label fx:id="Percentage7" minWidth="40.0" styleClass="progress-value" text="75%" />
                   </children>
                </HBox>
             </children>
          </VBox>
          <VBox spacing="5.0" styleClass="progress-item">
             <children>
-               <Label styleClass="progress-label" text="Officer Id" wrapText="true" />
+               <Label fx:id="lblOfficer8" styleClass="progress-label" text="Officer Id" wrapText="true" />
                <HBox alignment="CENTER_LEFT" spacing="10.0">
                   <children>
-                     <ProgressBar prefWidth="150.0" progress="0.75" styleClass="custom-progress-bar" />
-                     <Label minWidth="40.0" styleClass="progress-value" text="75%" />
+                     <ProgressBar fx:id="officer8" prefWidth="150.0" progress="0.75" styleClass="custom-progress-bar" />
+                     <Label fx:id="Percentage8" minWidth="40.0" styleClass="progress-value" text="75%" />
                   </children>
                </HBox>
             </children>
          </VBox>
          <VBox spacing="5.0" styleClass="progress-item">
             <children>
-               <Label styleClass="progress-label" text="Officer Id" wrapText="true" />
+               <Label fx:id="lblOfficer9" styleClass="progress-label" text="Officer Id" wrapText="true" />
                <HBox alignment="CENTER_LEFT" spacing="10.0">
                   <children>
-                     <ProgressBar prefWidth="150.0" progress="0.75" styleClass="custom-progress-bar" />
-                     <Label minWidth="40.0" styleClass="progress-value" text="75%" />
+                     <ProgressBar fx:id="officer9" prefWidth="150.0" progress="0.75" styleClass="custom-progress-bar" />
+                     <Label fx:id="Percentage9" minWidth="40.0" styleClass="progress-value" text="75%" />
                   </children>
                </HBox>
             </children>
          </VBox>
          <VBox spacing="5.0" styleClass="progress-item">
             <children>
-               <Label styleClass="progress-label" text="Officer Id" wrapText="true" />
+               <Label fx:id="lblOfficer10" styleClass="progress-label" text="Officer Id" wrapText="true" />
                <HBox alignment="CENTER_LEFT" spacing="10.0">
                   <children>
-                     <ProgressBar prefWidth="150.0" progress="0.75" styleClass="custom-progress-bar" />
-                     <Label minWidth="40.0" styleClass="progress-value" text="75%" />
+                     <ProgressBar fx:id="officer10" prefWidth="150.0" progress="0.75" styleClass="custom-progress-bar" />
+                     <Label fx:id="Percentage10" minWidth="40.0" styleClass="progress-value" text="75%" />
                   </children>
                </HBox>
             </children>

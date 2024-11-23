@@ -46,6 +46,7 @@
                                  </font>
                               </Button>
                               <Region HBox.hgrow="ALWAYS" />
+                              <Button fx:id="ExportBtn" alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#ExportBtnOnAction" styleClass="export-button" stylesheets="@../CSS/ExportBtn.css" text="Export" />
                               <Button fx:id="addTrainingBtn" mnemonicParsing="false" onAction="#addTrainingBtnAcn" prefHeight="40" prefWidth="150" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 20;" text="Add Training">
                                  <font>
                                     <Font size="14.0" />

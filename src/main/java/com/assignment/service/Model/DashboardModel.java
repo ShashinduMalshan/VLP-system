@@ -1,6 +1,7 @@
 package com.assignment.service.Model;
 
 import com.assignment.service.Dto.DateDto;
+import com.assignment.service.Dto.ProgressbarDto;
 import com.assignment.service.Dto.TopViolatedLawDto;
 import com.assignment.service.Dto.TopViolatedPointDto;
 import com.assignment.service.util.CrudUtil;
@@ -40,12 +41,9 @@ public class DashboardModel {
         }
 
         return SuspendLicDateDtos;
-
-
     }
 
-
-    public ArrayList<TopViolatedLawDto> findTopViolatedLaw() throws SQLException {
+        public ArrayList<TopViolatedLawDto> findTopViolatedLaw() throws SQLException {
         ResultSet resultSet = CrudUtil.execute("SELECT law_id AS violation_id, COUNT(*) AS id_count FROM ViolationPoint GROUP BY violation_id ORDER BY violation_id ASC LIMIT 12;\n");
         ArrayList<TopViolatedLawDto> topViolatedLaws= new ArrayList<>();
 
@@ -82,14 +80,28 @@ public class DashboardModel {
     }
 
 
-
-
-
     public String driverCount() throws SQLException {
         ResultSet resultSet = CrudUtil.execute("SELECT COUNT(*) AS count FROM Driver");
         resultSet.next();
 
         return String.valueOf(resultSet.getInt(1));
+    }
+
+
+    public ArrayList<ProgressbarDto> getTargetCompletionCount () throws SQLException {
+
+        ArrayList<ProgressbarDto> progressbarDtos = new ArrayList<>();
+
+        ResultSet resultSet = CrudUtil.execute("SELECT PO.officer_id, COUNT(ViolationPoint.point_id) AS points_count FROM ViolationPoint JOIN PoliceOfficer PO ON PO.officer_id = ViolationPoint.officer_id GROUP BY PO.officer_id ORDER BY points_count DESC LIMIT 10");
+
+        while (resultSet.next()) {
+            ProgressbarDto progressbarDto = new ProgressbarDto(
+                    resultSet.getString(1),
+                    resultSet.getInt(2)
+            );
+            progressbarDtos.add(progressbarDto);
+        }
+        return progressbarDtos;
     }
 
 

@@ -1,5 +1,6 @@
 package com.assignment.service.Controller;
 
+import com.assignment.service.DBConnection.DBConnection;
 import com.assignment.service.Dto.*;
 import com.assignment.service.Model.SuspendLicModel;
 import com.assignment.service.Model.TrainingModel;
@@ -10,12 +11,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.net.URL;
+import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class SuspendedLicController implements Initializable {
 
@@ -29,6 +34,7 @@ public class SuspendedLicController implements Initializable {
     public Button addTrainingBtn;
     public TextField searchField;
     public Button searchFieldBtn;
+    public Button ExportBtn;
     TrainingModel trainingModel = new TrainingModel();
 
     @Override
@@ -158,5 +164,34 @@ public class SuspendedLicController implements Initializable {
             }
 
         }
+    }
+
+    public void ExportBtnOnAction(ActionEvent actionEvent) {
+
+
+        try {
+            JasperReport jasperReport = JasperCompileManager.compileReport(
+                    getClass()
+                            .getResourceAsStream("/Report/SuspendLic.jrxml"
+                            ));
+
+            Connection connection = DBConnection.getInstance().getConnection();
+
+            Map<String, Object> parameters = new HashMap<>();
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(
+                    jasperReport,
+                    parameters,
+                    connection
+            );
+            System.out.println(jasperPrint);
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (Exception e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Fail to generate report...!").show();
+//           e.printStackTrace();
+        }
+
+    
     }
 }

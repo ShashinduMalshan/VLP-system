@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="909.0" prefWidth="1183.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.service.Controller.HomePageController">
+<AnchorPane fx:id="MainAnc" prefHeight="909.0" prefWidth="1183.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.service.Controller.HomePageController">
    <children>
       <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <HBox prefHeight="884.0" prefWidth="1183.0" VBox.vgrow="ALWAYS">
@@ -110,6 +110,14 @@
                                     <Image url="@../image/icons8-landlord-48.png" />
                                  </image>
                               </ImageView>
+                           </graphic>
+                        </Label>
+                        <Label fx:id="logoutBtn" layoutX="40.0" layoutY="819.0" minWidth="106.0" onMouseClicked="#logoutBtnOnAnc" prefHeight="52.0" prefWidth="106.0" text="Logout">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
                         </Label>
                      </children>

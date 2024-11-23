@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
@@ -24,6 +25,8 @@ public class HomePageController implements Initializable {
     public Label TrainingDriversBtn;
     public Label VehicleOwnersBtn;
     public Label policeOfficersBtn;
+    public Label logoutBtn;
+    public AnchorPane MainAnc;
 
     public void navigateTo(String fxmlPath) {
 
@@ -78,5 +81,17 @@ public class HomePageController implements Initializable {
     }
 
 
+    public void logoutBtnOnAnc(MouseEvent mouseEvent) throws IOException {
+        MainAnc.getChildren().clear();
+        AnchorPane load = FXMLLoader.load(getClass().getResource("/View/loginPage.fxml"));
+        MainAnc.getChildren().add(load);
 
+        load.prefWidthProperty().bind(MainAnc.widthProperty());
+        load.prefHeightProperty().bind(MainAnc.heightProperty());
+
+        AnchorPane.setTopAnchor(load, 0.0);
+        AnchorPane.setRightAnchor(load, 0.0);
+        AnchorPane.setBottomAnchor(load, 0.0);
+        AnchorPane.setLeftAnchor(load, 0.0);
+    }
 }

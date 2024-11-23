@@ -1,0 +1,147 @@
+<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0-b478feaa9aab4375eba71de77b4ca138ad2f62aa  -->
+<jasperReport name="TrainingDriver" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5bd8fbe3-246c-46f6-9f65-cf917065c0ce">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Training Drivers"/>
+	<query language="SQL"><![CDATA[select  * from Training]]></query>
+	<field name="course_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="course_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="course_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Training"/>
+	</field>
+	<field name="name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Training"/>
+	</field>
+	<field name="duration" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="duration"/>
+		<property name="com.jaspersoft.studio.field.label" value="duration"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Training"/>
+	</field>
+	<field name="suspended_point" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="suspended_point"/>
+		<property name="com.jaspersoft.studio.field.label" value="suspended_point"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Training"/>
+	</field>
+	<field name="driver_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="driver_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="driver_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Training"/>
+	</field>
+	<background splitType="Stretch"/>
+	<title height="79" splitType="Stretch">
+		<element kind="staticText" uuid="97e0c6b5-1e1a-4411-aff5-5a970873f8ae" x="130" y="0" width="300" height="30" fontSize="15.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Training Drivers Information]]></text>
+		</element>
+	</title>
+	<pageHeader height="35" splitType="Stretch"/>
+	<columnHeader height="31" splitType="Stretch">
+		<element kind="staticText" uuid="bf2cba2e-d812-43dd-8d13-44c2e9f622ec" x="0" y="0" width="111" height="30" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Course Id]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="320bc0fe-ea12-4ba9-93f9-4e3405580236"/>
+			<box>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="df31eda8-9a5a-463a-849f-8807b4cbdf50" x="111" y="0" width="111" height="30" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Name]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="70ed1f02-58c6-4929-a244-b3302a65ea32"/>
+			<box>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="c66588df-84c3-47d5-89e2-68a49210cd26" x="222" y="0" width="111" height="30" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Duration]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="47680154-4527-4720-a7a7-62bfd5bbff99"/>
+			<box>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="a22945cb-366c-48e1-a66b-b78dae0e195b" x="333" y="0" width="111" height="30" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Suspended Point]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c9d86a58-61e5-4644-bb8d-c8da56f30808"/>
+			<box>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="a30fa359-43e3-46aa-b1e5-2012d9944c73" x="444" y="0" width="111" height="30">
+			<text><![CDATA[Driver Id]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5117c813-1ac7-40d1-87f3-32b15625bf8b"/>
+			<box>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<element kind="textField" uuid="c8eb9225-471b-48f9-bf8f-8de38d59a1b5" x="0" y="0" width="111" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{course_id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="320bc0fe-ea12-4ba9-93f9-4e3405580236"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="e2b037af-4308-416b-9afb-69c667809847" x="111" y="0" width="111" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{name}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="70ed1f02-58c6-4929-a244-b3302a65ea32"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="cda829cb-d8e2-4391-8244-f2bb65f94234" x="222" y="0" width="111" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{duration}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="47680154-4527-4720-a7a7-62bfd5bbff99"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="d5ebf58b-c99c-46de-9fde-3c8bd0f7c8a8" x="333" y="0" width="111" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{suspended_point}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c9d86a58-61e5-4644-bb8d-c8da56f30808"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="ddbb1dcf-6b7a-4bde-b53c-33f92a4ca539" x="444" y="0" width="111" height="30">
+				<expression><![CDATA[$F{driver_id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5117c813-1ac7-40d1-87f3-32b15625bf8b"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>

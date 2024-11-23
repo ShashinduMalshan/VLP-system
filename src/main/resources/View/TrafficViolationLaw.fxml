@@ -100,11 +100,6 @@
                             </font>
                         </Button>
                         <Region HBox.hgrow="ALWAYS" />
-                        <Button mnemonicParsing="false" prefHeight="40" prefWidth="150" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 20;" text="Add New Law">
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                        </Button>
                     </HBox>
                 </VBox>
             </HBox>

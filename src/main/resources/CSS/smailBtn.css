@@ -1,0 +1,19 @@
+.register-link-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #007bff;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-padding: 5 10;
+    -fx-border-color: transparent;
+    -fx-underline: false;
+    -fx-background-radius: 5;
+}
+
+.register-link-button:hover {
+    -fx-text-fill: #0056b3;
+    -fx-underline: true;
+}
+
+.register-link-button:pressed {
+    -fx-opacity: 0.7;
+}

@@ -1,5 +1,6 @@
 package com.assignment.service.Controller;
 
+import com.assignment.service.Model.UserModel;
 import com.assignment.service.util.CrudUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -20,16 +21,22 @@ public class loginPageController {
     public TextField usernameTxt;
     public TextField policeIdTxt;
     public Label loginLbl;
+    public Button RegisterPageButton;
 
     public void handleLogin(ActionEvent actionEvent) throws IOException, SQLException, ClassNotFoundException {
 
 
         String username = usernameTxt.getText();
         String password = passwordTxt.getText();
+        String policeId = policeIdTxt.getText();
 
-        if (authenticate(username,password)){
+        UserModel userModel = new UserModel();
+        if (authenticate(username,password,policeId)){
+
+
             loginPageAnc.getChildren().clear();
-            AnchorPane load = FXMLLoader.load(getClass().getResource("/View/ViolationPoint.fxml"));
+            loginPageAnc.setStyle("-fx-background-color:white");
+            AnchorPane load = FXMLLoader.load(getClass().getResource("/View/HomePage.fxml"));
             loginPageAnc.getChildren().add(load);
 
             load.prefWidthProperty().bind(loginPageAnc.widthProperty());
@@ -47,9 +54,9 @@ public class loginPageController {
 
 
 
-    public boolean authenticate(String username, String password) throws SQLException, ClassNotFoundException {
+    public boolean authenticate(String username, String password, String policeId) throws SQLException, ClassNotFoundException {
         try{
-            ResultSet result = CrudUtil.execute("SELECT * FROM User WHERE name = ? AND password = ?", username, password);
+            ResultSet result = CrudUtil.execute("SELECT * FROM User WHERE name = ? AND password = ? AND officer_id = ?", username, password, policeId);
 
 
             if (result.next()) {
@@ -71,5 +78,21 @@ public class loginPageController {
     }
 
 
+    public void navigateToRegisterPage(ActionEvent actionEvent) throws IOException {
 
+
+        loginPageAnc.getChildren().clear();
+        AnchorPane load = FXMLLoader.load(getClass().getResource("/View/Register.fxml"));
+        loginPageAnc.getChildren().add(load);
+
+        load.prefWidthProperty().bind(loginPageAnc.widthProperty());
+        load.prefHeightProperty().bind(loginPageAnc.heightProperty());
+
+        AnchorPane.setTopAnchor(load, 0.0);
+        AnchorPane.setRightAnchor(load, 0.0);
+        AnchorPane.setBottomAnchor(load, 0.0);
+        AnchorPane.setLeftAnchor(load, 0.0);
+
+
+    }
 }

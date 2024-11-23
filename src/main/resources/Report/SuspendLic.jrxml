@@ -1,0 +1,147 @@
+<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0-b478feaa9aab4375eba71de77b4ca138ad2f62aa  -->
+<jasperReport name="TrainingDriver" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5bd8fbe3-246c-46f6-9f65-cf917065c0ce">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Training Drivers"/>
+	<query language="SQL"><![CDATA[select  * from SuspendLic]]></query>
+	<field name="suspend_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="suspend_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="suspend_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SuspendLic"/>
+	</field>
+	<field name="driver_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="driver_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="driver_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SuspendLic"/>
+	</field>
+	<field name="time_duration" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="time_duration"/>
+		<property name="com.jaspersoft.studio.field.label" value="time_duration"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SuspendLic"/>
+	</field>
+	<field name="points" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="points"/>
+		<property name="com.jaspersoft.studio.field.label" value="points"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SuspendLic"/>
+	</field>
+	<field name="driver_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="driver_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="driver_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SuspendLic"/>
+	</field>
+	<background splitType="Stretch"/>
+	<title height="79" splitType="Stretch">
+		<element kind="staticText" uuid="97e0c6b5-1e1a-4411-aff5-5a970873f8ae" x="130" y="0" width="300" height="30" fontSize="15.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Suspension Summary of Drivers]]></text>
+		</element>
+	</title>
+	<pageHeader height="31" splitType="Stretch"/>
+	<columnHeader height="31" splitType="Stretch">
+		<element kind="staticText" uuid="155d8cea-d3f1-4688-b05e-7d6dc49cf5e0" x="0" y="1" width="111" height="30" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[suspend_id]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4d9098ed-7eb6-4e05-a8b7-14f4fc94a4cc"/>
+			<box>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="b7c144c8-89e2-4800-9c4b-b41f1bed6795" x="111" y="1" width="111" height="30" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[driver_name]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="89d77c34-f94c-4af6-aa5a-6b6990aa544b"/>
+			<box>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="d766e65f-04f4-488d-9437-e0a1d3b03c6d" x="222" y="1" width="111" height="30" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[time_duration]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="27ef496e-490b-4572-9a30-91a4aa21fe6e"/>
+			<box>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="e3ce262a-49d0-43f7-bd2a-47b69e22475c" x="333" y="1" width="111" height="30" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[points]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bd711258-fa0b-4837-bbf8-b5d18e3b519f"/>
+			<box>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="551cc6d2-9185-4e3d-a72a-7a6711ab20b4" x="444" y="1" width="111" height="30" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[driver_id]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5a3914a2-c1cb-4a8a-a895-9d5b08537453"/>
+			<box>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="43" splitType="Stretch">
+			<element kind="textField" uuid="fc3501e8-9608-4791-9405-e527c186e565" x="0" y="11" width="111" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{suspend_id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4d9098ed-7eb6-4e05-a8b7-14f4fc94a4cc"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="d94854b0-791c-4fab-9ddd-df7798f4ad9b" x="111" y="11" width="111" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{driver_name}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="89d77c34-f94c-4af6-aa5a-6b6990aa544b"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="2cc931be-1862-4523-b582-2abafb5dd20f" x="222" y="11" width="111" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{time_duration}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="27ef496e-490b-4572-9a30-91a4aa21fe6e"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="6e43ca69-7808-4c21-8567-cabae94d5214" x="333" y="11" width="111" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{points}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bd711258-fa0b-4837-bbf8-b5d18e3b519f"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="6e78b436-5299-4597-b27b-0ded4da5b473" x="444" y="11" width="111" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{driver_id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5a3914a2-c1cb-4a8a-a895-9d5b08537453"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="52" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>

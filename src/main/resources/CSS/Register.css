@@ -1,35 +1,35 @@
-.login-background {
-    -fx-background-color: linear-gradient(to bottom right, #2C3E50, #3498DB);
+.register-background {
+    -fx-background-color: linear-gradient(to bottom right, #2980B9, #6DB3F2);
 }
 
-.login-container {
+.register-container {
     -fx-background-color: rgba(255, 255, 255, 0.9);
     -fx-background-radius: 10;
     -fx-padding: 40;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);
 }
 
-.login-title {
-    -fx-text-fill: #2C3E50;
+.register-title {
+    -fx-text-fill: #2980B9;
     -fx-font-weight: bold;
 }
 
-.login-input {
+.register-input {
     -fx-background-radius: 5;
     -fx-border-radius: 5;
-    -fx-border-color: #3498DB;
+    -fx-border-color: #6DB3F2;
     -fx-padding: 10;
     -fx-font-size: 14px;
 }
 
-.login-button {
-    -fx-background-color: #3498DB;
+.register-button {
+    -fx-background-color: #6DB3F2;
     -fx-text-fill: white;
     -fx-background-radius: 5;
     -fx-font-size: 16px;
     -fx-padding: 10;
 }
 
-.login-button:hover {
+.register-button:hover {
     -fx-background-color: #2980B9;
 }

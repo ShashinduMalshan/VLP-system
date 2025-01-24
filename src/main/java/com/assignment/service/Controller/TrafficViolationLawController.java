@@ -1,9 +1,9 @@
 package com.assignment.service.Controller;
 
-import com.assignment.service.Dto.TrafficViolationLawDto;
-import com.assignment.service.Dto.TrafficViolationLawTM;
-import com.assignment.service.Dto.TrainingTM;
-import com.assignment.service.Model.TrafficViolationLawModel;
+import com.assignment.service.DAO.TrafficViolationLawDAO;
+import com.assignment.service.Model.TrafficViolationLawDto;
+import com.assignment.service.Model.TrafficViolationLawTM;
+import com.assignment.service.DAO.Impl.TrafficViolationLawImpl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -65,7 +65,7 @@ public class TrafficViolationLawController implements Initializable {
     }
 
 
-    TrafficViolationLawModel trafficViolationLawModel=new TrafficViolationLawModel();
+    TrafficViolationLawDAO trafficViolationLawModel=new TrafficViolationLawImpl();
     public void loadLawTableData() throws SQLException {
 
         ArrayList<TrafficViolationLawDto> trafficViolationLawDtos = trafficViolationLawModel.getAllViolationLaws();

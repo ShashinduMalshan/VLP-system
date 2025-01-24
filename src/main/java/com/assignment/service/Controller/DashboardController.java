@@ -1,11 +1,12 @@
 package com.assignment.service.Controller;
 
-import com.assignment.service.Dto.DateDto;
-import com.assignment.service.Dto.ProgressbarDto;
-import com.assignment.service.Dto.TopViolatedLawDto;
-import com.assignment.service.Dto.TopViolatedPointDto;
-import com.assignment.service.Model.DashboardModel;
-import com.assignment.service.Model.TrainingModel;
+import com.assignment.service.DAO.DashboardDAO;
+import com.assignment.service.Model.DateDto;
+import com.assignment.service.Model.ProgressbarDto;
+import com.assignment.service.Model.TopViolatedLawDto;
+import com.assignment.service.Model.TopViolatedPointDto;
+import com.assignment.service.DAO.Impl.DashboardImpl;
+import com.assignment.service.DAO.Impl.TrainingImpl;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.LineChart;
@@ -63,7 +64,7 @@ public class DashboardController implements Initializable {
     public Label Percentage10;
 
 
-    DashboardModel dashboardModel = new DashboardModel();
+    DashboardDAO dashboardModel = new DashboardImpl();
 
 
     @Override
@@ -210,9 +211,9 @@ public class DashboardController implements Initializable {
 
     }
 
-    TrainingModel trainingModel = new TrainingModel();
+    TrainingImpl trainingImpl = new TrainingImpl();
     private void setTrainingDriversCountLbl() throws SQLException {
-       lblAllTrainingDrivers.setText(String.valueOf(trainingModel.getAllTrainingCount()));
+       lblAllTrainingDrivers.setText(String.valueOf(trainingImpl.getAllTrainingCount()));
 
     }
 

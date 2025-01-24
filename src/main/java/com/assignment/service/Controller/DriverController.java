@@ -1,10 +1,11 @@
 package com.assignment.service.Controller;
 
+import com.assignment.service.DAO.DriverDAO;
 import com.assignment.service.DBConnection.DBConnection;
-import com.assignment.service.Dto.DriverDto;
-import com.assignment.service.Dto.DriverTM;
-import com.assignment.service.Model.DriverModel;
-import com.assignment.service.Model.TrainingModel;
+import com.assignment.service.Model.DriverDto;
+import com.assignment.service.Model.DriverTM;
+import com.assignment.service.DAO.Impl.DriverImpl;
+import com.assignment.service.DAO.Impl.TrainingImpl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -82,7 +83,7 @@ public class DriverController implements Initializable {
     }
 
 
-    DriverModel driverModel = new DriverModel();
+    DriverDAO driverModel = new DriverImpl();
 
     public void loadTableData() throws SQLException {
 
@@ -117,16 +118,16 @@ public class DriverController implements Initializable {
 
 
 
-    TrainingModel trainingModel = new TrainingModel();
+    TrainingImpl trainingImpl = new TrainingImpl();
     public void getAllTrainingCount() throws SQLException {
 
-        lblTrainingLicenses.setText(String.valueOf(trainingModel.getAllTrainingCount()));
+        lblTrainingLicenses.setText(String.valueOf(trainingImpl.getAllTrainingCount()));
     }
 
     public void getPercentageTraining() throws SQLException {
 
 
-        int allTrainingCount = trainingModel.getAllTrainingCount();
+        int allTrainingCount = trainingImpl.getAllTrainingCount();
         int driverCount = Integer.parseInt(driverModel.driverCount());
 
         double percentage = ((double) allTrainingCount / driverCount) * 100;

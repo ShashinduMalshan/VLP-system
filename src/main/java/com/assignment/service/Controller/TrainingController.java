@@ -1,9 +1,12 @@
 package com.assignment.service.Controller;
 
+import com.assignment.service.DAO.TrainingDAO;
 import com.assignment.service.DBConnection.DBConnection;
-import com.assignment.service.Dto.*;
-import com.assignment.service.Model.ReLicenceCompleteModel;
-import com.assignment.service.Model.TrainingModel;
+import com.assignment.service.DAO.Impl.ReLicenceCompleteImpl;
+import com.assignment.service.DAO.Impl.TrainingImpl;
+import com.assignment.service.Model.ReLicenceCompleteDto;
+import com.assignment.service.Model.TrainingDto;
+import com.assignment.service.Model.TrainingTM;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -68,8 +71,8 @@ public class TrainingController implements Initializable {
     }
 
 
-    TrainingModel trainingModel = new TrainingModel();
-    ReLicenceCompleteModel reLicenceCompleteModel = new ReLicenceCompleteModel();
+    TrainingDAO trainingModel = new TrainingImpl();
+    TrainingDAO reLicenceCompleteModel = new ReLicenceCompleteImpl();
     public void loadTable() throws SQLException {
 
         ArrayList<TrainingDto> trainingDtos = trainingModel.getAllTraining();

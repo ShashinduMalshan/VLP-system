@@ -9,6 +9,7 @@ module com.assignment.vehiclelicensepointsys.service.vehiclelicensepointsystem {
     requires net.sf.jasperreports.core;
 
     opens com.assignment.service.Controller to javafx.fxml;
-    opens com.assignment.service.Dto to javafx.base;
+    opens com.assignment.service.Model to javafx.base;
     exports com.assignment.service;
+    opens com.assignment.service.DAO to javafx.base;
 }

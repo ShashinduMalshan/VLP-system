@@ -1,10 +1,13 @@
 package com.assignment.service.Controller;
 
+import com.assignment.service.DAO.VehicleDAO;
 import com.assignment.service.DBConnection.DBConnection;
-import com.assignment.service.Dto.*;
-import com.assignment.service.Model.RevenueLicModel;
-import com.assignment.service.Model.VehicleModel;
-import com.assignment.service.Model.VehicleOwnerModel;
+import com.assignment.service.DAO.Impl.RevenueLicImpl;
+import com.assignment.service.DAO.Impl.VehicleImpl;
+import com.assignment.service.DAO.Impl.VehicleOwnerImpl;
+import com.assignment.service.Model.OwnersDto;
+import com.assignment.service.Model.RevenueLicDto;
+import com.assignment.service.Model.VehicleDto;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -35,9 +38,9 @@ public class VehicleOwnerController {
     public Button ExportBtn;
 
 
-    VehicleOwnerModel vehicleOwnerModel = new VehicleOwnerModel();
-    RevenueLicModel revenueLicModel = new RevenueLicModel();
-    VehicleModel vehicleModel = new VehicleModel();
+    VehicleDAO vehicleOwnerModel = new VehicleOwnerImpl();
+    VehicleDAO revenueLicModel = new RevenueLicImpl();
+    VehicleDAO vehicleModel = new VehicleImpl();
     public void SearchData(String vehicleId) throws SQLException {
 
         ArrayList<OwnersDto> ownerDetails = vehicleOwnerModel.getAllOwners(vehicleId);

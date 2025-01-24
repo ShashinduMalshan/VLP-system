@@ -1,10 +1,10 @@
 package com.assignment.service.Controller;
 
-import com.assignment.service.Dto.ViolationPointDto;
-import com.assignment.service.Dto.ViolationPointTM;
-import com.assignment.service.Model.DriverModel;
-import com.assignment.service.Model.SuspendLicModel;
-import com.assignment.service.Model.ViolationPointModel;
+import com.assignment.service.Model.ViolationPointDto;
+import com.assignment.service.Model.ViolationPointTM;
+import com.assignment.service.DAO.Impl.DriverImpl;
+import com.assignment.service.DAO.Impl.SuspendLicImpl;
+import com.assignment.service.DAO.Impl.ViolationPointImpl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -66,7 +66,7 @@ public class ViolationPointController implements Initializable {
         loadTableData();
         checkIsSuspend();//llllllllll
 
-         txtPointId.setText("");
+         txtPointId.setText(violationPointImpl.getNextOfficerId());
          txtDescription.setText("");
          txtLocation.setText("");
          txtOfficerID.setText("");
@@ -76,11 +76,11 @@ public class ViolationPointController implements Initializable {
 
     }
 
-    ViolationPointModel violationPointModel=new ViolationPointModel();
+    ViolationPointImpl violationPointImpl =new ViolationPointImpl();
 
     public void loadTableData() throws SQLException {
 
-        ArrayList<ViolationPointDto> ViolationPointDTOS = violationPointModel.getAllViolationPoints();
+        ArrayList<ViolationPointDto> ViolationPointDTOS = violationPointImpl.getAllViolationPoints();
         ObservableList<ViolationPointTM> violationPointTMS = FXCollections.observableArrayList();
 
         for (ViolationPointDto violationPointDto : ViolationPointDTOS) {
@@ -130,7 +130,7 @@ public class ViolationPointController implements Initializable {
                 lawId
         );
 
-    boolean isSaved = violationPointModel.saveViolationPoints(violationPointDto);
+    boolean isSaved = violationPointImpl.saveViolationPoints(violationPointDto);
         if (isSaved) {
             checkIsSuspend();// id eka suspend ekakda balanawa
             refreshPage();
@@ -142,8 +142,8 @@ public class ViolationPointController implements Initializable {
 
 
     }
-    SuspendLicModel suspendLicModel = new SuspendLicModel();
-    DriverModel driverModel = new DriverModel();
+    SuspendLicImpl suspendLicImpl = new SuspendLicImpl();
+    DriverImpl driverModel = new DriverImpl();
 
     public void checkIsSuspend() throws SQLException {
 
@@ -151,7 +151,7 @@ public class ViolationPointController implements Initializable {
         ArrayList<String> limitPassedIDs = driverModel.checkSuspendId();
 
             System.out.println("limitPassedIDs " + limitPassedIDs);
-            suspendLicModel.checkAllSuspendedIds(limitPassedIDs);
+            suspendLicImpl.checkAllSuspendedIds(limitPassedIDs);
 
     }
 

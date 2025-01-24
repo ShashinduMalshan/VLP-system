@@ -1,6 +1,6 @@
 package com.assignment.service.Controller;
 
-import com.assignment.service.Model.UserModel;
+import com.assignment.service.DAO.Impl.UserImpl;
 import com.assignment.service.util.CrudUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -30,7 +30,7 @@ public class loginPageController {
         String password = passwordTxt.getText();
         String policeId = policeIdTxt.getText();
 
-        UserModel userModel = new UserModel();
+        UserImpl userImpl = new UserImpl();
         if (authenticate(username,password,policeId)){
 
 

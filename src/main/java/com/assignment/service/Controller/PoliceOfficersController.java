@@ -1,8 +1,9 @@
 package com.assignment.service.Controller;
 
-import com.assignment.service.Dto.*;
-import com.assignment.service.Model.PoliceOfficerModel;
-import com.assignment.service.Model.SuspendLicModel;
+import com.assignment.service.DAO.PoliceOfficerDAO;
+import com.assignment.service.DAO.Impl.PoliceOfficerImpl;
+import com.assignment.service.Model.PoliceOfficerDto;
+import com.assignment.service.Model.PoliceOfficerTM;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -74,7 +75,7 @@ public class PoliceOfficersController implements Initializable {
     }
 
 
-    PoliceOfficerModel  policeOfficerModel = new PoliceOfficerModel();
+    PoliceOfficerDAO policeOfficerModel = new PoliceOfficerImpl();
     public void loadTable() throws SQLException {
 
         ArrayList<PoliceOfficerDto> policeOfficerDtos = policeOfficerModel.getAllOfficers();

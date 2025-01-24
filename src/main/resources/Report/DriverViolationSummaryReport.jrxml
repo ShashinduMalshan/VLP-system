@@ -76,23 +76,23 @@
 		</element>
 	</pageHeader>
 	<columnHeader height="30" splitType="Stretch">
-		<element kind="staticText" uuid="930bac58-c0bb-4745-af2b-a16fbec9b443" x="0" y="0" width="90" height="30" hTextAlign="Center" vTextAlign="Top">
+		<element kind="staticText" uuid="930bac58-c0bb-4745-af2b-a16fbec9b443" x="0" y="0" width="90" height="30" bold="true" hTextAlign="Center" vTextAlign="Top">
 			<text><![CDATA[Revenue license]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="858d47e6-e14f-4a12-a222-f7fbf4cfa699"/>
 		</element>
-		<element kind="staticText" uuid="4da42e28-ac38-465f-90cd-cb89347f3b7a" x="90" y="0" width="112" height="30" hTextAlign="Center" vTextAlign="Top">
+		<element kind="staticText" uuid="4da42e28-ac38-465f-90cd-cb89347f3b7a" x="90" y="0" width="112" height="30" bold="true" hTextAlign="Center" vTextAlign="Top">
 			<text><![CDATA[location]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5f42b9d9-caa8-4b8e-846f-fcbc6496d72c"/>
 		</element>
-		<element kind="staticText" uuid="39f6ed28-2791-4e9b-820d-0daa4dc6bccc" x="202" y="0" width="88" height="30" hTextAlign="Center" vTextAlign="Top">
+		<element kind="staticText" uuid="39f6ed28-2791-4e9b-820d-0daa4dc6bccc" x="202" y="0" width="88" height="30" bold="true" hTextAlign="Center" vTextAlign="Top">
 			<text><![CDATA[violation_date]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f46b1de3-cc1a-401f-8d0f-c02c20397bd0"/>
 		</element>
-		<element kind="staticText" uuid="454106e4-e74e-4bde-bb77-06091d85df3c" x="290" y="0" width="90" height="30" hTextAlign="Center" vTextAlign="Top">
+		<element kind="staticText" uuid="454106e4-e74e-4bde-bb77-06091d85df3c" x="290" y="0" width="90" height="30" bold="true" hTextAlign="Center" vTextAlign="Top">
 			<text><![CDATA[violation_time]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="27b76d5e-a214-4e03-a9aa-376fd53bfc6d"/>
 		</element>
-		<element kind="staticText" uuid="0b8871e7-caa5-41cd-9a1f-5f40113f6c05" x="380" y="0" width="175" height="30" hTextAlign="Center" vTextAlign="Top">
+		<element kind="staticText" uuid="0b8871e7-caa5-41cd-9a1f-5f40113f6c05" x="380" y="0" width="175" height="30" bold="true" hTextAlign="Center" vTextAlign="Top">
 			<text><![CDATA[description]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9cf55115-eb66-4ac3-aa5b-f4210a2dd4b8"/>
 		</element>

@@ -27,17 +27,15 @@ public class NotificationController {
         String subject = "License Suspension Due to Violation Points";
         String body = "Dear "+name+",\n\n"
                 + "We are writing to inform you that your driving license has been suspended due to exceeding the maximum allowable violation points.\n\n"
-                + "Details of the suspension:\n"
+                + "Details of the suspension:\n\n"
                 + "License Number: "+id+"\n"
                 + "Total Violation Points: "+totalPoint+"\n"
                 + "Suspension Time  Duration: "+timeDuration+"\n\n"
-                + "Please ensure that you comply with all traffic laws moving forward to avoid further violations. If you have any questions or would like to appeal the suspension, please contact us at [Contact Information].\n\n"
+                + "Please ensure that you comply with all traffic laws moving forward to avoid further violations. If you have any questions or would like to appeal the suspension, please contact us at 0716589745.\n\n"
                 + "Thank you for your attention to this matter.\n\n"
                 + "Best regards,\n"
-                + "[Your Name]\n"
-                + "[Your Position]\n"
-                + "[Organization Name]\n"
-                + "[Contact Information]";
+                + "arjun fernando\n"
+                + "Department Head\n";
         // Get body from the text field
 
         sendEmailWithGmail("shasidumalshan9579@gmail.com", email, subject, body);

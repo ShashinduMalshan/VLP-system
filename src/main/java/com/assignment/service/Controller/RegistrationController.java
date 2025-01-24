@@ -1,7 +1,8 @@
 package com.assignment.service.Controller;
 
-import com.assignment.service.Dto.UserDto;
-import com.assignment.service.Model.RegisterModel;
+import com.assignment.service.DAO.RegistrationDAO;
+import com.assignment.service.Model.UserDto;
+import com.assignment.service.DAO.Impl.RegisterImpl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
@@ -21,7 +22,7 @@ public class RegistrationController {
     public Button loginPageButton;
     public AnchorPane registrationPageAnc;
 
-    RegisterModel registerModel = new RegisterModel();
+    RegistrationDAO registerModel = new RegisterImpl();
     public void handleRegistration(ActionEvent actionEvent) throws SQLException {
 
 

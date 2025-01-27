@@ -1,4 +1,4 @@
-package com.assignment.service.util;
+package com.assignment.service.DAO;
 
 import com.assignment.service.DBConnection.DBConnection;
 
@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class CrudUtil {
+public class SQLUtil {
 
     public static <T>T execute(String sql,Object... obj) throws SQLException {
 

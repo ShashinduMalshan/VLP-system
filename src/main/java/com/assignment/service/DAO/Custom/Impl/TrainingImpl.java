@@ -1,12 +1,12 @@
-package com.assignment.service.DAO.Impl;
+package com.assignment.service.DAO.Custom.Impl;
 
-import com.assignment.service.DAO.SuspendDAO;
-import com.assignment.service.DAO.TrainingDAO;
+import com.assignment.service.DAO.Custom.SuspendDAO;
+import com.assignment.service.DAO.Custom.TrainingDAO;
 import com.assignment.service.DBConnection.DBConnection;
 import com.assignment.service.Model.ReLicenceCompleteDto;
 import com.assignment.service.Model.TrainingDto;
 import com.assignment.service.Model.TrainingDtoTwo;
-import com.assignment.service.util.CrudUtil;
+import com.assignment.service.DAO.SQLUtil;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -17,13 +17,13 @@ import java.util.ArrayList;
 public class TrainingImpl implements TrainingDAO {
 
 
-    public boolean saveTrainingModel(TrainingDtoTwo trainingDto) throws SQLException {
+    public boolean save(TrainingDtoTwo trainingDto) throws SQLException {
 
         String Date = LocalDate.now().plusMonths(6).toString();
 
 
-        return CrudUtil.execute("insert into Training values (?,?,?,?,?)",
-                getNextSuspendId(),
+        return SQLUtil.execute("insert into Training values (?,?,?,?,?)",
+                getNextId(),
                 trainingDto.getDriverName(),
                 Date,
                 trainingDto.getTotalPoint(),
@@ -32,8 +32,8 @@ public class TrainingImpl implements TrainingDAO {
         );
     }
 
-    public String getNextSuspendId() throws SQLException {
-        ResultSet rst = CrudUtil.execute("select course_id from Training order by course_id desc limit 1");
+    public String getNextId() throws SQLException {
+        ResultSet rst = SQLUtil.execute("select course_id from Training order by course_id desc limit 1");
 
         if (rst.next()) {
             String lastId = rst.getString(1);
@@ -45,8 +45,8 @@ public class TrainingImpl implements TrainingDAO {
         return "T001";
     }
 
-    public boolean isDuplicateCourseId(String drivingLicNum) throws SQLException {
-        ResultSet resultSet = CrudUtil.execute("SELECT driver_id FROM Training WHERE driver_id = ?", drivingLicNum);
+    public boolean isDuplicateId(String drivingLicNum) throws SQLException {
+        ResultSet resultSet = SQLUtil.execute("SELECT driver_id FROM Training WHERE driver_id = ?", drivingLicNum);
         System.out.println(drivingLicNum);
 
         String DBBC=null;
@@ -58,21 +58,8 @@ public class TrainingImpl implements TrainingDAO {
     }
 
 
-    public ArrayList<String> getAllTrainingIDS() throws SQLException {
-        ResultSet resultSet = CrudUtil.execute("select driver_id from Training");
-
-        ArrayList<String> trainingIds = new ArrayList<>();
-
-
-        while (resultSet.next()) {
-
-                trainingIds.add(resultSet.getString(1));
-        }
-        return trainingIds;
-    }
-
-    public ArrayList<TrainingDto> getAllTraining() throws SQLException {
-        ResultSet resultSet = CrudUtil.execute("select * from Training");
+    public ArrayList<TrainingDto> getAll() throws SQLException {
+        ResultSet resultSet = SQLUtil.execute("select * from Training");
 
         ArrayList<TrainingDto> trainingDtos = new ArrayList<>();
 
@@ -91,19 +78,19 @@ public class TrainingImpl implements TrainingDAO {
     }
 
     SuspendDAO suspendLicModel = new SuspendLicImpl();
-    public boolean deleteTraining(TrainingDto trainingDto) throws SQLException {
+    public boolean delete(String ID) throws SQLException {
 
         Connection connection = DBConnection.getInstance().getConnection();
 
         try {
             connection.setAutoCommit(false);
-            boolean isDelete = CrudUtil.execute("delete from Training where driver_id = ?",
-                    trainingDto.getDriverId());
+            boolean isDelete = SQLUtil.execute("delete from Training where driver_id = ?",
+                    ID);
 
             if (isDelete) {
-                boolean isSuspendLicDelete= suspendLicModel.deleteSuspendLic(trainingDto);
+                boolean isSuspendLicDelete= suspendLicModel.delete(ID);
                 if (isSuspendLicDelete) {
-                    restDrivePoint(trainingDto.getDriverId());
+                    restDrivePoint(ID);
                     connection.commit();
                     return true;
                 }
@@ -122,13 +109,13 @@ public class TrainingImpl implements TrainingDAO {
     }
     public void restDrivePoint(String driverId) throws SQLException {
 
-        CrudUtil.execute(
+        SQLUtil.execute(
                 "update Driver set total_point = 0 where driving_lic_num = ?", driverId);
     }
 
     public int getAllTrainingCount() throws SQLException {
 
-        ResultSet resultSet = CrudUtil.execute("SELECT count(*) FROM Training");
+        ResultSet resultSet = SQLUtil.execute("SELECT count(*) FROM Training");
         while (resultSet.next()) {
            return resultSet.getInt(1);
         }
@@ -136,8 +123,9 @@ public class TrainingImpl implements TrainingDAO {
     }
 
     @Override
-    public void saveReLicenceComplete(ReLicenceCompleteDto reLicenceCompleteDto) throws SQLException {
+    public boolean saveReLicenceComplete(ReLicenceCompleteDto reLicenceCompleteDto) throws SQLException {
 
+        return false;
     }
 
     @Override
@@ -146,6 +134,21 @@ public class TrainingImpl implements TrainingDAO {
     }
 
 
+    @Override
+    public boolean save(TrainingDto Dto) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean update(TrainingDto Dto) throws SQLException {
+        return false;
+    }
+
+
+    @Override
+    public ArrayList<String> checkSuspendId() throws SQLException {
+        return null;
+    }
 }
 
 

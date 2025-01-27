@@ -2,9 +2,9 @@ package com.assignment.service.Controller;
 
 import com.assignment.service.Model.ViolationPointDto;
 import com.assignment.service.Model.ViolationPointTM;
-import com.assignment.service.DAO.Impl.DriverImpl;
-import com.assignment.service.DAO.Impl.SuspendLicImpl;
-import com.assignment.service.DAO.Impl.ViolationPointImpl;
+import com.assignment.service.DAO.Custom.Impl.DriverImpl;
+import com.assignment.service.DAO.Custom.Impl.SuspendLicImpl;
+import com.assignment.service.DAO.Custom.Impl.ViolationPointImpl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

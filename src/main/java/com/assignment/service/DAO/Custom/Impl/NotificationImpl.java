@@ -1,7 +1,7 @@
-package com.assignment.service.DAO.Impl;
+package com.assignment.service.DAO.Custom.Impl;
 
 import com.assignment.service.Controller.NotificationController;
-import com.assignment.service.util.CrudUtil;
+import com.assignment.service.DAO.SQLUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,7 +14,7 @@ public class NotificationImpl {
         String name = "";
 
 
-          ResultSet resultSet = CrudUtil.execute("select name,email,total_point from Driver where driving_lic_num = ?",id);
+          ResultSet resultSet = SQLUtil.execute("select name,email,total_point from Driver where driving_lic_num = ?",id);
 
             while (resultSet.next()){
                  email = resultSet.getString("email");

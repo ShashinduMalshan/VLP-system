@@ -1,12 +1,12 @@
 package com.assignment.service.Controller;
 
-import com.assignment.service.DAO.DashboardDAO;
+import com.assignment.service.DAO.Custom.DashboardDAO;
 import com.assignment.service.Model.DateDto;
 import com.assignment.service.Model.ProgressbarDto;
 import com.assignment.service.Model.TopViolatedLawDto;
 import com.assignment.service.Model.TopViolatedPointDto;
-import com.assignment.service.DAO.Impl.DashboardImpl;
-import com.assignment.service.DAO.Impl.TrainingImpl;
+import com.assignment.service.DAO.Custom.Impl.DashboardImpl;
+import com.assignment.service.DAO.Custom.Impl.TrainingImpl;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.LineChart;

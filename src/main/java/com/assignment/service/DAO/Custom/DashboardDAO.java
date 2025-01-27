@@ -1,5 +1,6 @@
-package com.assignment.service.DAO;
+package com.assignment.service.DAO.Custom;
 
+import com.assignment.service.DAO.CrudDAO;
 import com.assignment.service.Model.DateDto;
 import com.assignment.service.Model.ProgressbarDto;
 import com.assignment.service.Model.TopViolatedLawDto;
@@ -8,7 +9,7 @@ import com.assignment.service.Model.TopViolatedPointDto;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public interface DashboardDAO {
+public interface DashboardDAO{
 
      ArrayList<DateDto> getAllViolationMonth() throws SQLException;
      ArrayList<DateDto> getAllSuspendLicByMonth() throws SQLException;

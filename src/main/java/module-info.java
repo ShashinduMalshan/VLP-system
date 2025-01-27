@@ -12,4 +12,5 @@ module com.assignment.vehiclelicensepointsys.service.vehiclelicensepointsystem {
     opens com.assignment.service.Model to javafx.base;
     exports com.assignment.service;
     opens com.assignment.service.DAO to javafx.base;
+    opens com.assignment.service.DAO.Custom to javafx.base;
 }

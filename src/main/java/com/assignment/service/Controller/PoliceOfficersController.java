@@ -1,7 +1,7 @@
 package com.assignment.service.Controller;
 
-import com.assignment.service.DAO.PoliceOfficerDAO;
-import com.assignment.service.DAO.Impl.PoliceOfficerImpl;
+import com.assignment.service.DAO.Custom.PoliceOfficerDAO;
+import com.assignment.service.DAO.Custom.Impl.PoliceOfficerImpl;
 import com.assignment.service.Model.PoliceOfficerDto;
 import com.assignment.service.Model.PoliceOfficerTM;
 import javafx.collections.FXCollections;
@@ -78,7 +78,7 @@ public class PoliceOfficersController implements Initializable {
     PoliceOfficerDAO policeOfficerModel = new PoliceOfficerImpl();
     public void loadTable() throws SQLException {
 
-        ArrayList<PoliceOfficerDto> policeOfficerDtos = policeOfficerModel.getAllOfficers();
+        ArrayList<PoliceOfficerDto> policeOfficerDtos = policeOfficerModel.getAll();
         ObservableList<PoliceOfficerTM> policeOfficerTMS= FXCollections.observableArrayList();
 
         for (PoliceOfficerDto policeOfficerDto : policeOfficerDtos) {
@@ -105,7 +105,7 @@ public class PoliceOfficersController implements Initializable {
 
         if (optionalButtonType.isPresent() && optionalButtonType.get() == ButtonType.YES) {
 
-            boolean isDeleted = policeOfficerModel.deleteOfficers(OfficerId);
+            boolean isDeleted = policeOfficerModel.delete(OfficerId);
             if (isDeleted) {
                 reset();
                 new Alert(Alert.AlertType.INFORMATION, "Officer deleted...!").show();
@@ -128,7 +128,7 @@ public class PoliceOfficersController implements Initializable {
                 location
         );
 
-        boolean isUpdate = policeOfficerModel.updateOfficers(policeOfficerDto);
+        boolean isUpdate = policeOfficerModel.update(policeOfficerDto);
         if (isUpdate) {
             reset();
             new Alert(Alert.AlertType.INFORMATION, "Officer update...!").show();
@@ -150,7 +150,7 @@ public class PoliceOfficersController implements Initializable {
 
         );
 
-        boolean isSaved = policeOfficerModel.saveOfficerTBL(policeOfficerDto);
+        boolean isSaved = policeOfficerModel.save(policeOfficerDto);
         if (isSaved) {
             reset();
             new Alert(Alert.AlertType.INFORMATION, "Officer saved...!").show();
@@ -173,7 +173,7 @@ public class PoliceOfficersController implements Initializable {
 
     public void reset() throws SQLException {
         loadTable();
-        txtOfficerId.setText(policeOfficerModel.getNextOfficerId());
+        txtOfficerId.setText(policeOfficerModel.getNextId());
         txtOfficerName.setText("");
         txtLocation.setText("");
     }

@@ -1,4 +1,4 @@
-package com.assignment.service.DAO;
+package com.assignment.service.DAO.Custom;
 
 import com.assignment.service.Model.TrafficViolationLawDto;
 

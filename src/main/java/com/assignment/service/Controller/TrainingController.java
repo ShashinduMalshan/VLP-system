@@ -1,9 +1,9 @@
 package com.assignment.service.Controller;
 
-import com.assignment.service.DAO.TrainingDAO;
+import com.assignment.service.DAO.Custom.TrainingDAO;
 import com.assignment.service.DBConnection.DBConnection;
-import com.assignment.service.DAO.Impl.ReLicenceCompleteImpl;
-import com.assignment.service.DAO.Impl.TrainingImpl;
+import com.assignment.service.DAO.Custom.Impl.ReLicenceCompleteImpl;
+import com.assignment.service.DAO.Custom.Impl.TrainingImpl;
 import com.assignment.service.Model.ReLicenceCompleteDto;
 import com.assignment.service.Model.TrainingDto;
 import com.assignment.service.Model.TrainingTM;
@@ -75,7 +75,7 @@ public class TrainingController implements Initializable {
     TrainingDAO reLicenceCompleteModel = new ReLicenceCompleteImpl();
     public void loadTable() throws SQLException {
 
-        ArrayList<TrainingDto> trainingDtos = trainingModel.getAllTraining();
+        ArrayList<TrainingDto> trainingDtos = trainingModel.getAll();
         ObservableList<TrainingTM> trainingTMS= FXCollections.observableArrayList();
 
         for (TrainingDto trainingDto : trainingDtos) {
@@ -122,7 +122,7 @@ public class TrainingController implements Initializable {
         );
 
             reLicenceCompleteModel.saveReLicenceComplete(reLicenceCompleteDto);
-            boolean isDeleteTraining = trainingModel.deleteTraining(trainingDto);
+            boolean isDeleteTraining = trainingModel.delete(trainingDto.getDriverId());
 
             if (isDeleteTraining) {
                 System.out.println("deleteTraining");

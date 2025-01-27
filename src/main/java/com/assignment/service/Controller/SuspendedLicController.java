@@ -1,11 +1,12 @@
 package com.assignment.service.Controller;
 
-import com.assignment.service.DAO.SuspendDAO;
+import com.assignment.service.DAO.Custom.SuspendDAO;
 import com.assignment.service.DBConnection.DBConnection;
-import com.assignment.service.DAO.Impl.SuspendLicImpl;
-import com.assignment.service.DAO.Impl.TrainingImpl;
+import com.assignment.service.DAO.Custom.Impl.SuspendLicImpl;
+import com.assignment.service.DAO.Custom.Impl.TrainingImpl;
 import com.assignment.service.Model.SuspendLicDto;
 import com.assignment.service.Model.SuspendLicTM;
+import com.assignment.service.Model.TrainingDto;
 import com.assignment.service.Model.TrainingDtoTwo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -55,7 +56,12 @@ public class SuspendedLicController implements Initializable {
         colDrivingLicNum.setCellValueFactory(new PropertyValueFactory<>("driverId"));
 
         try {
-            ArrayList<String> allTrainingDID = trainingImpl.getAllTrainingIDS();
+            ArrayList<TrainingDto> allTraining = trainingImpl.getAll();
+            ArrayList<String> allTrainingDID = new ArrayList<>();
+
+            for (TrainingDto trainingDto : allTraining) {
+                allTrainingDID.add(trainingDto.getDriverId());
+            }
 
             tblSuspendedLic.setRowFactory(tv -> new TableRow<>() {
                 protected void updateItem(SuspendLicTM item, boolean empty) {
@@ -86,7 +92,7 @@ public class SuspendedLicController implements Initializable {
     SuspendDAO suspendLicModel = new SuspendLicImpl();
     public void loadTable() throws SQLException {
 
-        ArrayList<SuspendLicDto> suspendLicDtos = suspendLicModel.getAllSuspendedLic();
+        ArrayList<SuspendLicDto> suspendLicDtos = suspendLicModel.getAll();
         ObservableList<SuspendLicTM> suspendLicTMS= FXCollections.observableArrayList();
 
         for (SuspendLicDto suspendLicDto : suspendLicDtos) {
@@ -113,7 +119,7 @@ public class SuspendedLicController implements Initializable {
 
     public void addTrainingBtnAcn(ActionEvent actionEvent) throws SQLException {
 
-        boolean isInvalid = trainingImpl.isDuplicateCourseId(drivingLicNum);
+        boolean isInvalid = trainingImpl.isDuplicateId(drivingLicNum);
         System.out.println("trainig table eke innawanm true enne ::::"+isInvalid);
 
         if (!isInvalid){
@@ -124,7 +130,7 @@ public class SuspendedLicController implements Initializable {
             if (optionalButtonType.isPresent() && optionalButtonType.get() == ButtonType.YES) {
 
                 TrainingDtoTwo trainingDto = new TrainingDtoTwo(drivingLicNum, driverName, totalPoint);
-                boolean isSave = trainingImpl.saveTrainingModel(trainingDto);
+                boolean isSave = trainingImpl.save(trainingDto);
 
                 if (isSave) {
                     drivingLicNum = null;

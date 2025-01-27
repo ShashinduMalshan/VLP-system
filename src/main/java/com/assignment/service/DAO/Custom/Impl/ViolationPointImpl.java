@@ -1,8 +1,8 @@
-package com.assignment.service.DAO.Impl;
+package com.assignment.service.DAO.Custom.Impl;
 
 import com.assignment.service.DBConnection.DBConnection;
 import com.assignment.service.Model.ViolationPointDto;
-import com.assignment.service.util.CrudUtil;
+import com.assignment.service.DAO.SQLUtil;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -13,7 +13,7 @@ public class ViolationPointImpl {
 
     public ArrayList<ViolationPointDto> getAllViolationPoints() throws SQLException {
 
-        ResultSet rst = CrudUtil.execute("select * from ViolationPoint");
+        ResultSet rst = SQLUtil.execute("select * from ViolationPoint");
 
         ArrayList<ViolationPointDto> violationPointDTOS = new ArrayList<>();
 
@@ -44,7 +44,7 @@ public class ViolationPointImpl {
         try {
             connection.setAutoCommit(false);
             System.out.println("check first");
-            boolean isSaveViolationPoints =  CrudUtil.execute(
+            boolean isSaveViolationPoints =  SQLUtil.execute(
                     "insert into ViolationPoint values (?,?,?,?,?,?,?,?,?)",
                     violationPointDto.getPoint_id(),
                     violationPointDto.getDescription(),
@@ -79,7 +79,7 @@ public class ViolationPointImpl {
     }
 
     public String getNextOfficerId() throws SQLException {
-        ResultSet rst = CrudUtil.execute("SELECT point_id FROM ViolationPoint ORDER BY point_id DESC LIMIT 1");
+        ResultSet rst = SQLUtil.execute("SELECT point_id FROM ViolationPoint ORDER BY point_id DESC LIMIT 1");
 
         if (rst.next()) {
             String lastId = rst.getString(1);

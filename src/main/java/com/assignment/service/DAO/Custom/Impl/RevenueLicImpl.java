@@ -1,10 +1,10 @@
-package com.assignment.service.DAO.Impl;
+package com.assignment.service.DAO.Custom.Impl;
 
-import com.assignment.service.DAO.VehicleDAO;
+import com.assignment.service.DAO.Custom.VehicleDAO;
 import com.assignment.service.Model.OwnersDto;
 import com.assignment.service.Model.RevenueLicDto;
 import com.assignment.service.Model.VehicleDto;
-import com.assignment.service.util.CrudUtil;
+import com.assignment.service.DAO.SQLUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,7 +15,7 @@ public class RevenueLicImpl implements VehicleDAO {
 
     public ArrayList<RevenueLicDto> getAllRevenueLic(String ownerId) throws SQLException {
 
-        ResultSet resultSet = CrudUtil.execute("select * from Revenue_Lic where owner_id = ?", ownerId);
+        ResultSet resultSet = SQLUtil.execute("select * from Revenue_Lic where owner_id = ?", ownerId);
 
         ArrayList<RevenueLicDto> revenueLicDtos = new ArrayList<>();
 

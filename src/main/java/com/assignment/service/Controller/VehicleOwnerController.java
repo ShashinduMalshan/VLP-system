@@ -1,10 +1,10 @@
 package com.assignment.service.Controller;
 
-import com.assignment.service.DAO.VehicleDAO;
+import com.assignment.service.DAO.Custom.VehicleDAO;
 import com.assignment.service.DBConnection.DBConnection;
-import com.assignment.service.DAO.Impl.RevenueLicImpl;
-import com.assignment.service.DAO.Impl.VehicleImpl;
-import com.assignment.service.DAO.Impl.VehicleOwnerImpl;
+import com.assignment.service.DAO.Custom.Impl.RevenueLicImpl;
+import com.assignment.service.DAO.Custom.Impl.VehicleImpl;
+import com.assignment.service.DAO.Custom.Impl.VehicleOwnerImpl;
 import com.assignment.service.Model.OwnersDto;
 import com.assignment.service.Model.RevenueLicDto;
 import com.assignment.service.Model.VehicleDto;

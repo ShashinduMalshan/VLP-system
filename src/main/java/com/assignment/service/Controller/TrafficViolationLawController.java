@@ -1,9 +1,9 @@
 package com.assignment.service.Controller;
 
-import com.assignment.service.DAO.TrafficViolationLawDAO;
+import com.assignment.service.DAO.Custom.TrafficViolationLawDAO;
 import com.assignment.service.Model.TrafficViolationLawDto;
 import com.assignment.service.Model.TrafficViolationLawTM;
-import com.assignment.service.DAO.Impl.TrafficViolationLawImpl;
+import com.assignment.service.DAO.Custom.Impl.TrafficViolationLawImpl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

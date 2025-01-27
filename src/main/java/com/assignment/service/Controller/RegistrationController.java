@@ -1,8 +1,8 @@
 package com.assignment.service.Controller;
 
-import com.assignment.service.DAO.RegistrationDAO;
+import com.assignment.service.DAO.Custom.RegistrationDAO;
 import com.assignment.service.Model.UserDto;
-import com.assignment.service.DAO.Impl.RegisterImpl;
+import com.assignment.service.DAO.Custom.Impl.RegisterImpl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
@@ -37,7 +37,7 @@ public class RegistrationController {
                 policeId
         );
 
-        boolean isSaved = registerModel.saveNew(userDto);
+        boolean isSaved = registerModel.save(userDto);
         if (isSaved) {
             new Alert(Alert.AlertType.INFORMATION, "saved New User...!").show();
         } else {

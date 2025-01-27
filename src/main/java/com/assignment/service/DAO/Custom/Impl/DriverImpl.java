@@ -1,9 +1,10 @@
-package com.assignment.service.DAO.Impl;
+package com.assignment.service.DAO.Custom.Impl;
 
-import com.assignment.service.DAO.DriverDAO;
+import com.assignment.service.DAO.Custom.DriverDAO;
 import com.assignment.service.Model.DriverDto;
+import com.assignment.service.Model.PoliceOfficerDto;
 import com.assignment.service.Model.ViolationPointDto;
-import com.assignment.service.util.CrudUtil;
+import com.assignment.service.DAO.SQLUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,13 +14,13 @@ public class DriverImpl implements DriverDAO {
 
     public boolean  reduceDrivePoint(ViolationPointDto violationPointDto) throws SQLException {
 
-        ResultSet lawPointResult = CrudUtil.execute("select law_point from TrafficViolationLaw where law_id=? ", violationPointDto.getLawId());
+        ResultSet lawPointResult = SQLUtil.execute("select law_point from TrafficViolationLaw where law_id=? ", violationPointDto.getLawId());
         System.out.println(lawPointResult);
 
         lawPointResult.next();
 
         int lawPoint = lawPointResult.getInt("law_point");
-        return CrudUtil.execute(
+        return SQLUtil.execute(
                 "update Driver set total_point = total_point + ? where driving_lic_num = ?",
                 lawPoint,
                 violationPointDto.getDriverLicenseNumber()
@@ -30,9 +31,9 @@ public class DriverImpl implements DriverDAO {
 
 
 
-    public ArrayList<DriverDto> getAllDriver() throws SQLException {
+    public ArrayList<DriverDto> getAll() throws SQLException {
 
-        ResultSet rst = CrudUtil.execute("select * from Driver");
+        ResultSet rst = SQLUtil.execute("select * from Driver");
         ArrayList<DriverDto> driverDtos = new ArrayList<>();
 
         while (rst.next()) {
@@ -49,10 +50,11 @@ public class DriverImpl implements DriverDAO {
         return driverDtos;
     }
 
+
     public ArrayList<String> checkSuspendId() throws SQLException {
 
         int maxPoint = 150;
-        ResultSet resultSet = CrudUtil.execute("select * from Driver");
+        ResultSet resultSet = SQLUtil.execute("select * from Driver");
         ArrayList<String> limitPassedIDs =new ArrayList<>();
 
         while (resultSet.next()) {
@@ -67,18 +69,47 @@ public class DriverImpl implements DriverDAO {
         return limitPassedIDs;
     }
 
+    @Override
+    public boolean isDuplicateId(String drivingLicNum) throws SQLException {
+        return false;
+    }
+
+
     public String driverCount() throws SQLException {
-        ResultSet resultSet = CrudUtil.execute("SELECT COUNT(*) AS count FROM Driver");
+        ResultSet resultSet = SQLUtil.execute("SELECT COUNT(*) AS count FROM Driver");
         resultSet.next();
 
         return String.valueOf(resultSet.getInt(1));
     }
 
     public String suspendCount() throws SQLException {
-        ResultSet resultSet = CrudUtil.execute("SELECT COUNT(*) AS count FROM SuspendLic");
+        ResultSet resultSet = SQLUtil.execute("SELECT COUNT(*) AS count FROM SuspendLic");
         resultSet.next();
 
         return String.valueOf(resultSet.getInt(1));
+    }
+
+
+    @Override
+    public String getNextId() throws SQLException {
+        return "";
+    }
+
+
+    @Override
+    public boolean save(Object Dto) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean update(Object Dto) throws SQLException {
+        return false;
+    }
+
+
+    @Override
+    public boolean delete(String policeOfficerId) throws SQLException {
+        return false;
     }
 
 }

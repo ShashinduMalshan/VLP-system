@@ -1,7 +1,7 @@
 package com.assignment.service.Controller;
 
-import com.assignment.service.DAO.Impl.UserImpl;
-import com.assignment.service.util.CrudUtil;
+import com.assignment.service.DAO.Custom.Impl.UserImpl;
+import com.assignment.service.DAO.SQLUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -56,7 +56,7 @@ public class loginPageController {
 
     public boolean authenticate(String username, String password, String policeId) throws SQLException, ClassNotFoundException {
         try{
-            ResultSet result = CrudUtil.execute("SELECT * FROM User WHERE name = ? AND password = ? AND officer_id = ?", username, password, policeId);
+            ResultSet result = SQLUtil.execute("SELECT * FROM User WHERE name = ? AND password = ? AND officer_id = ?", username, password, policeId);
 
 
             if (result.next()) {

@@ -1,8 +1,8 @@
-package com.assignment.service.DAO.Impl;
+package com.assignment.service.DAO.Custom.Impl;
 
-import com.assignment.service.DAO.TrafficViolationLawDAO;
+import com.assignment.service.DAO.Custom.TrafficViolationLawDAO;
 import com.assignment.service.Model.TrafficViolationLawDto;
-import com.assignment.service.util.CrudUtil;
+import com.assignment.service.DAO.SQLUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class TrafficViolationLawImpl implements TrafficViolationLawDAO {
 
     public ArrayList<TrafficViolationLawDto> getAllViolationLaws() throws SQLException {
-        ResultSet resultSet = CrudUtil.execute("select * from TrafficViolationLaw");
+        ResultSet resultSet = SQLUtil.execute("select * from TrafficViolationLaw");
 
         ArrayList<TrafficViolationLawDto> trafficViolationLawDtos = new ArrayList<>();
 
@@ -31,7 +31,7 @@ public class TrafficViolationLawImpl implements TrafficViolationLawDAO {
     public String getAllLawCount() throws SQLException {
 
         String count ="";
-        ResultSet resultSet = CrudUtil.execute("select count(*)from TrafficViolationLaw");
+        ResultSet resultSet = SQLUtil.execute("select count(*)from TrafficViolationLaw");
 
         while (resultSet.next()) {
             count = String.valueOf(resultSet.getInt(1));
@@ -40,7 +40,7 @@ public class TrafficViolationLawImpl implements TrafficViolationLawDAO {
     }
 
     public int HighViolationLaw() throws SQLException {
-            ResultSet resultSet = CrudUtil.execute("SELECT count(*) FROM TrafficViolationLaw WHERE law_point >= 80");
+            ResultSet resultSet = SQLUtil.execute("SELECT count(*) FROM TrafficViolationLaw WHERE law_point >= 80");
 
             while (resultSet.next()) {
                return resultSet.getInt(1);

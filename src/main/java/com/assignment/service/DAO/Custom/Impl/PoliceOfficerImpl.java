@@ -1,8 +1,8 @@
-package com.assignment.service.DAO.Impl;
+package com.assignment.service.DAO.Custom.Impl;
 
-import com.assignment.service.DAO.PoliceOfficerDAO;
+import com.assignment.service.DAO.Custom.PoliceOfficerDAO;
 import com.assignment.service.Model.PoliceOfficerDto;
-import com.assignment.service.util.CrudUtil;
+import com.assignment.service.DAO.SQLUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,9 +10,9 @@ import java.util.ArrayList;
 
 public class PoliceOfficerImpl implements PoliceOfficerDAO {
 
-    public ArrayList<PoliceOfficerDto> getAllOfficers() throws SQLException {
+    public ArrayList<PoliceOfficerDto> getAll() throws SQLException {
 
-        ResultSet resultSet = CrudUtil.execute("select * from PoliceOfficer");
+        ResultSet resultSet = SQLUtil.execute("select * from PoliceOfficer");
 
         ArrayList<PoliceOfficerDto> policeOfficerDtos = new ArrayList<>();
 
@@ -28,8 +28,9 @@ public class PoliceOfficerImpl implements PoliceOfficerDAO {
     }
 
 
-    public String getNextOfficerId() throws SQLException {
-        ResultSet rst = CrudUtil.execute("SELECT officer_id FROM PoliceOfficer ORDER BY officer_id DESC LIMIT 1");
+
+    public String getNextId() throws SQLException {
+        ResultSet rst = SQLUtil.execute("SELECT officer_id FROM PoliceOfficer ORDER BY officer_id DESC LIMIT 1");
 
         if (rst.next()) {
             String lastId = rst.getString(1);
@@ -41,8 +42,8 @@ public class PoliceOfficerImpl implements PoliceOfficerDAO {
     }
 
 
-    public boolean saveOfficerTBL(PoliceOfficerDto policeOfficerDto) throws SQLException {
-            return CrudUtil.execute("insert into PoliceOfficer values (?,?,?)",
+    public boolean save(PoliceOfficerDto policeOfficerDto) throws SQLException {
+            return SQLUtil.execute("insert into PoliceOfficer values (?,?,?)",
 
                     policeOfficerDto.getOfficerId(),
                     policeOfficerDto.getName(),
@@ -50,8 +51,8 @@ public class PoliceOfficerImpl implements PoliceOfficerDAO {
     }
 
 
-    public boolean updateOfficers(PoliceOfficerDto policeOfficerDto) throws SQLException {
-        return CrudUtil.execute(
+    public boolean update(PoliceOfficerDto policeOfficerDto) throws SQLException {
+        return SQLUtil.execute(
                 "update PoliceOfficer set name=?, duty_location=? where officer_id=?",
                 policeOfficerDto.getName(),
                 policeOfficerDto.getLocation(),
@@ -59,9 +60,23 @@ public class PoliceOfficerImpl implements PoliceOfficerDAO {
         );
     }
 
-    public boolean deleteOfficers(String policeOfficerId) throws SQLException {
+    public boolean delete(String policeOfficerId) throws SQLException {
 
-        return CrudUtil.execute("delete from PoliceOfficer where officer_id = ?", policeOfficerId);
+        return SQLUtil.execute("delete from PoliceOfficer where officer_id = ?", policeOfficerId);
 
     }
+
+
+    @Override
+    public ArrayList<String> checkSuspendId() throws SQLException {
+        return null;
+    }
+
+    @Override
+    public boolean isDuplicateId(String drivingLicNum) throws SQLException {
+        return false;
+    }
+
+
+
 }

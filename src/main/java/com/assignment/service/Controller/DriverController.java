@@ -1,11 +1,11 @@
 package com.assignment.service.Controller;
 
-import com.assignment.service.DAO.DriverDAO;
+import com.assignment.service.DAO.Custom.DriverDAO;
 import com.assignment.service.DBConnection.DBConnection;
 import com.assignment.service.Model.DriverDto;
 import com.assignment.service.Model.DriverTM;
-import com.assignment.service.DAO.Impl.DriverImpl;
-import com.assignment.service.DAO.Impl.TrainingImpl;
+import com.assignment.service.DAO.Custom.Impl.DriverImpl;
+import com.assignment.service.DAO.Custom.Impl.TrainingImpl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -87,7 +87,7 @@ public class DriverController implements Initializable {
 
     public void loadTableData() throws SQLException {
 
-        ArrayList<DriverDto> driverDtos = driverModel.getAllDriver();
+        ArrayList<DriverDto> driverDtos = driverModel.getAll();
         ObservableList<DriverTM> driverTMS = FXCollections.observableArrayList();
 
         for (DriverDto driverDto : driverDtos) {

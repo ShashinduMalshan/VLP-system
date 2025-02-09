@@ -1,5 +1,7 @@
 package com.assignment.service.Controller;
 
+import com.assignment.service.DAO.Custom.OwnersDAO;
+import com.assignment.service.DAO.Custom.RevenueLicDAO;
 import com.assignment.service.DAO.Custom.VehicleDAO;
 import com.assignment.service.DBConnection.DBConnection;
 import com.assignment.service.DAO.Custom.Impl.RevenueLicImpl;
@@ -38,8 +40,8 @@ public class VehicleOwnerController {
     public Button ExportBtn;
 
 
-    VehicleDAO vehicleOwnerModel = new VehicleOwnerImpl();
-    VehicleDAO revenueLicModel = new RevenueLicImpl();
+    OwnersDAO vehicleOwnerModel = new VehicleOwnerImpl();
+    RevenueLicDAO revenueLicModel = new RevenueLicImpl();
     VehicleDAO vehicleModel = new VehicleImpl();
     public void SearchData(String vehicleId) throws SQLException {
 

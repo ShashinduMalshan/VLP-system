@@ -122,17 +122,6 @@ public class TrainingImpl implements TrainingDAO {
         return 0;
     }
 
-    @Override
-    public boolean saveReLicenceComplete(ReLicenceCompleteDto reLicenceCompleteDto) throws SQLException {
-
-        return false;
-    }
-
-    @Override
-    public String getNextReLicenceComplete() throws SQLException {
-        return "";
-    }
-
 
     @Override
     public boolean save(TrainingDto Dto) throws SQLException {

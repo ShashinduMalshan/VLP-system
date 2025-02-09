@@ -28,14 +28,5 @@ public class VehicleImpl implements VehicleDAO {
         return vehicleDtos;
     }
 
-    @Override
-    public ArrayList<OwnersDto> getAllOwners(String vehicleId) throws SQLException {
-        return null;
-    }
-
-    @Override
-    public ArrayList<RevenueLicDto> getAllRevenueLic(String ownerId) throws SQLException {
-        return null;
-    }
 
 }

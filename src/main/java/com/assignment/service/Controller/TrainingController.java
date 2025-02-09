@@ -1,5 +1,6 @@
 package com.assignment.service.Controller;
 
+import com.assignment.service.DAO.Custom.ReLicenceCompleteDAO;
 import com.assignment.service.DAO.Custom.TrainingDAO;
 import com.assignment.service.DBConnection.DBConnection;
 import com.assignment.service.DAO.Custom.Impl.ReLicenceCompleteImpl;
@@ -72,7 +73,7 @@ public class TrainingController implements Initializable {
 
 
     TrainingDAO trainingModel = new TrainingImpl();
-    TrainingDAO reLicenceCompleteModel = new ReLicenceCompleteImpl();
+    ReLicenceCompleteDAO reLicenceCompleteModel = new ReLicenceCompleteImpl();
     public void loadTable() throws SQLException {
 
         ArrayList<TrainingDto> trainingDtos = trainingModel.getAll();
@@ -121,7 +122,7 @@ public class TrainingController implements Initializable {
                 drivingLicNum
         );
 
-            reLicenceCompleteModel.saveReLicenceComplete(reLicenceCompleteDto);
+            reLicenceCompleteModel.save(reLicenceCompleteDto);
             boolean isDeleteTraining = trainingModel.delete(trainingDto.getDriverId());
 
             if (isDeleteTraining) {

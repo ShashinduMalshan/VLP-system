@@ -1,6 +1,6 @@
 package com.assignment.service.DAO.Custom.Impl;
 
-import com.assignment.service.DAO.Custom.TrainingDAO;
+import com.assignment.service.DAO.Custom.ReLicenceCompleteDAO;
 import com.assignment.service.Model.ReLicenceCompleteDto;
 import com.assignment.service.Model.TrainingDto;
 import com.assignment.service.DAO.SQLUtil;
@@ -11,20 +11,20 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class ReLicenceCompleteImpl implements TrainingDAO {
+public class ReLicenceCompleteImpl implements ReLicenceCompleteDAO {
 
-    public boolean saveReLicenceComplete(ReLicenceCompleteDto reLicenceCompleteDto) throws SQLException {
+    public boolean save(ReLicenceCompleteDto reLicenceCompleteDto) throws SQLException {
         Date date = Date.valueOf(LocalDate.now());
 
         return SQLUtil.execute("insert into ReLicence_Complete values (?,?,?,?)",
 
-                getNextReLicenceComplete(),
+                getNextId(),
                 reLicenceCompleteDto.getLastScore(),
                 date,
                 reLicenceCompleteDto.getDriverId());
 
     }
-    public String getNextReLicenceComplete() throws SQLException {
+    public String getNextId() throws SQLException {
         ResultSet rst = SQLUtil.execute("select test_id from ReLicence_Complete order by test_id desc limit 1");
 
         if (rst.next()) {
@@ -40,27 +40,14 @@ public class ReLicenceCompleteImpl implements TrainingDAO {
 
 
     @Override
-    public void restDrivePoint(String driverId) throws SQLException {
-
-    }
-
-    @Override
-    public int getAllTrainingCount() throws SQLException {
-        return 0;
-    }
-
-    @Override
-    public ArrayList<TrainingDto> getAll() throws SQLException {
+    public ArrayList<ReLicenceCompleteDto> getAll() throws SQLException {
         return null;
     }
 
-    @Override
-    public boolean save(TrainingDto Dto) throws SQLException {
-        return false;
-    }
+
 
     @Override
-    public boolean update(TrainingDto Dto) throws SQLException {
+    public boolean update(ReLicenceCompleteDto Dto) throws SQLException {
         return false;
     }
 
@@ -69,10 +56,6 @@ public class ReLicenceCompleteImpl implements TrainingDAO {
         return false;
     }
 
-    @Override
-    public String getNextId() throws SQLException {
-        return "";
-    }
 
     @Override
     public ArrayList<String> checkSuspendId() throws SQLException {

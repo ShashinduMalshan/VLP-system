@@ -1,5 +1,7 @@
 package com.assignment.service.Controller;
 
+import com.assignment.service.DAO.Custom.DriverDAO;
+import com.assignment.service.DAO.Custom.SuspendDAO;
 import com.assignment.service.Model.ViolationPointDto;
 import com.assignment.service.Model.ViolationPointTM;
 import com.assignment.service.DAO.Custom.Impl.DriverImpl;
@@ -73,8 +75,8 @@ public class ViolationPointController implements Initializable {
          txtDrivingLicenseId.setText("");
          txtRevenueLicenseId.setText("");
          txtLawId.setText("");
+}
 
-    }
 
     ViolationPointImpl violationPointImpl =new ViolationPointImpl();
 
@@ -142,8 +144,8 @@ public class ViolationPointController implements Initializable {
 
 
     }
-    SuspendLicImpl suspendLicImpl = new SuspendLicImpl();
-    DriverImpl driverModel = new DriverImpl();
+    SuspendDAO suspendLicImpl = new SuspendLicImpl();
+    DriverDAO driverModel = new DriverImpl();
 
     public void checkIsSuspend() throws SQLException {
 

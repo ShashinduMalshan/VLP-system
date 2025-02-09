@@ -1,5 +1,6 @@
 package com.assignment.service.DAO.Custom.Impl;
 
+import com.assignment.service.DAO.Custom.RevenueLicDAO;
 import com.assignment.service.DAO.Custom.VehicleDAO;
 import com.assignment.service.Model.OwnersDto;
 import com.assignment.service.Model.RevenueLicDto;
@@ -10,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class RevenueLicImpl implements VehicleDAO {
+public class RevenueLicImpl implements RevenueLicDAO {
 
 
     public ArrayList<RevenueLicDto> getAllRevenueLic(String ownerId) throws SQLException {
@@ -30,15 +31,6 @@ public class RevenueLicImpl implements VehicleDAO {
         return revenueLicDtos;
     }
 
-    @Override
-    public ArrayList<VehicleDto> getAllVehicle(String vehicleID) throws SQLException {
-        return null;
-    }
-
-    @Override
-    public ArrayList<OwnersDto> getAllOwners(String vehicleId) throws SQLException {
-        return null;
-    }
 
 
 }

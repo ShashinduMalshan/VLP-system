@@ -15,4 +15,5 @@ public interface CrudDAO<T>{
     ArrayList<String> checkSuspendId() throws SQLException;
     boolean isDuplicateId(String drivingLicNum) throws SQLException ;
 
+
 }

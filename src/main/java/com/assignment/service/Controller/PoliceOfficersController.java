@@ -1,5 +1,6 @@
 package com.assignment.service.Controller;
 
+import com.assignment.service.Bo.PoliceOfficerBoImpl;
 import com.assignment.service.DAO.Custom.PoliceOfficerDAO;
 import com.assignment.service.DAO.Custom.Impl.PoliceOfficerImpl;
 import com.assignment.service.Model.PoliceOfficerDto;
@@ -33,6 +34,9 @@ public class PoliceOfficersController implements Initializable {
     public Button resetBtn;
     public Button deleteBtn;
     public Button searchFieldBtn;
+
+    PoliceOfficerBoImpl policeOfficerBo = new PoliceOfficerBoImpl();
+
 
 
     @Override
@@ -78,7 +82,7 @@ public class PoliceOfficersController implements Initializable {
     PoliceOfficerDAO policeOfficerModel = new PoliceOfficerImpl();
     public void loadTable() throws SQLException {
 
-        ArrayList<PoliceOfficerDto> policeOfficerDtos = policeOfficerModel.getAll();
+        ArrayList<PoliceOfficerDto> policeOfficerDtos = policeOfficerBo.loadTable();
         ObservableList<PoliceOfficerTM> policeOfficerTMS= FXCollections.observableArrayList();
 
         for (PoliceOfficerDto policeOfficerDto : policeOfficerDtos) {
@@ -105,7 +109,7 @@ public class PoliceOfficersController implements Initializable {
 
         if (optionalButtonType.isPresent() && optionalButtonType.get() == ButtonType.YES) {
 
-            boolean isDeleted = policeOfficerModel.delete(OfficerId);
+            boolean isDeleted = policeOfficerBo.delete(OfficerId);
             if (isDeleted) {
                 reset();
                 new Alert(Alert.AlertType.INFORMATION, "Officer deleted...!").show();

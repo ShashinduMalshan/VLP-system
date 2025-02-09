@@ -10,9 +10,6 @@ import java.util.ArrayList;
 public interface VehicleDAO {
 
      ArrayList<VehicleDto> getAllVehicle(String vehicleID) throws SQLException;
-     ArrayList<OwnersDto> getAllOwners(String vehicleId) throws SQLException;
-     ArrayList<RevenueLicDto> getAllRevenueLic(String ownerId) throws SQLException;
-
 
 
 }

@@ -1,6 +1,5 @@
 package com.assignment.service.Bo;
 
-import com.assignment.service.DAO.CrudDAO;
 import com.assignment.service.DAO.Custom.Impl.TrainingImpl;
 import com.assignment.service.DAO.Custom.TrainingDAO;
 import com.assignment.service.Model.TrainingDtoTwo;
@@ -20,6 +19,12 @@ public class TrainingBoImpl {
     public boolean isDuplicateId(String drivingLicNum) throws SQLException {
 
             return trainingImpl.isDuplicateId(drivingLicNum);
-        }
+    }
 
-}
+    public int getAllTrainingCount() throws SQLException {
+
+        return trainingImpl.getAllTrainingCount();
+    }
+
+
+    }

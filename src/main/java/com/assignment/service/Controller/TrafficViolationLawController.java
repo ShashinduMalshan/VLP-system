@@ -1,5 +1,6 @@
 package com.assignment.service.Controller;
 
+import com.assignment.service.Bo.TrafficViolationLawBoImpl;
 import com.assignment.service.DAO.Custom.TrafficViolationLawDAO;
 import com.assignment.service.Model.TrafficViolationLawDto;
 import com.assignment.service.Model.TrafficViolationLawTM;
@@ -66,9 +67,11 @@ public class TrafficViolationLawController implements Initializable {
 
 
     TrafficViolationLawDAO trafficViolationLawModel=new TrafficViolationLawImpl();
+    TrafficViolationLawBoImpl trafficViolationLawBoImpl=new TrafficViolationLawBoImpl();
+
     public void loadLawTableData() throws SQLException {
 
-        ArrayList<TrafficViolationLawDto> trafficViolationLawDtos = trafficViolationLawModel.getAllViolationLaws();
+        ArrayList<TrafficViolationLawDto> trafficViolationLawDtos = trafficViolationLawBoImpl.loadLawTableData();
         ObservableList<TrafficViolationLawTM> lawTMS = FXCollections.observableArrayList();
 
         for (TrafficViolationLawDto trafficViolationLawDto : trafficViolationLawDtos) {

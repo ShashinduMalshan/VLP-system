@@ -1,6 +1,7 @@
 package com.assignment.service.Controller;
 
 import com.assignment.service.Bo.DriverBoImpl;
+import com.assignment.service.Bo.TrainingBoImpl;
 import com.assignment.service.DAO.Custom.DriverDAO;
 import com.assignment.service.DBConnection.DBConnection;
 import com.assignment.service.Model.DriverDto;
@@ -86,6 +87,9 @@ public class DriverController implements Initializable {
 
     DriverDAO driverModel = new DriverImpl();
 DriverBoImpl driverBoImpl = new DriverBoImpl();
+TrainingBoImpl trainingBo = new TrainingBoImpl();
+
+
     public void loadTableData() throws SQLException {
 
         ArrayList<DriverDto> driverDtos = driverBoImpl.loadTableData();
@@ -117,11 +121,10 @@ DriverBoImpl driverBoImpl = new DriverBoImpl();
         System.out.println(percentage);
     }
 
-//me ka hadannaoneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
     TrainingImpl trainingImpl = new TrainingImpl();
     public void getAllTrainingCount() throws SQLException {
 
-        lblTrainingLicenses.setText(String.valueOf(trainingImpl.getAllTrainingCount()));
+        lblTrainingLicenses.setText(String.valueOf(trainingBo.getAllTrainingCount()));
     }
 
     public void getPercentageTraining() throws SQLException {

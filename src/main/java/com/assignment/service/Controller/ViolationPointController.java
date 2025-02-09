@@ -1,5 +1,6 @@
 package com.assignment.service.Controller;
 
+import com.assignment.service.Bo.ViolationPointBoImpl;
 import com.assignment.service.DAO.Custom.DriverDAO;
 import com.assignment.service.DAO.Custom.SuspendDAO;
 import com.assignment.service.Model.ViolationPointDto;
@@ -79,10 +80,11 @@ public class ViolationPointController implements Initializable {
 
 
     ViolationPointImpl violationPointImpl =new ViolationPointImpl();
+    ViolationPointBoImpl violationPointBo =new ViolationPointBoImpl();
 
     public void loadTableData() throws SQLException {
 
-        ArrayList<ViolationPointDto> ViolationPointDTOS = violationPointImpl.getAllViolationPoints();
+        ArrayList<ViolationPointDto> ViolationPointDTOS = violationPointBo.loadTableData();
         ObservableList<ViolationPointTM> violationPointTMS = FXCollections.observableArrayList();
 
         for (ViolationPointDto violationPointDto : ViolationPointDTOS) {

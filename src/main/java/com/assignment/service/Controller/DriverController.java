@@ -117,8 +117,7 @@ DriverBoImpl driverBoImpl = new DriverBoImpl();
         System.out.println(percentage);
     }
 
-
-
+//me ka hadannaoneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
     TrainingImpl trainingImpl = new TrainingImpl();
     public void getAllTrainingCount() throws SQLException {
 

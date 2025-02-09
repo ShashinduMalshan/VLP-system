@@ -1,6 +1,9 @@
 package com.assignment.service.Controller;
 
+import com.assignment.service.Bo.SuspendedLicBoImpl;
+import com.assignment.service.Bo.TrainingBoImpl;
 import com.assignment.service.DAO.Custom.SuspendDAO;
+import com.assignment.service.DAO.Custom.TrainingDAO;
 import com.assignment.service.DBConnection.DBConnection;
 import com.assignment.service.DAO.Custom.Impl.SuspendLicImpl;
 import com.assignment.service.DAO.Custom.Impl.TrainingImpl;
@@ -39,7 +42,8 @@ public class SuspendedLicController implements Initializable {
     public TextField searchField;
     public Button searchFieldBtn;
     public Button ExportBtn;
-    TrainingImpl trainingImpl = new TrainingImpl();
+    TrainingDAO trainingImpl = new TrainingImpl();
+    TrainingBoImpl trainingBo = new TrainingBoImpl();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -90,9 +94,10 @@ public class SuspendedLicController implements Initializable {
 
 
     SuspendDAO suspendLicModel = new SuspendLicImpl();
+    SuspendedLicBoImpl suspendedLicBoImpl = new SuspendedLicBoImpl();
     public void loadTable() throws SQLException {
 
-        ArrayList<SuspendLicDto> suspendLicDtos = suspendLicModel.getAll();
+        ArrayList<SuspendLicDto> suspendLicDtos = suspendedLicBoImpl.loadTable();
         ObservableList<SuspendLicTM> suspendLicTMS= FXCollections.observableArrayList();
 
         for (SuspendLicDto suspendLicDto : suspendLicDtos) {
@@ -119,7 +124,7 @@ public class SuspendedLicController implements Initializable {
 
     public void addTrainingBtnAcn(ActionEvent actionEvent) throws SQLException {
 
-        boolean isInvalid = trainingImpl.isDuplicateId(drivingLicNum);
+        boolean isInvalid = trainingBo.isDuplicateId(drivingLicNum);
         System.out.println("trainig table eke innawanm true enne ::::"+isInvalid);
 
         if (!isInvalid){
@@ -129,8 +134,7 @@ public class SuspendedLicController implements Initializable {
 
             if (optionalButtonType.isPresent() && optionalButtonType.get() == ButtonType.YES) {
 
-                TrainingDtoTwo trainingDto = new TrainingDtoTwo(drivingLicNum, driverName, totalPoint);
-                boolean isSave = trainingImpl.save(trainingDto);
+                boolean isSave = trainingBo.save(new TrainingDtoTwo(drivingLicNum, driverName, totalPoint));
 
                 if (isSave) {
                     drivingLicNum = null;

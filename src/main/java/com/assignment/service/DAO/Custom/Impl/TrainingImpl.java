@@ -32,6 +32,11 @@ public class TrainingImpl implements TrainingDAO {
         );
     }
 
+    @Override
+    public boolean save(TrainingDto Dto) throws SQLException {
+        return false;
+    }
+
     public String getNextId() throws SQLException {
         ResultSet rst = SQLUtil.execute("select course_id from Training order by course_id desc limit 1");
 
@@ -76,6 +81,8 @@ public class TrainingImpl implements TrainingDAO {
         }
         return trainingDtos;
     }
+
+
 
     SuspendDAO suspendLicModel = new SuspendLicImpl();
     public boolean delete(String ID) throws SQLException {
@@ -122,11 +129,6 @@ public class TrainingImpl implements TrainingDAO {
         return 0;
     }
 
-
-    @Override
-    public boolean save(TrainingDto Dto) throws SQLException {
-        return false;
-    }
 
     @Override
     public boolean update(TrainingDto Dto) throws SQLException {

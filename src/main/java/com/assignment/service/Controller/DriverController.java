@@ -1,5 +1,6 @@
 package com.assignment.service.Controller;
 
+import com.assignment.service.Bo.DriverBoImpl;
 import com.assignment.service.DAO.Custom.DriverDAO;
 import com.assignment.service.DBConnection.DBConnection;
 import com.assignment.service.Model.DriverDto;
@@ -84,10 +85,10 @@ public class DriverController implements Initializable {
 
 
     DriverDAO driverModel = new DriverImpl();
-
+DriverBoImpl driverBoImpl = new DriverBoImpl();
     public void loadTableData() throws SQLException {
 
-        ArrayList<DriverDto> driverDtos = driverModel.getAll();
+        ArrayList<DriverDto> driverDtos = driverBoImpl.loadTableData();
         ObservableList<DriverTM> driverTMS = FXCollections.observableArrayList();
 
         for (DriverDto driverDto : driverDtos) {

@@ -132,7 +132,7 @@ public class PoliceOfficersController implements Initializable {
                 location
         );
 
-        boolean isUpdate = policeOfficerModel.update(policeOfficerDto);
+        boolean isUpdate = policeOfficerBo.update(policeOfficerDto);
         if (isUpdate) {
             reset();
             new Alert(Alert.AlertType.INFORMATION, "Officer update...!").show();
@@ -154,7 +154,7 @@ public class PoliceOfficersController implements Initializable {
 
         );
 
-        boolean isSaved = policeOfficerModel.save(policeOfficerDto);
+        boolean isSaved = policeOfficerBo.save(policeOfficerDto);
         if (isSaved) {
             reset();
             new Alert(Alert.AlertType.INFORMATION, "Officer saved...!").show();

@@ -25,5 +25,17 @@ public class PoliceOfficerBoImpl {
     }
 
 
+    public boolean update(PoliceOfficerDto policeOfficerDto) throws SQLException {
+
+        return policeOfficerImpl.update(policeOfficerDto);
+    }
+
+
+    public boolean save(PoliceOfficerDto policeOfficerDto) throws SQLException {
+
+            return policeOfficerImpl.save(policeOfficerDto);
+        }
+
+
 
     }

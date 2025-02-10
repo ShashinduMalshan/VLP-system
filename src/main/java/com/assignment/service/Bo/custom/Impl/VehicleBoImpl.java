@@ -14,7 +14,33 @@ public class VehicleBoImpl implements VehicleBo {
 
 
 
-    public ArrayList<VehicleDto> getAllVehicle(String vehicleId) throws SQLException {
-        return vehicleModel.getAllVehicle(vehicleId);
+    public ArrayList<VehicleDto> getAll(String Id) throws SQLException {
+        return vehicleModel.getAllVehicle(Id);
+    }
+
+
+    @Override
+    public ArrayList<VehicleDto> loadTableData() throws SQLException {
+        return null;
+    }
+
+    @Override
+    public boolean isDuplicateId(String Id) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean delete(String Id) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean update(VehicleDto policeOfficerDto) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean save(VehicleDto policeOfficerDto) throws SQLException {
+        return false;
     }
 }

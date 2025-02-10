@@ -19,7 +19,32 @@ public class VehicleOwnerBoImpl implements VehicleOwnerBo {
 
     OwnersDAO vehicleOwnerModel = new VehicleOwnerImpl();
 
-    public ArrayList<OwnersDto> getAllOwners(String vehicleId) throws SQLException {
+    @Override
+    public ArrayList<OwnersDto> loadTableData() throws SQLException {
+        return null;
+    }
+
+    @Override
+    public boolean isDuplicateId(String Id) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean delete(String Id) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean update(OwnersDto policeOfficerDto) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean save(OwnersDto policeOfficerDto) throws SQLException {
+        return false;
+    }
+
+    public ArrayList<OwnersDto> getAll(String vehicleId) throws SQLException {
         return vehicleOwnerModel.getAllOwners(vehicleId);
 
     }

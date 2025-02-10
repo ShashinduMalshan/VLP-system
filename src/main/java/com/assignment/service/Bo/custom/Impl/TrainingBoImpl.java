@@ -4,6 +4,7 @@ import com.assignment.service.Bo.custom.TrainingBo;
 import com.assignment.service.DAO.Custom.Impl.TrainingImpl;
 import com.assignment.service.DAO.Custom.TrainingDAO;
 import com.assignment.service.Model.TrainingDtoTwo;
+import com.assignment.service.Model.VehicleDto;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -15,6 +16,11 @@ public class TrainingBoImpl implements TrainingBo {
     public boolean save(TrainingDtoTwo trainingDtoTwo) throws SQLException {
 
         return trainingImpl.save(trainingDtoTwo);
+    }
+
+    @Override
+    public ArrayList<TrainingDtoTwo> getAll(String vehicleId) throws SQLException {
+        return null;
     }
 
 

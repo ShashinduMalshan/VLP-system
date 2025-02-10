@@ -13,7 +13,32 @@ public class RevenueLicBoImpl implements RevenueLicBo {
     RevenueLicDAO revenueLicModel = new RevenueLicImpl();
 
 
-    public ArrayList<RevenueLicDto> getAllRevenueLic(String ownerId) throws SQLException {
+    @Override
+    public ArrayList<RevenueLicDto> loadTableData() throws SQLException {
+        return null;
+    }
+
+    @Override
+    public boolean isDuplicateId(String Id) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean delete(String Id) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean update(RevenueLicDto policeOfficerDto) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean save(RevenueLicDto policeOfficerDto) throws SQLException {
+        return false;
+    }
+
+    public ArrayList<RevenueLicDto> getAll(String ownerId) throws SQLException {
         return revenueLicModel.getAllRevenueLic(ownerId);
 
     }

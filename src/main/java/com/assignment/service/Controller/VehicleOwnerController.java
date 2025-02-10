@@ -45,7 +45,7 @@ public class VehicleOwnerController {
     RevenueLicBo revenueLicBoBoImpl = new RevenueLicBoImpl();
     public void SearchData(String vehicleId) throws SQLException {
 
-        ArrayList<OwnersDto> ownerDetails = vehicleOwnerBoImpl.getAllOwners(vehicleId);
+        ArrayList<OwnersDto> ownerDetails = vehicleOwnerBoImpl.getAll(vehicleId);
         for (OwnersDto ownersDto : ownerDetails) {
 
                     ownerId = ownersDto.getOwnerID();
@@ -56,12 +56,12 @@ public class VehicleOwnerController {
 
         }
 
-        ArrayList<VehicleDto> vehicleDetails = vehicleBoImpl.getAllVehicle(vehicleId);
+        ArrayList<VehicleDto> vehicleDetails = vehicleBoImpl.getAll(vehicleId);
         for (VehicleDto vehicleDto : vehicleDetails) {
                     lblModel.setText(vehicleDto.getModel());
                     lblBrandName.setText(vehicleDto.getBrandName());
         }
-        ArrayList<RevenueLicDto> revenueLicDtos = revenueLicBoBoImpl.getAllRevenueLic(ownerId);
+        ArrayList<RevenueLicDto> revenueLicDtos = revenueLicBoBoImpl.getAll(ownerId);
         for (RevenueLicDto revenueLicDto : revenueLicDtos) {
                     lblRevenueLicence.setText(revenueLicDto.getRevenueLic());
                     lblIssueDate.setText(revenueLicDto.getDate_of_issue());

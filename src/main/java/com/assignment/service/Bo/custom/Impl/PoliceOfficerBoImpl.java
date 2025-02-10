@@ -4,6 +4,7 @@ import com.assignment.service.Bo.custom.PoliceOfficerBo;
 import com.assignment.service.DAO.Custom.Impl.PoliceOfficerImpl;
 import com.assignment.service.DAO.Custom.PoliceOfficerDAO;
 import com.assignment.service.Model.PoliceOfficerDto;
+import com.assignment.service.Model.VehicleDto;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -41,6 +42,10 @@ public class PoliceOfficerBoImpl implements PoliceOfficerBo {
             return policeOfficerImpl.save(policeOfficerDto);
         }
 
-
-
+    @Override
+    public ArrayList<PoliceOfficerDto> getAll(String vehicleId) throws SQLException {
+        return null;
     }
+
+
+}

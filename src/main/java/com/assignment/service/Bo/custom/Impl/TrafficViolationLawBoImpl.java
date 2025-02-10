@@ -4,6 +4,7 @@ import com.assignment.service.Bo.custom.TrafficViolationLawBo;
 import com.assignment.service.DAO.Custom.Impl.TrafficViolationLawImpl;
 import com.assignment.service.DAO.Custom.TrafficViolationLawDAO;
 import com.assignment.service.Model.TrafficViolationLawDto;
+import com.assignment.service.Model.VehicleDto;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -37,5 +38,10 @@ public class TrafficViolationLawBoImpl implements TrafficViolationLawBo {
     @Override
     public boolean save(TrafficViolationLawDto policeOfficerDto) throws SQLException {
         return false;
+    }
+
+    @Override
+    public ArrayList<TrafficViolationLawDto> getAll(String vehicleId) throws SQLException {
+        return null;
     }
 }

@@ -4,6 +4,7 @@ import com.assignment.service.Bo.custom.SuspendedLicBo;
 import com.assignment.service.DAO.Custom.Impl.SuspendLicImpl;
 import com.assignment.service.DAO.Custom.SuspendDAO;
 import com.assignment.service.Model.SuspendLicDto;
+import com.assignment.service.Model.VehicleDto;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -37,6 +38,11 @@ public class SuspendedLicBoImpl implements SuspendedLicBo {
     @Override
     public boolean save(SuspendLicDto policeOfficerDto) throws SQLException {
         return false;
+    }
+
+    @Override
+    public ArrayList<SuspendLicDto> getAll(String vehicleId) throws SQLException {
+        return null;
     }
 
 

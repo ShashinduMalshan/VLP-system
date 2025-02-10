@@ -9,6 +9,6 @@ import java.util.ArrayList;
 public interface RevenueLicBo extends SuperBo<RevenueLicDto> {
 
 
-     ArrayList<RevenueLicDto> getAll(String Id) throws SQLException;
+     //ArrayList<RevenueLicDto> getAll(String Id) throws SQLException;
 
 }

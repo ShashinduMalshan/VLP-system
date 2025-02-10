@@ -12,14 +12,32 @@ public class SuspendedLicBoImpl implements SuspendedLicBo {
 
     SuspendDAO  suspendLicModel = new SuspendLicImpl();
 
-    public ArrayList<SuspendLicDto> loadTable() throws SQLException {
+    public ArrayList<SuspendLicDto> loadTableData() throws SQLException {
 
         return suspendLicModel.getAll();
 
 
     }
 
-
-
-
+    @Override
+    public boolean isDuplicateId(String Id) throws SQLException {
+        return false;
     }
+
+    @Override
+    public boolean delete(String Id) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean update(SuspendLicDto policeOfficerDto) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean save(SuspendLicDto policeOfficerDto) throws SQLException {
+        return false;
+    }
+
+
+}

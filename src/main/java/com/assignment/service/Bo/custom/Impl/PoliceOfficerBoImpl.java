@@ -13,16 +13,20 @@ public class PoliceOfficerBoImpl implements PoliceOfficerBo {
     PoliceOfficerDAO policeOfficerImpl  = new PoliceOfficerImpl();
 
 
-    public ArrayList<PoliceOfficerDto> loadTable() throws SQLException {
+    public ArrayList<PoliceOfficerDto> loadTableData() throws SQLException {
 
         return policeOfficerImpl.getAll();
     }
 
+    @Override
+    public boolean isDuplicateId(String Id) throws SQLException {
+        return false;
+    }
 
 
-    public boolean delete(String OfficerId) throws SQLException {
+    public boolean delete(String Id) throws SQLException {
 
-        return policeOfficerImpl.delete(OfficerId);
+        return policeOfficerImpl.delete(Id);
     }
 
 

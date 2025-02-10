@@ -97,7 +97,7 @@ public class SuspendedLicController implements Initializable {
     SuspendedLicBoImpl suspendedLicBoImpl = new SuspendedLicBoImpl();
     public void loadTable() throws SQLException {
 
-        ArrayList<SuspendLicDto> suspendLicDtos = suspendedLicBoImpl.loadTable();
+        ArrayList<SuspendLicDto> suspendLicDtos = suspendedLicBoImpl.loadTableData();
         ObservableList<SuspendLicTM> suspendLicTMS= FXCollections.observableArrayList();
 
         for (SuspendLicDto suspendLicDto : suspendLicDtos) {

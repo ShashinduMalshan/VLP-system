@@ -13,11 +13,29 @@ public class TrafficViolationLawBoImpl implements TrafficViolationLawBo {
     TrafficViolationLawDAO trafficViolationLawModel = new TrafficViolationLawImpl();
 
 
-    public ArrayList<TrafficViolationLawDto> loadLawTableData() throws SQLException {
+    public ArrayList<TrafficViolationLawDto> loadTableData() throws SQLException {
 
         return trafficViolationLawModel.getAllViolationLaws();
     }
 
-
-
+    @Override
+    public boolean isDuplicateId(String Id) throws SQLException {
+        return false;
     }
+
+
+    @Override
+    public boolean delete(String Id) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean update(TrafficViolationLawDto policeOfficerDto) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean save(TrafficViolationLawDto policeOfficerDto) throws SQLException {
+        return false;
+    }
+}

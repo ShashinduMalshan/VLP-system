@@ -10,7 +10,6 @@ import java.util.ArrayList;
 public interface VehicleOwnerBo {
 
 
-    ArrayList<OwnersDto> getAllOwners(String vehicleId) throws SQLException;
-    ArrayList<VehicleDto> getAllVehicle(String vehicleId) throws SQLException;
-    ArrayList<RevenueLicDto> getAllRevenueLic(String ownerId) throws SQLException;
+    public ArrayList<OwnersDto> getAllOwners(String vehicleId) throws SQLException;
+
 }

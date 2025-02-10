@@ -82,7 +82,7 @@ public class PoliceOfficersController implements Initializable {
     PoliceOfficerDAO policeOfficerModel = new PoliceOfficerImpl();
     public void loadTable() throws SQLException {
 
-        ArrayList<PoliceOfficerDto> policeOfficerDtos = policeOfficerBo.loadTable();
+        ArrayList<PoliceOfficerDto> policeOfficerDtos = policeOfficerBo.loadTableData();
         ObservableList<PoliceOfficerTM> policeOfficerTMS= FXCollections.observableArrayList();
 
         for (PoliceOfficerDto policeOfficerDto : policeOfficerDtos) {

@@ -9,4 +9,5 @@ public interface ViolationPointBo {
 
     ArrayList<ViolationPointDto> loadTableData() throws SQLException;
     boolean save(ViolationPointDto violationPointDto) throws SQLException;
+
 }

@@ -1,6 +1,10 @@
 package com.assignment.service.Controller;
 
+import com.assignment.service.Bo.custom.Impl.RevenueLicBoImpl;
+import com.assignment.service.Bo.custom.Impl.VehicleBoImpl;
 import com.assignment.service.Bo.custom.Impl.VehicleOwnerBoImpl;
+import com.assignment.service.Bo.custom.RevenueLicBo;
+import com.assignment.service.Bo.custom.VehicleBo;
 import com.assignment.service.DBConnection.DBConnection;
 import com.assignment.service.Model.OwnersDto;
 import com.assignment.service.Model.RevenueLicDto;
@@ -37,6 +41,8 @@ public class VehicleOwnerController {
 
 
     VehicleOwnerBoImpl vehicleOwnerBoImpl = new VehicleOwnerBoImpl();
+    VehicleBo vehicleBoImpl = new VehicleBoImpl();
+    RevenueLicBo revenueLicBoBoImpl = new RevenueLicBoImpl();
     public void SearchData(String vehicleId) throws SQLException {
 
         ArrayList<OwnersDto> ownerDetails = vehicleOwnerBoImpl.getAllOwners(vehicleId);
@@ -50,12 +56,12 @@ public class VehicleOwnerController {
 
         }
 
-        ArrayList<VehicleDto> vehicleDetails = vehicleOwnerBoImpl.getAllVehicle(vehicleId);
+        ArrayList<VehicleDto> vehicleDetails = vehicleBoImpl.getAllVehicle(vehicleId);
         for (VehicleDto vehicleDto : vehicleDetails) {
                     lblModel.setText(vehicleDto.getModel());
                     lblBrandName.setText(vehicleDto.getBrandName());
         }
-        ArrayList<RevenueLicDto> revenueLicDtos = vehicleOwnerBoImpl.getAllRevenueLic(ownerId);
+        ArrayList<RevenueLicDto> revenueLicDtos = revenueLicBoBoImpl.getAllRevenueLic(ownerId);
         for (RevenueLicDto revenueLicDto : revenueLicDtos) {
                     lblRevenueLicence.setText(revenueLicDto.getRevenueLic());
                     lblIssueDate.setText(revenueLicDto.getDate_of_issue());

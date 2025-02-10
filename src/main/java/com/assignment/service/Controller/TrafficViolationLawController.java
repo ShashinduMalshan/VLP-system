@@ -71,7 +71,7 @@ public class TrafficViolationLawController implements Initializable {
 
     public void loadLawTableData() throws SQLException {
 
-        ArrayList<TrafficViolationLawDto> trafficViolationLawDtos = trafficViolationLawBoImpl.loadLawTableData();
+        ArrayList<TrafficViolationLawDto> trafficViolationLawDtos = trafficViolationLawBoImpl.loadTableData();
         ObservableList<TrafficViolationLawTM> lawTMS = FXCollections.observableArrayList();
 
         for (TrafficViolationLawDto trafficViolationLawDto : trafficViolationLawDtos) {

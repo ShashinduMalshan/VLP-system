@@ -1,5 +1,6 @@
 package com.assignment.service.Bo.custom.Impl;
 
+import com.assignment.service.Bo.custom.VehicleBo;
 import com.assignment.service.Bo.custom.VehicleOwnerBo;
 import com.assignment.service.DAO.Custom.Impl.RevenueLicImpl;
 import com.assignment.service.DAO.Custom.Impl.VehicleImpl;
@@ -17,23 +18,15 @@ import java.util.ArrayList;
 public class VehicleOwnerBoImpl implements VehicleOwnerBo {
 
     OwnersDAO vehicleOwnerModel = new VehicleOwnerImpl();
-    RevenueLicDAO revenueLicModel = new RevenueLicImpl();
-    VehicleDAO vehicleModel = new VehicleImpl();
 
     public ArrayList<OwnersDto> getAllOwners(String vehicleId) throws SQLException {
         return vehicleOwnerModel.getAllOwners(vehicleId);
 
     }
 
-     public ArrayList<VehicleDto> getAllVehicle(String vehicleId) throws SQLException {
-        return vehicleModel.getAllVehicle(vehicleId);
 
-    }
 
-     public ArrayList<RevenueLicDto> getAllRevenueLic(String ownerId) throws SQLException {
-        return revenueLicModel.getAllRevenueLic(ownerId);
 
-    }
 
 
 

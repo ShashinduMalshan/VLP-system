@@ -1,7 +1,7 @@
 package com.assignment.service.Controller;
 
-import com.assignment.service.Bo.DriverBoImpl;
-import com.assignment.service.Bo.TrainingBoImpl;
+import com.assignment.service.Bo.custom.Impl.DriverBoImpl;
+import com.assignment.service.Bo.custom.Impl.TrainingBoImpl;
 import com.assignment.service.DAO.Custom.DriverDAO;
 import com.assignment.service.DBConnection.DBConnection;
 import com.assignment.service.Model.DriverDto;

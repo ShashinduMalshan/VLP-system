@@ -1,6 +1,6 @@
 package com.assignment.service.Controller;
 
-import com.assignment.service.Bo.PoliceOfficerBoImpl;
+import com.assignment.service.Bo.custom.Impl.PoliceOfficerBoImpl;
 import com.assignment.service.DAO.Custom.PoliceOfficerDAO;
 import com.assignment.service.DAO.Custom.Impl.PoliceOfficerImpl;
 import com.assignment.service.Model.PoliceOfficerDto;

@@ -1,7 +1,7 @@
 package com.assignment.service.Controller;
 
-import com.assignment.service.Bo.SuspendedLicBoImpl;
-import com.assignment.service.Bo.TrainingBoImpl;
+import com.assignment.service.Bo.custom.Impl.SuspendedLicBoImpl;
+import com.assignment.service.Bo.custom.Impl.TrainingBoImpl;
 import com.assignment.service.DAO.Custom.SuspendDAO;
 import com.assignment.service.DAO.Custom.TrainingDAO;
 import com.assignment.service.DBConnection.DBConnection;

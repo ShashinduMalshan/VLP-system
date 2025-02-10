@@ -1,6 +1,6 @@
 package com.assignment.service.Controller;
 
-import com.assignment.service.Bo.ViolationPointBoImpl;
+import com.assignment.service.Bo.custom.Impl.ViolationPointBoImpl;
 import com.assignment.service.DAO.Custom.DriverDAO;
 import com.assignment.service.DAO.Custom.SuspendDAO;
 import com.assignment.service.Model.ViolationPointDto;
@@ -134,7 +134,7 @@ public class ViolationPointController implements Initializable {
                 lawId
         );
 
-    boolean isSaved = violationPointImpl.saveViolationPoints(violationPointDto);
+    boolean isSaved = violationPointBo.save(violationPointDto);
         if (isSaved) {
             checkIsSuspend();// id eka suspend ekakda balanawa
             refreshPage();

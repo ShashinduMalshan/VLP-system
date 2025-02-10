@@ -1,6 +1,6 @@
 package com.assignment.service.Controller;
 
-import com.assignment.service.Bo.TrafficViolationLawBoImpl;
+import com.assignment.service.Bo.custom.Impl.TrafficViolationLawBoImpl;
 import com.assignment.service.DAO.Custom.TrafficViolationLawDAO;
 import com.assignment.service.Model.TrafficViolationLawDto;
 import com.assignment.service.Model.TrafficViolationLawTM;

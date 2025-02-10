@@ -1,5 +1,6 @@
-package com.assignment.service.Bo;
+package com.assignment.service.Bo.custom.Impl;
 
+import com.assignment.service.Bo.custom.VehicleOwnerBo;
 import com.assignment.service.DAO.Custom.Impl.RevenueLicImpl;
 import com.assignment.service.DAO.Custom.Impl.VehicleImpl;
 import com.assignment.service.DAO.Custom.Impl.VehicleOwnerImpl;
@@ -13,7 +14,7 @@ import com.assignment.service.Model.VehicleDto;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class VehicleOwnerBoImpl {
+public class VehicleOwnerBoImpl implements VehicleOwnerBo {
 
     OwnersDAO vehicleOwnerModel = new VehicleOwnerImpl();
     RevenueLicDAO revenueLicModel = new RevenueLicImpl();

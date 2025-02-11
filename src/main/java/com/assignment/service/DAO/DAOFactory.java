@@ -15,7 +15,7 @@ public class DAOFactory {
     }
     
     public enum DAOTypes{
-        DRIVER, PoliceOfficer,REVENUE_LIC
+        DRIVER, POLICE_OFFICER,REVENUE_LIC
     }
     
     public CrudDAO getDAO(DAOTypes daoTypes){
@@ -24,7 +24,7 @@ public class DAOFactory {
             case DRIVER:
                 return new DriverImpl();
 
-            case PoliceOfficer:
+            case POLICE_OFFICER:
                 return new PoliceOfficerImpl();
 
             case REVENUE_LIC:

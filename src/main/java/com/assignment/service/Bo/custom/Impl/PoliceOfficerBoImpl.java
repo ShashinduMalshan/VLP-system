@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class PoliceOfficerBoImpl implements PoliceOfficerBo {
 
-    PoliceOfficerDAO policeOfficerImpl  = new PoliceOfficerImpl();
+    PoliceOfficerDAO policeOfficerImpl  = (PoliceOfficerDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.POLICE_OFFICER);
 
 
     public ArrayList<PoliceOfficerDto> loadTableData() throws SQLException {

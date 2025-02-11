@@ -38,7 +38,7 @@ public class PoliceOfficersController implements Initializable {
     public Button deleteBtn;
     public Button searchFieldBtn;
 
-    PoliceOfficerBo policeOfficerBo = (PoliceOfficerBo) BOFactory.getDaoFactory().getBo(BOFactory.BoTypes.DRIVER);
+    PoliceOfficerBo policeOfficerBo = (PoliceOfficerBo) BOFactory.getDaoFactory().getBo(BOFactory.BoTypes.POLICE_OFFICER);
 
 
 

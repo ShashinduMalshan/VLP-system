@@ -3,8 +3,8 @@ package com.assignment.service.Bo.custom.Impl;
 import com.assignment.service.Bo.custom.PoliceOfficerBo;
 import com.assignment.service.DAO.Custom.Impl.PoliceOfficerImpl;
 import com.assignment.service.DAO.Custom.PoliceOfficerDAO;
+import com.assignment.service.DAO.DAOFactory;
 import com.assignment.service.Model.PoliceOfficerDto;
-import com.assignment.service.Model.VehicleDto;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

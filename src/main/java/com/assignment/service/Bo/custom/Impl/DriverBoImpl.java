@@ -3,6 +3,7 @@ package com.assignment.service.Bo.custom.Impl;
 import com.assignment.service.Bo.custom.DriverBo;
 import com.assignment.service.DAO.Custom.DriverDAO;
 import com.assignment.service.DAO.Custom.Impl.DriverImpl;
+import com.assignment.service.DAO.DAOFactory;
 import com.assignment.service.Model.DriverDto;
 import com.assignment.service.Model.PoliceOfficerDto;
 import com.assignment.service.Model.VehicleDto;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 
 public class DriverBoImpl implements DriverBo {
 
-    DriverDAO driverDAO = new DriverImpl();
+    DriverDAO driverDAO = (DriverDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.DRIVER);
 
     public ArrayList<DriverDto> loadTableData() throws SQLException {
         return driverDAO.getAll();

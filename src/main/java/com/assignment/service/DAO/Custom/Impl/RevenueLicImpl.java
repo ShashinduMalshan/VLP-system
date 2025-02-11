@@ -32,5 +32,38 @@ public class RevenueLicImpl implements RevenueLicDAO {
     }
 
 
+    @Override
+    public ArrayList<RevenueLicDto> getAll() throws SQLException {
+        return null;
+    }
 
+    @Override
+    public boolean save(RevenueLicDto Dto) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean update(RevenueLicDto Dto) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean delete(String Id) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public String getNextId() throws SQLException {
+        return "";
+    }
+
+    @Override
+    public ArrayList<String> checkSuspendId() throws SQLException {
+        return null;
+    }
+
+    @Override
+    public boolean isDuplicateId(String drivingLicNum) throws SQLException {
+        return false;
+    }
 }

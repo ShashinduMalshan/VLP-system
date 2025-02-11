@@ -69,7 +69,7 @@ public class ViolationPointController implements Initializable {
         loadTableData();
         checkIsSuspend();//llllllllll
 
-         txtPointId.setText(violationPointImpl.getNextOfficerId());
+         txtPointId.setText(violationPointImpl.getNextId());
          txtDescription.setText("");
          txtLocation.setText("");
          txtOfficerID.setText("");

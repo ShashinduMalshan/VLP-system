@@ -35,4 +35,38 @@ public class VehicleOwnerImpl implements OwnersDAO {
     }
 
 
+    @Override
+    public ArrayList<OwnersDto> getAll() throws SQLException {
+        return null;
+    }
+
+    @Override
+    public boolean save(OwnersDto Dto) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean update(OwnersDto Dto) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean delete(String Id) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public String getNextId() throws SQLException {
+        return "";
+    }
+
+    @Override
+    public ArrayList<String> checkSuspendId() throws SQLException {
+        return null;
+    }
+
+    @Override
+    public boolean isDuplicateId(String drivingLicNum) throws SQLException {
+        return false;
+    }
 }

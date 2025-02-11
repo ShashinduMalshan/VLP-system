@@ -3,6 +3,7 @@ package com.assignment.service.Bo.custom.Impl;
 import com.assignment.service.Bo.custom.TrainingBo;
 import com.assignment.service.DAO.Custom.Impl.TrainingImpl;
 import com.assignment.service.DAO.Custom.TrainingDAO;
+import com.assignment.service.DAO.DAOFactory;
 import com.assignment.service.Model.TrainingDtoTwo;
 import com.assignment.service.Model.VehicleDto;
 
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 
 public class TrainingBoImpl implements TrainingBo {
 
-    TrainingDAO trainingImpl = new TrainingImpl();
+    TrainingDAO trainingImpl = (TrainingDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.TRAINING);
 
     public boolean save(TrainingDtoTwo trainingDtoTwo) throws SQLException {
 

@@ -3,6 +3,7 @@ package com.assignment.service.Bo.custom.Impl;
 import com.assignment.service.Bo.custom.SuspendedLicBo;
 import com.assignment.service.DAO.Custom.Impl.SuspendLicImpl;
 import com.assignment.service.DAO.Custom.SuspendDAO;
+import com.assignment.service.DAO.DAOFactory;
 import com.assignment.service.Model.SuspendLicDto;
 import com.assignment.service.Model.VehicleDto;
 
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 
 public class SuspendedLicBoImpl implements SuspendedLicBo {
 
-    SuspendDAO  suspendLicModel = new SuspendLicImpl();
+    SuspendDAO  suspendLicModel = (SuspendDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.SUSPEND_LIC);
 
     public ArrayList<SuspendLicDto> loadTableData() throws SQLException {
 

@@ -4,20 +4,20 @@ import com.assignment.service.Bo.custom.DriverBo;
 import com.assignment.service.Bo.custom.Impl.DriverBoImpl;
 
 public class BOFactory {
-    private static BOFactory daoFactory;
+    private static BOFactory boFactory;
 
     private BOFactory() {
     }
     
     public static BOFactory getDaoFactory() {
-        return (daoFactory == null) ? daoFactory = new BOFactory() : daoFactory;
+        return (boFactory == null) ? boFactory = new BOFactory() : boFactory;
     }
     
     public enum BoTypes{
         DRIVER
     }
     
-    public SuperBo getDAO(BoTypes boTypes){
+    public SuperBo getBo(BoTypes boTypes){
         switch (boTypes){
             case DRIVER: return new DriverBoImpl();
           

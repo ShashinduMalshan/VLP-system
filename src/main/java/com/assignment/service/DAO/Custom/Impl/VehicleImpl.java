@@ -29,4 +29,38 @@ public class VehicleImpl implements VehicleDAO {
     }
 
 
+    @Override
+    public ArrayList<VehicleDto> getAll() throws SQLException {
+        return null;
+    }
+
+    @Override
+    public boolean save(VehicleDto Dto) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean update(VehicleDto Dto) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean delete(String Id) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public String getNextId() throws SQLException {
+        return "";
+    }
+
+    @Override
+    public ArrayList<String> checkSuspendId() throws SQLException {
+        return null;
+    }
+
+    @Override
+    public boolean isDuplicateId(String drivingLicNum) throws SQLException {
+        return false;
+    }
 }

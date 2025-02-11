@@ -1,5 +1,8 @@
 package com.assignment.service.DAO.Custom.Impl;
 
+import com.assignment.service.DAO.Custom.DriverDAO;
+import com.assignment.service.DAO.Custom.ViolationPointDAO;
+import com.assignment.service.DAO.DAOFactory;
 import com.assignment.service.DBConnection.DBConnection;
 import com.assignment.service.Model.ViolationPointDto;
 import com.assignment.service.DAO.SQLUtil;
@@ -9,9 +12,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class ViolationPointImpl {
+public class ViolationPointImpl implements ViolationPointDAO {
 
-    public ArrayList<ViolationPointDto> getAllViolationPoints() throws SQLException {
+    public ArrayList<ViolationPointDto> getAll() throws SQLException {
 
         ResultSet rst = SQLUtil.execute("select * from ViolationPoint");
 
@@ -36,8 +39,9 @@ public class ViolationPointImpl {
          }
         return violationPointDTOS;
     }
-    DriverImpl driverModel = new DriverImpl();
-    public boolean saveViolationPoints(ViolationPointDto violationPointDto) throws SQLException {
+    DriverDAO driverModel = (DriverDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.DRIVER);
+
+    public boolean save(ViolationPointDto violationPointDto) throws SQLException {
 
         Connection connection = DBConnection.getInstance().getConnection();
         System.out.println(violationPointDto);
@@ -78,7 +82,17 @@ public class ViolationPointImpl {
         }
     }
 
-    public String getNextOfficerId() throws SQLException {
+    @Override
+    public boolean update(ViolationPointDto Dto) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean delete(String Id) throws SQLException {
+        return false;
+    }
+
+    public String getNextId() throws SQLException {
         ResultSet rst = SQLUtil.execute("SELECT point_id FROM ViolationPoint ORDER BY point_id DESC LIMIT 1");
 
         if (rst.next()) {
@@ -88,6 +102,16 @@ public class ViolationPointImpl {
             return String.format("VP%03d", newIdIndex);
         }
         return "VP001"; // Default ID if no records exist
+    }
+
+    @Override
+    public ArrayList<String> checkSuspendId() throws SQLException {
+        return null;
+    }
+
+    @Override
+    public boolean isDuplicateId(String drivingLicNum) throws SQLException {
+        return false;
     }
 
 

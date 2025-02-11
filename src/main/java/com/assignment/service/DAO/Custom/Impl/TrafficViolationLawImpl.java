@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class TrafficViolationLawImpl implements TrafficViolationLawDAO {
 
-    public ArrayList<TrafficViolationLawDto> getAllViolationLaws() throws SQLException {
+    public ArrayList<TrafficViolationLawDto> getAll() throws SQLException {
         ResultSet resultSet = SQLUtil.execute("select * from TrafficViolationLaw");
 
         ArrayList<TrafficViolationLawDto> trafficViolationLawDtos = new ArrayList<>();
@@ -49,5 +49,33 @@ public class TrafficViolationLawImpl implements TrafficViolationLawDAO {
     }
 
 
+    @Override
+    public boolean save(TrafficViolationLawDto Dto) throws SQLException {
+        return false;
+    }
 
+    @Override
+    public boolean update(TrafficViolationLawDto Dto) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean delete(String Id) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public String getNextId() throws SQLException {
+        return "";
+    }
+
+    @Override
+    public ArrayList<String> checkSuspendId() throws SQLException {
+        return null;
+    }
+
+    @Override
+    public boolean isDuplicateId(String drivingLicNum) throws SQLException {
+        return false;
+    }
 }

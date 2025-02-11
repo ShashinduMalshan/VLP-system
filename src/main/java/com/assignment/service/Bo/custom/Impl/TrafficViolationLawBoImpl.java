@@ -3,20 +3,20 @@ package com.assignment.service.Bo.custom.Impl;
 import com.assignment.service.Bo.custom.TrafficViolationLawBo;
 import com.assignment.service.DAO.Custom.Impl.TrafficViolationLawImpl;
 import com.assignment.service.DAO.Custom.TrafficViolationLawDAO;
+import com.assignment.service.DAO.DAOFactory;
 import com.assignment.service.Model.TrafficViolationLawDto;
-import com.assignment.service.Model.VehicleDto;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class TrafficViolationLawBoImpl implements TrafficViolationLawBo {
 
-    TrafficViolationLawDAO trafficViolationLawModel = new TrafficViolationLawImpl();
+    TrafficViolationLawDAO trafficViolationLawModel = (TrafficViolationLawDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.TRAFFIC_VIOLATION_LAW);
 
 
     public ArrayList<TrafficViolationLawDto> loadTableData() throws SQLException {
 
-        return trafficViolationLawModel.getAllViolationLaws();
+        return trafficViolationLawModel.getAll();
     }
 
     @Override

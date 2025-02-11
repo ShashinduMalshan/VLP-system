@@ -8,6 +8,7 @@ import com.assignment.service.DAO.Custom.Impl.VehicleOwnerImpl;
 import com.assignment.service.DAO.Custom.OwnersDAO;
 import com.assignment.service.DAO.Custom.RevenueLicDAO;
 import com.assignment.service.DAO.Custom.VehicleDAO;
+import com.assignment.service.DAO.DAOFactory;
 import com.assignment.service.Model.OwnersDto;
 import com.assignment.service.Model.RevenueLicDto;
 import com.assignment.service.Model.VehicleDto;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 
 public class VehicleOwnerBoImpl implements VehicleOwnerBo {
 
-    OwnersDAO vehicleOwnerModel = new VehicleOwnerImpl();
+    OwnersDAO vehicleOwnerModel = (OwnersDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.OWNERS);
 
     @Override
     public ArrayList<OwnersDto> loadTableData() throws SQLException {

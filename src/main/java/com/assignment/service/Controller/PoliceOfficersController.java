@@ -1,8 +1,11 @@
 package com.assignment.service.Controller;
 
+import com.assignment.service.Bo.BOFactory;
 import com.assignment.service.Bo.custom.Impl.PoliceOfficerBoImpl;
+import com.assignment.service.Bo.custom.PoliceOfficerBo;
 import com.assignment.service.DAO.Custom.PoliceOfficerDAO;
 import com.assignment.service.DAO.Custom.Impl.PoliceOfficerImpl;
+import com.assignment.service.DAO.DAOFactory;
 import com.assignment.service.Model.PoliceOfficerDto;
 import com.assignment.service.Model.PoliceOfficerTM;
 import javafx.collections.FXCollections;
@@ -35,7 +38,7 @@ public class PoliceOfficersController implements Initializable {
     public Button deleteBtn;
     public Button searchFieldBtn;
 
-    PoliceOfficerBoImpl policeOfficerBo = new PoliceOfficerBoImpl();
+    PoliceOfficerBo policeOfficerBo = (PoliceOfficerBo) BOFactory.getDaoFactory().getBo(BOFactory.BoTypes.DRIVER);
 
 
 
@@ -79,7 +82,7 @@ public class PoliceOfficersController implements Initializable {
     }
 
 
-    PoliceOfficerDAO policeOfficerModel = new PoliceOfficerImpl();
+    PoliceOfficerDAO policeOfficerModel = (PoliceOfficerDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.POLICE_OFFICER);
     public void loadTable() throws SQLException {
 
         ArrayList<PoliceOfficerDto> policeOfficerDtos = policeOfficerBo.loadTableData();

@@ -1,10 +1,12 @@
 package com.assignment.service.Controller;
 
+import com.assignment.service.Bo.BOFactory;
 import com.assignment.service.Bo.custom.Impl.RevenueLicBoImpl;
 import com.assignment.service.Bo.custom.Impl.VehicleBoImpl;
 import com.assignment.service.Bo.custom.Impl.VehicleOwnerBoImpl;
 import com.assignment.service.Bo.custom.RevenueLicBo;
 import com.assignment.service.Bo.custom.VehicleBo;
+import com.assignment.service.Bo.custom.VehicleOwnerBo;
 import com.assignment.service.DBConnection.DBConnection;
 import com.assignment.service.Model.OwnersDto;
 import com.assignment.service.Model.RevenueLicDto;
@@ -40,9 +42,9 @@ public class VehicleOwnerController {
 
 
 
-    VehicleOwnerBoImpl vehicleOwnerBoImpl = new VehicleOwnerBoImpl();
-    VehicleBo vehicleBoImpl = new VehicleBoImpl();
-    RevenueLicBo revenueLicBoBoImpl = new RevenueLicBoImpl();
+    VehicleOwnerBo vehicleOwnerBoImpl = (VehicleOwnerBo) BOFactory.getDaoFactory().getBo(BOFactory.BoTypes.OWNERS);
+    VehicleBo vehicleBoImpl = (VehicleBo) BOFactory.getDaoFactory().getBo(BOFactory.BoTypes.VEHICLE);
+    RevenueLicBo revenueLicBoBoImpl = (RevenueLicBo) BOFactory.getDaoFactory().getBo(BOFactory.BoTypes.REVENUE_LIC);
     public void SearchData(String vehicleId) throws SQLException {
 
         ArrayList<OwnersDto> ownerDetails = vehicleOwnerBoImpl.getAll(vehicleId);

@@ -1,7 +1,10 @@
 package com.assignment.service.Controller;
 
+import com.assignment.service.Bo.BOFactory;
 import com.assignment.service.Bo.custom.Impl.TrafficViolationLawBoImpl;
+import com.assignment.service.Bo.custom.TrafficViolationLawBo;
 import com.assignment.service.DAO.Custom.TrafficViolationLawDAO;
+import com.assignment.service.DAO.DAOFactory;
 import com.assignment.service.Model.TrafficViolationLawDto;
 import com.assignment.service.Model.TrafficViolationLawTM;
 import com.assignment.service.DAO.Custom.Impl.TrafficViolationLawImpl;
@@ -66,8 +69,8 @@ public class TrafficViolationLawController implements Initializable {
     }
 
 
-    TrafficViolationLawDAO trafficViolationLawModel=new TrafficViolationLawImpl();
-    TrafficViolationLawBoImpl trafficViolationLawBoImpl=new TrafficViolationLawBoImpl();
+    TrafficViolationLawDAO trafficViolationLawModel= (TrafficViolationLawDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.TRAFFIC_VIOLATION_LAW);
+    TrafficViolationLawBo trafficViolationLawBoImpl= (TrafficViolationLawBoImpl) BOFactory.getDaoFactory().getBo(BOFactory.BoTypes.TRAFFIC_VIOLATION_LAW);
 
     public void loadLawTableData() throws SQLException {
 

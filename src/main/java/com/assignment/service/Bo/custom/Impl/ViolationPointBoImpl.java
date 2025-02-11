@@ -19,10 +19,30 @@ public class ViolationPointBoImpl implements ViolationPointBo {
         return violationPointImpl.getAll();
     }
 
+    @Override
+    public boolean isDuplicateId(String Id) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean delete(String Id) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean update(ViolationPointDto policeOfficerDto) throws SQLException {
+        return false;
+    }
+
 
     public boolean save(ViolationPointDto violationPointDto) throws SQLException {
 
             return violationPointImpl.save(violationPointDto);
     }
 
+    @Override
+    public ArrayList<ViolationPointDto> getAll(String Id) throws SQLException {
+        return null;
     }
+
+}

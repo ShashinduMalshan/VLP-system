@@ -1,8 +1,12 @@
 package com.assignment.service.Controller;
 
+import com.assignment.service.Bo.BOFactory;
 import com.assignment.service.Bo.custom.Impl.ViolationPointBoImpl;
+import com.assignment.service.Bo.custom.ViolationPointBo;
 import com.assignment.service.DAO.Custom.DriverDAO;
 import com.assignment.service.DAO.Custom.SuspendDAO;
+import com.assignment.service.DAO.Custom.ViolationPointDAO;
+import com.assignment.service.DAO.DAOFactory;
 import com.assignment.service.Model.ViolationPointDto;
 import com.assignment.service.Model.ViolationPointTM;
 import com.assignment.service.DAO.Custom.Impl.DriverImpl;
@@ -79,8 +83,8 @@ public class ViolationPointController implements Initializable {
 }
 
 
-    ViolationPointImpl violationPointImpl =new ViolationPointImpl();
-    ViolationPointBoImpl violationPointBo =new ViolationPointBoImpl();
+    ViolationPointDAO violationPointImpl = (ViolationPointDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.VIOLATION_POINT);
+    ViolationPointBo violationPointBo = (ViolationPointBo) BOFactory.getDaoFactory().getBo(BOFactory.BoTypes.VIOLATION_POINT);
 
     public void loadTableData() throws SQLException {
 

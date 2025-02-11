@@ -1,8 +1,11 @@
 package com.assignment.service.Controller;
 
+import com.assignment.service.Bo.BOFactory;
+import com.assignment.service.Bo.custom.DriverBo;
 import com.assignment.service.Bo.custom.Impl.DriverBoImpl;
 import com.assignment.service.Bo.custom.Impl.TrainingBoImpl;
 import com.assignment.service.DAO.Custom.DriverDAO;
+import com.assignment.service.DAO.DAOFactory;
 import com.assignment.service.DBConnection.DBConnection;
 import com.assignment.service.Model.DriverDto;
 import com.assignment.service.Model.DriverTM;
@@ -85,8 +88,8 @@ public class DriverController implements Initializable {
     }
 
 
-    DriverDAO driverModel = new DriverImpl();
-DriverBoImpl driverBoImpl = new DriverBoImpl();
+    DriverDAO driverModel = (DriverDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.DRIVER);
+    DriverBo driverBoImpl = (DriverBo) BOFactory.getDaoFactory().getBo(BOFactory.BoTypes.DRIVER);
 TrainingBoImpl trainingBo = new TrainingBoImpl();
 
 

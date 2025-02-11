@@ -2,6 +2,7 @@ package com.assignment.service.Controller;
 
 import com.assignment.service.DAO.Custom.ReLicenceCompleteDAO;
 import com.assignment.service.DAO.Custom.TrainingDAO;
+import com.assignment.service.DAO.DAOFactory;
 import com.assignment.service.DBConnection.DBConnection;
 import com.assignment.service.DAO.Custom.Impl.ReLicenceCompleteImpl;
 import com.assignment.service.DAO.Custom.Impl.TrainingImpl;
@@ -72,8 +73,8 @@ public class TrainingController implements Initializable {
     }
 
 
-    TrainingDAO trainingModel = new TrainingImpl();
-    ReLicenceCompleteDAO reLicenceCompleteModel = new ReLicenceCompleteImpl();
+    TrainingDAO trainingModel = (TrainingDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.TRAINING);
+    ReLicenceCompleteDAO reLicenceCompleteModel = (ReLicenceCompleteDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.RELICENCE_COMPLETE);
     public void loadTable() throws SQLException {
 
         ArrayList<TrainingDto> trainingDtos = trainingModel.getAll();

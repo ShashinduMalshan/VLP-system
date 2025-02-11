@@ -1,7 +1,9 @@
 package com.assignment.service.Controller;
 
+import com.assignment.service.Bo.BOFactory;
 import com.assignment.service.Bo.custom.Impl.SuspendedLicBoImpl;
 import com.assignment.service.Bo.custom.Impl.TrainingBoImpl;
+import com.assignment.service.Bo.custom.SuspendedLicBo;
 import com.assignment.service.DAO.Custom.SuspendDAO;
 import com.assignment.service.DAO.Custom.TrainingDAO;
 import com.assignment.service.DBConnection.DBConnection;
@@ -93,8 +95,7 @@ public class SuspendedLicController implements Initializable {
     }
 
 
-    SuspendDAO suspendLicModel = new SuspendLicImpl();
-    SuspendedLicBoImpl suspendedLicBoImpl = new SuspendedLicBoImpl();
+    SuspendedLicBo suspendedLicBoImpl = (SuspendedLicBo) BOFactory.getDaoFactory().getBo(BOFactory.BoTypes.SUSPEND_LIC);
     public void loadTable() throws SQLException {
 
         ArrayList<SuspendLicDto> suspendLicDtos = suspendedLicBoImpl.loadTableData();

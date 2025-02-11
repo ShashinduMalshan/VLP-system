@@ -1,6 +1,7 @@
 package com.assignment.service.Controller;
 
 import com.assignment.service.DAO.Custom.RegistrationDAO;
+import com.assignment.service.DAO.DAOFactory;
 import com.assignment.service.Model.UserDto;
 import com.assignment.service.DAO.Custom.Impl.RegisterImpl;
 import javafx.event.ActionEvent;
@@ -22,7 +23,7 @@ public class RegistrationController {
     public Button loginPageButton;
     public AnchorPane registrationPageAnc;
 
-    RegistrationDAO registerModel = new RegisterImpl();
+    RegistrationDAO registerModel = (RegistrationDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.REGISTRATION);
     public void handleRegistration(ActionEvent actionEvent) throws SQLException {
 
 

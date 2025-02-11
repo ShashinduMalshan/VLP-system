@@ -10,9 +10,10 @@ public interface SuperBo <T>{
     ArrayList<T> loadTableData() throws SQLException;
     boolean isDuplicateId(String Id) throws SQLException ;
     boolean delete(String Id) throws SQLException;
-    boolean update(T policeOfficerDto) throws SQLException;
-    boolean save(T policeOfficerDto) throws SQLException ;
-    ArrayList<T> getAll(String vehicleId) throws SQLException;
+    boolean update(T Dto) throws SQLException;
+    boolean save(T Dto) throws SQLException ;
+    ArrayList<T> getAll(String Id) throws SQLException;
+
 
 
 

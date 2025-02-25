@@ -44,7 +44,7 @@ public class NotificationController {
     // Send email with the given parameters using Gmail SMTP
     private void sendEmailWithGmail(String from, String to, String subject, String messageBody) {
 
-        String PASSWORD = "wqcb tmky fmwv mrgi";  // Be sure to handle this securely
+        String PASSWORD = "aluw zdje erie hpyu";  // Be sure to handle this securely
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");

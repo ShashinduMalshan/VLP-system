@@ -101,4 +101,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-For any inquiries, please contact Shasidu Malshan at [My Gmail](shasidumalshan9579@gmail.com).
+For any inquiries, please contact Shasidu Malshan at [My Gmail](mailto:shasidumalshan9579@gmail.com).

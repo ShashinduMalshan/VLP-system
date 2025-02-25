@@ -40,7 +40,7 @@ The Vehicle License Point System is a comprehensive software solution designed t
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/vehicle-license-point-system.git
+   git clone https://github.com/ShashinduMalshan/VLP-system.git
    cd vehicle-license-point-system
    ```
 
@@ -101,4 +101,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-For any inquiries, please contact [Your Name] at [your.email@example.com].
+For any inquiries, please contact Shasidu Malshan at [My Gmail](shasidumalshan9579@gmail.com).
